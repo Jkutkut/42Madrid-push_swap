@@ -16,6 +16,9 @@ CC			=	gcc -Wall -Wextra -Werror
 # Code variables
 NAME		=	ft_pushswap
 
+LIBFT		=	libft/libft.a
+LIBFT_DIR	=	$(dir $(LIBFT))
+
 SRCS		=	src/ft_pushswap.c
 
 OBJS		=	${SRCS:src/%.c=bin/%.o}
@@ -25,7 +28,7 @@ OBJS		=	${SRCS:src/%.c=bin/%.o}
 all: $(NAME)
 re: fclean all
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(LIBFT)
 	@echo "${TITLE}Compiling ${YELLOW}$(NAME)${NC} \c"
 	@$(CC) $(OBJS) -o $(NAME)
 	@echo "${LGREEN}[OK]${NC}"
@@ -36,19 +39,26 @@ bin/%.o: src/%.c
 	@$(CC) -c $< -o $@
 	@echo " ${GREEN}[OK]${NC}"
 
+$(LIBFT):
+	make -C src/libft/ bonus
+
 fclean: clean
-	@echo "${LRED}Cleaning ${NC}$(NAME) \c"
+	@echo "${LRED}Cleaning ${NC}$(NAME)\c"
 	@rm -f $(NAME)
+	@echo "${LRED}Cleaning ${NC}$(NAME)\c"
+	make -C $(LIBFT_DIR) fclean
 	@echo "${LGREEN}[OK]${NC}"
 
 clean:
 	@echo "${LRED}Cleaning ${NC}binaries\c"
 	@rm -rf bin
+	@echo "${LRED}Cleaning ${NC}libft\c"
+	make -C $(LIBFT_DIR) clean
 	@echo "${LGREEN} [OK]${NC}"
 
-.PHONY: all re fclean clean
+.PHONY: all re fclean clean libft
 
 
 # ! DEBUG
 libft:
-	git clone git@github.com:jkutkut/42Madrid-libft libft
+	git clone git@github.com:jkutkut/42Madrid-libft src/libft
