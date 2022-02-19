@@ -10,7 +10,8 @@ TITLE		=	\033[38;5;33m
 
 # Compile variables
 LIB_CC		=	ar rcT
-CC			=	gcc -Wall -Wextra -Werror
+CC			=	gcc -Wall -Wextra
+#CC			=	gcc -Wall -Wextra -Werror
 
 
 # Code variables
