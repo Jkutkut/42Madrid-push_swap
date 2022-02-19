@@ -1,6 +1,7 @@
 .vscode
 bin
 *.out
+ft_pushswap
 *.swp
 libft*
 run
