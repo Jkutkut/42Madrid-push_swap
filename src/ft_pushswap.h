@@ -6,7 +6,7 @@
 /*   By: jkutkut <jre-gonz@student.42madrid.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/02/19 13:16:56 by jkutkut          ###   ########.fr       */
+/*   Updated: 2022/02/19 16:29:56 by jkutkut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # define GRAPHIC 1
 #endif
 
-
+typedef struct	s_dstack
+{
+	t_list	a;
+	t_list	b;
+}			t_dstack
 
 #endif
