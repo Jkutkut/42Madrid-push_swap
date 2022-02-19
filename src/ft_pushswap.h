@@ -6,7 +6,7 @@
 /*   By: jkutkut <jre-gonz@student.42madrid.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/02/19 16:29:56 by jkutkut          ###   ########.fr       */
+/*   Updated: 2022/02/19 17:16:05 by jkutkut          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ typedef struct	s_dstack
 {
 	t_list	a;
 	t_list	b;
-}			t_dstack
+}			t_dstack;
 
 #endif
