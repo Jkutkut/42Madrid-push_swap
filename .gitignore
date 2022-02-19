@@ -1,7 +1,7 @@
 .vscode
 bin
-a.out
 *.out
+*.swp
 libft*
 run
 
