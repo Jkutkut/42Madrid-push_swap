@@ -47,3 +47,8 @@ clean:
 	@echo "${LGREEN} [OK]${NC}"
 
 .PHONY: all re fclean clean
+
+
+# ! DEBUG
+libft:
+	git clone git@github.com:jkutkut/42Madrid-libft libft
