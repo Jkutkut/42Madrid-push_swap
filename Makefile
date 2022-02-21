@@ -44,17 +44,17 @@ $(LIBFT):
 	make -C src/libft/ bonus
 
 fclean: clean
-	@echo "${LRED}Cleaning ${NC}$(NAME)\c"
+	@echo "${LRED}Cleaning ${NC}$(NAME)"
 	@rm -f $(NAME)
-	@echo "${LRED}Cleaning ${NC}$(NAME)\c"
-	make -C $(LIBFT_DIR) fclean
+	@echo "${LRED}Cleaning ${NC}libft"
+	@make -C $(LIBFT_DIR) fclean
 	@echo "${LGREEN}[OK]${NC}"
 
 clean:
-	@echo "${LRED}Cleaning ${NC}binaries\c"
+	@echo "${LRED}Cleaning ${NC}binaries"
 	@rm -rf bin
-	@echo "${LRED}Cleaning ${NC}libft\c"
-	make -C $(LIBFT_DIR) clean
+	@echo "${LRED}Cleaning ${NC}libft"
+	@make -C $(LIBFT_DIR) clean
 	@echo "${LGREEN} [OK]${NC}"
 
 .PHONY: all re fclean clean libft
