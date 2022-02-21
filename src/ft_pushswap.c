@@ -15,9 +15,9 @@
 t_dstack	*init_pushswap(int argc, char **argv)
 {
 	t_dstack	*pswap;
-	int			*value;
+	int			value;
 
-	*value = 2;
+	value = 2;
 	pswap->b = NULL;
 	pswap->a = ft_lstnew(value);
 	return (NULL);

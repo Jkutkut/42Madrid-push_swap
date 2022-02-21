@@ -6,17 +6,17 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:04:01 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/21 22:41:15 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/21 23:06:39 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_list.h"
 
-t_list	*ft_lstnew(void *content);
-void	ft_lstclear(t_list **lst, void (*del)(void *));
+t_list	*ft_lstnew(int);
+void	ft_lstclear(t_list **lst, void (*del)(int));
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, int(*f)(int), void (*del)(int))
 {
 	t_list	*new;
 	t_list	*tmp;
