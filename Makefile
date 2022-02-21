@@ -20,7 +20,17 @@ NAME		=	ft_pushswap
 LIBFT		=	src/libft/libft.a
 LIBFT_DIR	=	$(dir $(LIBFT))
 
-SRCS		=	src/ft_pushswap.c
+SRCS		=	src/ft_pushswap.c \
+				src/t_list/ft_lstnew.c \
+				src/t_list/ft_lstadd_front.c \
+				src/t_list/ft_lstsize.c \
+				src/t_list/ft_lstlast.c \
+				src/t_list/ft_lstadd_back.c \
+				src/t_list/ft_lstdelone.c \
+				src/t_list/ft_lstclear.c \
+				src/t_list/ft_lstiter.c \
+				src/t_list/ft_lstmap.c
+
 
 OBJS		=	${SRCS:src/%.c=bin/%.o}
 
@@ -41,7 +51,7 @@ bin/%.o: src/%.c
 	@echo " ${GREEN}[OK]${NC}"
 
 $(LIBFT):
-	make -C $(LIBFT_DIR) bonus
+	make -C $(LIBFT_DIR)
 
 fclean: clean
 	@echo "${LRED}Cleaning ${NC}$(NAME)"
