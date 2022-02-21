@@ -17,7 +17,7 @@ CC			=	gcc -Wall -Wextra
 # Code variables
 NAME		=	ft_pushswap
 
-LIBFT		=	libft/libft.a
+LIBFT		=	src/libft/libft.a
 LIBFT_DIR	=	$(dir $(LIBFT))
 
 SRCS		=	src/ft_pushswap.c
@@ -31,7 +31,7 @@ re: fclean all
 
 $(NAME):	$(OBJS) $(LIBFT)
 	@echo "${TITLE}Compiling ${YELLOW}$(NAME)${NC} \c"
-	@$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(OBJS) $(LIBFT) -o $(NAME)
 	@echo "${LGREEN}[OK]${NC}"
 
 bin/%.o: src/%.c
@@ -41,7 +41,7 @@ bin/%.o: src/%.c
 	@echo " ${GREEN}[OK]${NC}"
 
 $(LIBFT):
-	make -C src/libft/ bonus
+	make -C $(LIBFT_DIR) bonus
 
 fclean: clean
 	@echo "${LRED}Cleaning ${NC}$(NAME)"
