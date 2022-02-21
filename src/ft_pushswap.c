@@ -14,12 +14,19 @@
 
 t_dstack	*init_pushswap(int argc, char **argv)
 {
+	t_dstack	*pswap;
+	int			*value;
+
+	*value = 2;
+	pswap->b = NULL;
+	pswap->a = ft_lstnew(value);
 	return (NULL);
 }
 
 int	main(int argc, char **argv)
 {
-	t_dstack	pswap;
+	t_dstack	*pswap;
+	
 	pswap = init_pushswap(argc, argv);
 	// sort
 	// print
