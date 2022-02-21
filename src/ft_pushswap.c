@@ -12,10 +12,15 @@
 
 #include "ft_pushswap.h"
 
-int	main(int argv, char **argc)
+t_dstack	*init_pushswap(int argc, char **argv)
+{
+	return (NULL);
+}
+
+int	main(int argc, char **argv)
 {
 	t_dstack	pswap;
-	// init
+	pswap = init_pushswap(argc, argv);
 	// sort
 	// print
 	return (0);
