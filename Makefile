@@ -62,4 +62,4 @@ clean:
 
 # ! DEBUG
 libft:
-	git clone git@github.com:jkutkut/42Madrid-libft src/libft
+	git clone git@github.com:jkutkut/42Madrid-libft libft
