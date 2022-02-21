@@ -14,6 +14,7 @@
 # define FT_PUSHSWAP
 
 #include "libft/libft.h"
+#include "t_list/t_list.h"
 
 #ifndef DEBUG
 # define GRAPHIC 0
