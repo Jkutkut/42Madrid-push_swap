@@ -23,8 +23,8 @@
 
 typedef struct	s_dstack
 {
-	t_list	a;
-	t_list	b;
+	t_list	*a;
+	t_list	*b;
 }			t_dstack;
 
 #endif
