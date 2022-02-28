@@ -65,13 +65,13 @@ bin/%.o: %.c
 # Clean logic
 .PHONY: re fclean
 
-re: fclean all
+re: fclean all clean
 
 fclean: clean
 	@echo "- ${RED}Removing${NC} $(NAME)"
 	@rm -f $(NAME)
-	
-clean:
+
+clean:	
 	@echo "- ${RED}Removing${NC} binary directory"
 	@rm -rf ./bin
 	@echo "Project ${GREEN}clean${NC}.\n"

@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:53:34 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/01/27 23:13:12 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/02/09 12:20:27 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,7 @@
 #define SPACES " \n\v\f\r\t"
 #define NUMBERS "0123456789"
 
-static int	ft_hasany(const char *str, char c)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		if (c == str[i++])
-			return (1);
-	return (0);
-}
+int	ft_hasany(const char *str, char c);
 
 int	ft_atoi(char *str)
 {

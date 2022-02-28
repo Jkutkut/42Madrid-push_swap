@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_ndigits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 15:36:37 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/09 12:21:45 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/02/09 12:25:53 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/02/09 12:26:03 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_islower(int c);
+#include <stddef.h>
 
-int	ft_isupper(int c);
-
-int	ft_isalpha(int c)
+size_t	ft_ndigits(int n)
 {
-	return (ft_isupper(c) || ft_islower(c));
+	size_t	order;
+
+	if (!n)
+		return (1);
+	order = 0;
+	if (n < 0)
+		order++;
+	while (n != 0)
+	{
+		order++;
+		n /= 10;
+	}
+	return (order);
 }
