@@ -16,6 +16,8 @@ LBLUE			=	\033[1;34m
 TITLE			=	\033[38;5;33m
 
 # Binaries variables
+BIN		=	bin
+
 CUSTOM	=	ft_hasany.c \
 			ft_islower.c \
 			ft_isupper.c \
@@ -47,7 +49,7 @@ MANDAT_2 =	ft_substr.c \
 			ft_putnbr_fd.c
 
 MANDATORY_SRC = $(MANDAT_1) $(MANDAT_2) $(CUSTOM)
-MANDATORY_OBJ = $(MANDATORY_SRC:%.c=bin/%.o)
+MANDATORY_OBJ = $(MANDATORY_SRC:%.c=$(BIN)/%.o)
 
 all: $(NAME)
 
@@ -56,7 +58,7 @@ $(NAME): $(MANDATORY_OBJ)
 	@ar -rcs $(NAME) $(MANDATORY_OBJ) $(HEADER)
 	@echo " ${GREEN}[OK]${NC}\n"
 
-bin/%.o: %.c
+$(BIN)/%.o: %.c
 	@echo "- ${TITLE}Compiling${NC} $< -> $@\c"
 	@mkdir -p ${dir $@}
 	@$(COMPILE) -c $< -o $@
@@ -73,5 +75,4 @@ fclean: clean
 
 clean:	
 	@echo "- ${RED}Removing${NC} binary directory"
-	@rm -rf ./bin
-	@echo "Project ${GREEN}clean${NC}.\n"
+	@rm -rf $(BIN)
