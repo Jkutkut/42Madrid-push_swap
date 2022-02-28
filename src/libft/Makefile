@@ -65,9 +65,9 @@ $(BIN)/%.o: %.c
 	@echo " ${GREEN}[OK]${NC}"
 
 # Clean logic
-.PHONY: re fclean
+.PHONY: re fclean clean
 
-re: fclean all clean
+re: fclean all
 
 fclean: clean
 	@echo "- ${RED}Removing${NC} $(NAME)"
