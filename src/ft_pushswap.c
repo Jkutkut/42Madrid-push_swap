@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pushswap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jre-gonz <jre-gonz@student.42madrid>       +#+  +:+       +#+        */
+/*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:31:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/19 16:23:08 by jkutkut          ###   ########.fr       */
+/*   Updated: 2022/03/01 18:28:58 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 t_dstack	*init_pushswap(int argc, char **argv)
 {
 	t_dstack	*pswap;
-	int			value;
 
-	value = 2;
+	pswap = malloc(sizeof(t_dstack));
+	if (pswap == NULL)
+		return (NULL);
 	pswap->b = NULL;
-	pswap->a = ft_lstnew(value);
-	return (NULL);
+	pswap->a = ft_lstnew(2);
+
+	ft_lstadd_back(&pswap->a, ft_lstnew(3));
+	ft_lstadd_back(&pswap->a, ft_lstnew(6));
+	return (pswap);
 }
 
 int	main(int argc, char **argv)
