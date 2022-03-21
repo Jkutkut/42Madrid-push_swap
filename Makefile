@@ -15,24 +15,31 @@ FLAGS		=	-Wall -Wextra -Werror
 COMPILE		=	$(CC) $(FLAGS)
 
 # Code variables
+
 NAME		=	ft_pushswap
 
 LIBFT		=	src/libft/libft.a
 LIBFT_DIR	=	$(dir $(LIBFT))
 
-SRCS		=	src/ft_pushswap.c \
-				src/t_list/ft_lstnew.c \
-				src/t_list/ft_lstadd_front.c \
-				src/t_list/ft_lstsize.c \
-				src/t_list/ft_lstlast.c \
-				src/t_list/ft_lstadd_back.c \
-				src/t_list/ft_lstdelone.c \
-				src/t_list/ft_lstclear.c \
-				src/t_list/ft_lstiter.c \
-				src/t_list/ft_lstmap.c
+PRINT		=	print.c
+
+T_LIST		=	ft_lstnew.c \
+				ft_lstadd_front.c \
+				ft_lstsize.c \
+				ft_lstlast.c \
+				ft_lstadd_back.c \
+				ft_lstdelone.c \
+				ft_lstclear.c \
+				ft_lstiter.c \
+				ft_lstmap.c
+
+SRCS		=	ft_pushswap.c \
+				${PRINT:%=print/%} \
+				${T_LIST:%=t_list/%}
+				
 
 
-OBJS		=	${SRCS:src/%.c=bin/%.o}
+OBJS		=	${SRCS:%.c=bin/%.o}
 
 
 # Makefile logic
