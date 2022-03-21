@@ -11,7 +11,7 @@ TITLE		=	\033[38;5;33m
 # Compile variables
 LIB_CC		=	ar rcT
 CC			=	gcc
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra #-Werror
 COMPILE		=	$(CC) $(FLAGS)
 
 # Code variables
@@ -33,11 +33,13 @@ T_LIST		=	ft_lstnew.c \
 				ft_lstiter.c \
 				ft_lstmap.c
 
+TOOLS		=	end.c \
+				free_end.c
+
 SRCS		=	ft_pushswap.c \
 				${PRINT:%=print/%} \
-				${T_LIST:%=t_list/%}
-				
-
+				${T_LIST:%=t_list/%} \
+				${TOOLS:%=tools/%}
 
 OBJS		=	${SRCS:%.c=bin/%.o}
 

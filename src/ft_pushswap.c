@@ -6,27 +6,37 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:31:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 11:05:52 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/21 11:49:12 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pushswap.h"
 
-t_dstack	*init_pushswap(int argc, char **argv)
+t_dstack	*init_pushswap(char *arg)
 {
 	t_dstack	*pswap;
+	int			i;
+	int		start;
+	int		len;
 
-	if (argc < 2)
-		argv++;
 	pswap = malloc(sizeof(t_dstack));
 	if (pswap == NULL)
 		return (NULL);
+	i = 0;
 	pswap->b = NULL;
-	// pswap->b = ft_lstnew(123);
-	pswap->a = ft_lstnew(2);
-
-	ft_lstadd_back(&pswap->a, ft_lstnew(234));
-	ft_lstadd_back(&pswap->a, ft_lstnew(6));
+	len = ft_strlen(arg);
+	while (i < len)
+	{
+		while (ft_hasany(" ", arg[i]))
+			i++;
+		start = i;
+		while (ft_isdigit(arg[i]))
+			i++;
+		if (!ft_hasany(" \0", arg[i]))
+			free_end(pswap, 1, "Error: invalid argument\n");
+		arg[i] = '\0';
+		ft_lstadd_back(&pswap->a, ft_lstnew(ft_atoi(arg + start)));
+	}
 	return (pswap);
 }
 
@@ -34,10 +44,15 @@ int	main(int argc, char **argv)
 {
 	t_dstack	*pswap;
 	
-	pswap = init_pushswap(argc, argv);
+	if (argc != 2)
+		return (1);
+	pswap = init_pushswap(argv[1]);
+	if (pswap == NULL)
+	{
+		printf("Error\n");
+		return (1);
+	}
 	if (GRAPHIC)
 		print(pswap);
-	// sort
-	// print
 	return (0);
 }
