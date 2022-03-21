@@ -6,13 +6,18 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 11:49:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 11:56:42 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/21 22:30:05 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tools.h"
 
-void	free_end(t_dstack *pswap)
+void	free_end(t_dstack *pswap, int endtype, char *msg)
 {
-	ft_lstclear(&pswap->b, free);
+	if (pswap->a)
+		ft_lstclear(&pswap->a);
+	if (pswap->b)
+		ft_lstclear(&pswap->b);
+	free(pswap);
+	end(endtype, msg);
 }
