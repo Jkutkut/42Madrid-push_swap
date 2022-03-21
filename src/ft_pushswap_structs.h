@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 11:06:25 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 11:07:34 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/21 11:31:22 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct	s_dstack
 {
 	t_list	*a;
 	t_list	*b;
+	int		*arg;
 }			t_dstack;
 
 #endif
