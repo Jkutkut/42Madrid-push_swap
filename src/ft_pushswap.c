@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:31:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 20:26:41 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/21 22:48:01 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,16 @@ t_dstack	*init_pushswap(char *arg)
 		while (ft_hasany(" ", arg[i]))
 			i++;
 		start = i;
+		printf("Start '%s'\n", arg + start);
 		while (ft_isdigit(arg[i]))
 			i++;
+		printf("end '%s' -> %d\n", arg + i, arg[i] - '\0');
 		if (!ft_hasany(" \0", arg[i]))
 			free_end(pswap, 1, "Error: invalid argument\n");
 		arg[i] = '\0';
 		ft_lstadd_back(&pswap->a, ft_lstnew(ft_atoi(arg + start)));
+		if (i < len)
+			arg[i] = ' ';
 	}
 	return (pswap);
 }
