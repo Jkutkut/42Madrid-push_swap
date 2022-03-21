@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 11:49:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 11:51:58 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/21 11:56:42 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	free_end(t_dstack *pswap)
 {
-	ft_lst(&pswap->a, free);
-	ft_lstdel(&pswap->b, free);
+	ft_lstclear(&pswap->b, free);
 }
