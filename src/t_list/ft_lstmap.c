@@ -6,17 +6,27 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:04:01 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/02/21 23:06:39 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:04:13 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_list.h"
 
-t_list	*ft_lstnew(int);
-void	ft_lstclear(t_list **lst, void (*del)(int));
+t_list	*ft_lstnew(void *content);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
-t_list	*ft_lstmap(t_list *lst, int(*f)(int), void (*del)(int))
+/**
+ * @brief Creates a new linked list with the result of applying f to each
+ * element.
+ * It uses del function to free the memory of the elements of the original.
+ * 
+ * @param lst Linked list.
+ * @param f Function to apply to each element.
+ * @param del Function to free the memory of the elements of the original.
+ * @return t_list* Pointer to the new linked list.
+ */
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
 	t_list	*tmp;
