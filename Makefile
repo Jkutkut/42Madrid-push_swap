@@ -10,9 +10,9 @@ TITLE		=	\033[38;5;33m
 
 # Compile variables
 LIB_CC		=	ar rcT
-CC			=	gcc -Wall -Wextra
-#CC			=	gcc -Wall -Wextra -Werror
-
+CC			=	gcc
+FLAGS		=	-Wall -Wextra -Werror
+COMPILE		=	$(CC) $(FLAGS)
 
 # Code variables
 NAME		=	ft_pushswap
@@ -39,37 +39,31 @@ OBJS		=	${SRCS:src/%.c=bin/%.o}
 all: $(NAME)
 re: fclean all
 
-$(NAME):	$(OBJS) $(LIBFT)
+$(NAME):	$(LIBFT) $(OBJS)
 	@echo "${TITLE}Compiling ${YELLOW}$(NAME)${NC} \c"
-	$(CC) $(OBJS) $(LIBFT) -o $(NAME)
+	@$(COMPILE) $(OBJS) $(LIBFT) -o $(NAME)
 	@echo "${LGREEN}[OK]${NC}"
 
 bin/%.o: src/%.c
 	@echo "- ${TITLE}Compiling${NC} $< -> $@\c"
 	@mkdir -p $(dir $@)
-	@$(CC) -c $< -o $@
+	@$(COMPILE) -c $< -o $@ -D DEBUG
 	@echo " ${GREEN}[OK]${NC}"
 
 $(LIBFT):
-	make -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR) BIN="../../bin/libft"
+
+
+clean:
+	@echo "${LRED}Cleaning ${NC}libft"
+	@make -C $(LIBFT_DIR) fclean BIN="../../bin/libft"
+	@echo "${LRED}Cleaning ${NC}binaries"
+	@rm -rf bin
+	@echo "${LGREEN} [OK]${NC}"
 
 fclean: clean
 	@echo "${LRED}Cleaning ${NC}$(NAME)"
 	@rm -f $(NAME)
-	@echo "${LRED}Cleaning ${NC}libft"
-	@make -C $(LIBFT_DIR) fclean
 	@echo "${LGREEN}[OK]${NC}"
 
-clean:
-	@echo "${LRED}Cleaning ${NC}binaries"
-	@rm -rf bin
-	@echo "${LRED}Cleaning ${NC}libft"
-	@make -C $(LIBFT_DIR) clean
-	@echo "${LGREEN} [OK]${NC}"
-
 .PHONY: all re fclean clean libft
-
-
-# ! DEBUG
-libft:
-	git clone git@github.com:jkutkut/42Madrid-libft libft
