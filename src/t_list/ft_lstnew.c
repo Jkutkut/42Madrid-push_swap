@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:59:52 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 12:04:13 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/21 20:35:00 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param content Pointer to the content of the new element.
  * @return t_list* Pointer to the new element.
  */
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*e;
 

@@ -6,14 +6,14 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:04:01 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 12:04:13 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/21 22:26:00 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_list.h"
 
-t_list	*ft_lstnew(void *content);
-void	ft_lstclear(t_list **lst, void (*del)(void *));
+t_list	*ft_lstnew(int content);
+void	ft_lstclear(t_list **lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
 /**
@@ -23,10 +23,9 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
  * 
  * @param lst Linked list.
  * @param f Function to apply to each element.
- * @param del Function to free the memory of the elements of the original.
  * @return t_list* Pointer to the new linked list.
  */
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, int (*f)(int))
 {
 	t_list	*new;
 	t_list	*tmp;
@@ -39,7 +38,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		tmp = ft_lstnew(f(lst->content));
 		if (tmp == NULL)
 		{
-			ft_lstclear(&new, del);
+			ft_lstclear(&new);
 			return (NULL);
 		}
 		ft_lstadd_back(&new, tmp);
