@@ -39,6 +39,7 @@ T_LIST		=	ft_lstnew.c \
 TOOLS		=	end.c \
 				free_end.c \
 				linkedlist_to_array.c \
+				merge_sort.c \
 				print_array.c
 
 SRCS		=	ft_pushswap.c \
