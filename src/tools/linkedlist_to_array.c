@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.h                                            :+:      :+:    :+:   */
+/*   linkedlist_to_array.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/21 11:46:31 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/22 22:06:30 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/22 22:00:58 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/22 22:01:18 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOOLS_H
-# define TOOLS_H
+#include "tools.h"
 
-#include "../ft_pushswap.h"
+int	*linkedlist_to_array(t_list *lst, int size)
+{
+	int		*array;
+	int		i;
+	t_list	*tmp;
 
-void	end(int endtype, char *msg);
-void	free_end(t_dstack *pswap, int endtype, char *msg);
-int		*linkedlist_to_array(t_list *lst, int size);
-void	print_array(int *array, int size);
-
-#endif
+	array = (int *) malloc(sizeof(int) * size);
+	if (!array)
+		return (NULL);
+	i = 0;
+	tmp = lst;
+	while (tmp)
+	{
+		array[i++] = tmp->content;
+		tmp = tmp->next;
+	}
+	return (array);
+}

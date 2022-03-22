@@ -37,7 +37,9 @@ T_LIST		=	ft_lstnew.c \
 				ft_lstmap.c
 
 TOOLS		=	end.c \
-				free_end.c
+				free_end.c \
+				linkedlist_to_array.c \
+				print_array.c
 
 SRCS		=	ft_pushswap.c \
 				${INPUT:%=input/%} \

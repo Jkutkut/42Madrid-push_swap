@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.h                                            :+:      :+:    :+:   */
+/*   print_array.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/21 11:46:31 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/22 22:06:30 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/22 22:01:58 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/22 22:11:33 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOOLS_H
-# define TOOLS_H
+#include "tools.h"
 
-#include "../ft_pushswap.h"
+void	print_array(int *array, int size)
+{
+	int i;
 
-void	end(int endtype, char *msg);
-void	free_end(t_dstack *pswap, int endtype, char *msg);
-int		*linkedlist_to_array(t_list *lst, int size);
-void	print_array(int *array, int size);
-
-#endif
+	i = 0;
+	while (i < size)
+	{
+		printf("%d ", array[i]);
+		i++;
+	}
+	printf("\n");
+}
