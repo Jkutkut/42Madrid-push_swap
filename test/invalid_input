@@ -3,3 +3,5 @@ number:a
 number_string:"1a"
 number_string:"a1"
 duplicated:1 2 3 0 1
+max:2147483648 0
+min:0 -2147483649
