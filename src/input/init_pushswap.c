@@ -6,13 +6,19 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:33:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/22 09:36:31 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/22 10:18:58 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "input.h"
 
-t_dstack	*init_pushswap(int argv, char **arg)
+void	check_input(t_dstack *pswap, int argc, char **argv)
+{
+	// check_huge_numbers(pswap, argc, argv);
+	// check_unique(pswap);
+}
+
+t_dstack	*init_pushswap(int argc, char **argv)
 {
 	t_dstack	*pswap;
 	int			i;
@@ -23,7 +29,8 @@ t_dstack	*init_pushswap(int argv, char **arg)
 	pswap->b = NULL;
 	pswap->a = NULL;
 	i = 1;
-	while (i < argv)
-		parse_input(arg[i++], pswap);
+	while (i < argc)
+		parse_input(argv[i++], pswap);
+	check_input(pswap, argc, argv);
 	return (pswap);
 }
