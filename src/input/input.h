@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pushswap.c                                      :+:      :+:    :+:   */
+/*   input.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 17:31:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/22 09:36:39 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/22 09:34:36 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/22 09:38:43 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_pushswap.h"
+#ifndef INPUT_H
+#define INPUT_H
 
-void	check_leaks(void)
-{
-	system("leaks -q ft_pushswap");
-}
+#include "../ft_pushswap.h"
 
-int	main(int argc, char **argv)
-{
-	t_dstack	*pswap;
+t_dstack	*init_pushswap(int argv, char **arg);
+void	parse_input(char *arg, t_dstack *pswap);
 
-	atexit(check_leaks);
-	if (argc == 1)
-		return (1);
-	pswap = init_pushswap(argc, argv);
-	if (pswap == NULL)
-	{
-		printf("Error\n");
-		return (1);
-	}
-	if (GRAPHIC)
-		print(pswap);
-	return (0);
-}
+#endif

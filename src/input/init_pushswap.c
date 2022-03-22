@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pushswap.c                                      :+:      :+:    :+:   */
+/*   init_pushswap.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 17:31:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/22 09:36:39 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/22 09:33:20 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/22 09:36:31 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_pushswap.h"
+#include "input.h"
 
-void	check_leaks(void)
-{
-	system("leaks -q ft_pushswap");
-}
-
-int	main(int argc, char **argv)
+t_dstack	*init_pushswap(int argv, char **arg)
 {
 	t_dstack	*pswap;
+	int			i;
 
-	atexit(check_leaks);
-	if (argc == 1)
-		return (1);
-	pswap = init_pushswap(argc, argv);
+	pswap = malloc(sizeof(t_dstack));
 	if (pswap == NULL)
-	{
-		printf("Error\n");
-		return (1);
-	}
-	if (GRAPHIC)
-		print(pswap);
-	return (0);
+		return (NULL);
+	pswap->b = NULL;
+	pswap->a = NULL;
+	i = 1;
+	while (i < argv)
+		parse_input(arg[i++], pswap);
+	return (pswap);
 }

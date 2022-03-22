@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/03/21 20:38:05 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/22 09:37:55 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include "libft/libft.h"
 #include "t_list/t_list.h"
 #include "ft_pushswap_structs.h"
+#include "input/input.h"
 #include "print/print.h"
 #include "tools/tools.h"
 

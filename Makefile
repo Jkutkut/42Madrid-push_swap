@@ -11,7 +11,7 @@ TITLE		=	\033[38;5;33m
 # Compile variables
 LIB_CC		=	ar rcT
 CC			=	gcc
-FLAGS		=	-Wall -Wextra #-Werror
+FLAGS		=	-Wall -Wextra #-fsanitize=address #-Werror
 COMPILE		=	$(CC) $(FLAGS)
 
 # Code variables
@@ -20,6 +20,9 @@ NAME		=	ft_pushswap
 
 LIBFT		=	src/libft/libft.a
 LIBFT_DIR	=	$(dir $(LIBFT))
+
+INPUT		=	init_pushswap.c \
+				parse_input.c
 
 PRINT		=	print.c
 
@@ -37,6 +40,7 @@ TOOLS		=	end.c \
 				free_end.c
 
 SRCS		=	ft_pushswap.c \
+				${INPUT:%=input/%} \
 				${PRINT:%=print/%} \
 				${T_LIST:%=t_list/%} \
 				${TOOLS:%=tools/%}
