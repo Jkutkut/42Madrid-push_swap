@@ -10,24 +10,56 @@ BLUE='\033[1;34m';
 executable=./ft_pushswap
 
 run_test() {
-	echo "$1"
-	echo "./ft_pushswap $2 2> output.tmp"
-	./ft_pushswap $2 2 | grep "Error" > output.tmp
+	echo "- ${BLUE}$1${NC} \c"
+	./ft_pushswap $2 > /dev/null 2> output.tmp
 	if [ ! "$(cat output.tmp)" = "" ]; then
-		echo "Error"
+		echo "${RED}[FAIL]${NC}"
+	else
+		echo "${GREEN}[OK]${NC}"
 	fi
 	rm output.tmp
 }
 
+run_invalid_test() {
+	echo "- ${BLUE}$1${NC} \c"
+	./ft_pushswap $2 > /dev/null 2> output.tmp
+	if [ ! "$(cat output.tmp)" = "" ]; then
+		echo "${GREEN}[OK]${NC}"
+	else
+		echo "${RED}[FAIL]${NC}"
+	fi
+	rm output.tmp
+}
+
+echo "${BLUE}
+  _____                 _ _     _ 
+ |_   _|               | (_)   | |
+   | |  _ ____   ____ _| |_  __| |
+   | | | '_ \ \ / / _' | | |/ _' |
+  _| |_| | | \ V / (_| | | | (_| |
+ |_____|_| |_|\_/ \__,_|_|_|\__,_|${NC}"
+
 input_file="test/invalid_input"
 while IFS= read -r line; do
-	test_name=$(echo $line | cut -d: -f2)
+	test_name=$(echo $line | cut -d: -f1)
 	input=$(echo $line | cut -d: -f2)
-	run_test $input
-	# if [ "$(run_test $input)" = "Error" ]; then
-	# 	echo "${GREEN}[OK]${NC}"
-	# else
-	# 	echo "${RED}[FAIL]${NC}"
-	# fi
+	run_invalid_test "$test_name" "$input"
+done < "$input_file"
+
+
+
+echo "${BLUE}
+ __      __   _ _     _ 
+ \ \    / /  | (_)   | |
+  \ \  / /_ _| |_  __| |
+   \ \/ / _' | | |/ _' |
+    \  / (_| | | | (_| |
+     \/ \__,_|_|_|\__,_|${NC}"
+
+input_file="test/valid_input"
+while IFS= read -r line; do
+	test_name=$(echo $line | cut -d: -f1)
+	input=$(echo $line | cut -d: -f2)
+	run_test "$test_name" "$input"
 done < "$input_file"
 
