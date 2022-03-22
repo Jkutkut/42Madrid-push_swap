@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:33:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/22 22:38:11 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/22 23:13:15 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 void	check_input(t_dstack *pswap)
 {
+	int	i;
+
 	pswap->size = ft_lstsize(pswap->a);
 	if (pswap->size == 0)
 		free_end(pswap, 1, "Error: No numbers to sort.\n");
 	pswap->arg = linkedlist_to_array(pswap->a, pswap->size);
-	print_array(pswap->arg, pswap->size);
 	merge_sort(pswap->arg, pswap->size);
-	print_array(pswap->arg, pswap->size);
-	// check_unique(pswap);
+	i = 0;
+	while (++i < pswap->size)
+		if (pswap->arg[i] == pswap->arg[i - 1])
+			free_end(pswap, 1, "Error: Numbers must not repeat.\n");
 }
 
 t_dstack	*init_pushswap(int argc, char **argv)
