@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:43:13 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/22 22:56:04 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/22 22:59:02 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	merge(int *arr[], int l, int m, int r)
 
 	index[L_LEN] = m - l + 1;
 	index[R_LEN] = r - m;
-	index[I] = -1;
-	while (++index[I] < index[L_LEN])
-		arr[LEFT][index[I]] = arr[DATA][l + index[I]];
+	index[L] = -1;
+	while (++index[L] < index[L_LEN])
+		arr[LEFT][index[L]] = arr[DATA][l + index[L]];
 	index[R] = -1;
 	while (++index[R] < index[R_LEN])
 		arr[RIGHT][index[R]] = arr[DATA][m + 1 + index[R]];
