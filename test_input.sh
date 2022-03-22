@@ -11,7 +11,7 @@ executable=./ft_pushswap
 
 run_test() {
 	echo "- ${BLUE}$1${NC} \c"
-	./ft_pushswap $2 > /dev/null 2> output.tmp
+	eval "./ft_pushswap $2 > /dev/null 2> output.tmp"
 	if [ ! "$(cat output.tmp)" = "" ]; then
 		echo "${RED}[FAIL]${NC}"
 		echo "  Replicate it with"
@@ -26,7 +26,7 @@ run_test() {
 
 run_invalid_test() {
 	echo "- ${BLUE}$1${NC} \c"
-	./ft_pushswap $2 > /dev/null 2> output.tmp
+	eval "./ft_pushswap $2 > /dev/null 2> output.tmp"
 	if [ ! "$(cat output.tmp)" = "" ]; then
 		echo "${GREEN}[OK]${NC}"
 	else
@@ -37,6 +37,8 @@ run_invalid_test() {
 	rm output.tmp
 }
 
+
+make
 echo "${BLUE}
   _____                 _ _     _ 
  |_   _|               | (_)   | |
@@ -51,7 +53,6 @@ while IFS= read -r line; do
 	input=$(echo $line | cut -d: -f2)
 	run_invalid_test "$test_name" "$input"
 done < "$input_file"
-
 
 
 echo "${BLUE}
