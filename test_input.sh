@@ -16,6 +16,8 @@ run_test() {
 		echo "${RED}[FAIL]${NC}"
 		echo "  Replicate it with"
 		echo "  ./ft_pushswap $2"
+		cat output.tmp
+		echo
 	else
 		echo "${GREEN}[OK]${NC}"
 	fi
