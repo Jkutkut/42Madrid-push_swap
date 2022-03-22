@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:31:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/22 09:36:39 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/22 21:10:39 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	check_leaks(void)
 {
-	system("leaks -q ft_pushswap");
+	// system("leaks -q ft_pushswap");
 }
 
 int	main(int argc, char **argv)
