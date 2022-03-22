@@ -10,10 +10,10 @@ BLUE='\033[1;34m';
 executable=./ft_pushswap
 
 run_test() {
-	echo "./ft_pushswap $@ 2> output.tmp"
-	./ft_pushswap $@ 2> output.tmp
-	cat output.tmp
-	if [ ! "$(cat output.tmp | grep 'Error')" = "" ]; then
+	echo "$1"
+	echo "./ft_pushswap $2 2> output.tmp"
+	./ft_pushswap $2 2 | grep "Error" > output.tmp
+	if [ ! "$(cat output.tmp)" = "" ]; then
 		echo "Error"
 	fi
 	rm output.tmp
@@ -21,6 +21,7 @@ run_test() {
 
 input_file="test/invalid_input"
 while IFS= read -r line; do
+	test_name=$(echo $line | cut -d: -f2)
 	input=$(echo $line | cut -d: -f2)
 	run_test $input
 	# if [ "$(run_test $input)" = "Error" ]; then
