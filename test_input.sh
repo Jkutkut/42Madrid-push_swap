@@ -14,6 +14,8 @@ run_test() {
 	./ft_pushswap $2 > /dev/null 2> output.tmp
 	if [ ! "$(cat output.tmp)" = "" ]; then
 		echo "${RED}[FAIL]${NC}"
+		echo "  Replicate it with"
+		echo "  ./ft_pushswap $2"
 	else
 		echo "${GREEN}[OK]${NC}"
 	fi
@@ -27,6 +29,8 @@ run_invalid_test() {
 		echo "${GREEN}[OK]${NC}"
 	else
 		echo "${RED}[FAIL]${NC}"
+		echo "  Replicate it with"
+		echo "  ./ft_pushswap $2"
 	fi
 	rm output.tmp
 }
