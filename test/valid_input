@@ -2,6 +2,7 @@ empty:
 number:1 6 3
 number_string:"1 4 3"
 mixed:"3 2 1" 4
+mixed2:3 "5 6 8 9" 2 "1 0"
 space:"  2 3 1"
 max:2147483647 0
 min:0 -2147483648
