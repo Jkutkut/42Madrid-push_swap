@@ -27,7 +27,8 @@ INPUT		=	check_input.c \
 				parse_input.c
 
 OPERATIONS	=	apply.c \
-				swap_list.c
+				swap_list.c \
+				swap.c
 
 PRINT		=	print.c
 
