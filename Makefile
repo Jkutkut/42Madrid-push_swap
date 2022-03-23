@@ -78,12 +78,12 @@ $(LIBFT):
 clean:
 	@echo "${LRED}Cleaning ${NC}libft"
 	@make -C $(LIBFT_DIR) fclean BIN="../../bin/libft"
-	@echo "${LRED}Cleaning ${NC}binaries"
+	@echo "${LRED}Cleaning ${NC}binaries\c"
 	@rm -rf bin
 	@echo "${LGREEN} [OK]${NC}"
 
 fclean: clean
-	@echo "${LRED}Cleaning ${NC}$(NAME)"
+	@echo "${LRED}Cleaning ${NC}$(NAME)\c"
 	@rm -f $(NAME)
 	@echo "${LGREEN}[OK]${NC}"
 
