@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:46:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/23 10:03:12 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/23 13:09:47 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@
 # define RRB 9
 # define RRR 10
 
-void	operation(t_dstack *pswap, int o);
+void	apply(t_dstack *pswap, int o);
 
 #endif

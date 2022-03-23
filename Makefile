@@ -26,7 +26,7 @@ INPUT		=	check_input.c \
 				normalize.c \
 				parse_input.c
 
-OPERATIONS	=	do.c
+OPERATIONS	=	apply.c
 
 PRINT		=	print.c
 

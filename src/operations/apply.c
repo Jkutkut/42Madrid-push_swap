@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do.c                                               :+:      :+:    :+:   */
+/*   apply.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:35:56 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/23 09:58:15 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/23 13:09:52 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-void	operation(t_dstack *pswap, int o)
+void	apply(t_dstack *pswap, int o)
 {
 	if (o == SA)
 		sa(pswap);
