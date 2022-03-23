@@ -23,6 +23,7 @@ LIBFT_DIR	=	$(dir $(LIBFT))
 
 INPUT		=	check_input.c \
 				init_pushswap.c \
+				normalize.c \
 				parse_input.c
 
 PRINT		=	print.c

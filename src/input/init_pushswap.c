@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:33:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/23 08:09:47 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/23 09:05:23 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ t_dstack	*init_pushswap(int argc, char **argv)
 	while (i < argc)
 		parse_input(argv[i++], pswap);
 	check_input(pswap);
+	normalize(pswap);
+	print_array(pswap->arg, pswap->size);
 	return (pswap);
 }

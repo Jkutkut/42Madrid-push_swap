@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.h                                            :+:      :+:    :+:   */
+/*   normalize.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 09:34:36 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/23 09:06:26 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/23 09:05:09 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/23 09:09:51 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUT_H
-#define INPUT_H
+#include "input.h"
 
-#include "../ft_pushswap.h"
+void	normalize(t_dstack *pswap)
+{
+	t_list	*a;
+	int		i;
 
-void		check_input(t_dstack *pswap);
-t_dstack	*init_pushswap(int argv, char **arg);
-void		normalize(t_dstack *pswap);
-void		parse_input(char *arg, t_dstack *pswap);
-
-#endif
+	i = 0;
+	a = pswap->a;
+	while (i++ < pswap->size)
+	{
+		a->content = binary_search(pswap->arg, 0, pswap->size, a->content);;
+		a = a->next;
+	}
+}
