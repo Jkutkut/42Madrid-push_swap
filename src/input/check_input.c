@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pushswap.c                                      :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 17:31:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/23 08:05:35 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/23 08:09:26 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/23 08:09:43 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_pushswap.h"
+#include "input.h"
 
-void	check_leaks(void)
+void	check_input(t_dstack *pswap)
 {
-	// system("leaks -q ft_pushswap");
-}
+	int	i;
 
-int	main(int argc, char **argv)
-{
-	t_dstack	*pswap;
-
-	atexit(check_leaks);
-	if (argc == 1)
-		return (1);
-	pswap = init_pushswap(argc, argv);
-	if (GRAPHIC)
-		print(pswap);
-	return (0);
+	pswap->size = ft_lstsize(pswap->a);
+	if (pswap->size == 0)
+		free_end(pswap, 1, "Error: No numbers to sort.\n");
+	pswap->arg = linkedlist_to_array(pswap->a, pswap->size);
+	merge_sort(pswap->arg, pswap->size);
+	i = 0;
+	while (++i < pswap->size)
+		if (pswap->arg[i] == pswap->arg[i - 1])
+			free_end(pswap, 1, "Error: Numbers must not repeat.\n");
 }

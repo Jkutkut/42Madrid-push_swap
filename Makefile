@@ -21,7 +21,8 @@ NAME		=	ft_pushswap
 LIBFT		=	src/libft/libft.a
 LIBFT_DIR	=	$(dir $(LIBFT))
 
-INPUT		=	init_pushswap.c \
+INPUT		=	check_input.c \
+				init_pushswap.c \
 				parse_input.c
 
 PRINT		=	print.c
