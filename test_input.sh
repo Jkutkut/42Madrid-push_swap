@@ -48,7 +48,7 @@ echo "${BLUE}
  |_____|_| |_|\_/ \__,_|_|_|\__,_|
 ${NC}"
 
-input_file="test/invalid_input"
+input_file=".test/invalid_input"
 while IFS= read -r line; do
 	test_name=$(echo $line | cut -d: -f1)
 	input=$(echo $line | cut -d: -f2)
@@ -65,7 +65,7 @@ echo "${BLUE}
      \/ \__,_|_|_|\__,_|
 ${NC}"
 
-input_file="test/valid_input"
+input_file=".test/valid_input"
 while IFS= read -r line; do
 	test_name=$(echo $line | cut -d: -f1)
 	input=$(echo $line | cut -d: -f2)
