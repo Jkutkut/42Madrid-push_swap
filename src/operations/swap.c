@@ -1,25 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_list.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 13:17:48 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/23 15:36:09 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/23 15:39:14 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/23 15:39:49 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
-
-int	swap_list(t_list **lst)
-{
-	t_list	*tmp;
-
-	if (!*lst || !(*lst)->next)
-		return (0);
-	tmp = (*lst)->next;
-	(*lst)->next = tmp->next;
-	*lst = tmp;
-	return (1);
-}
+void
