@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 13:17:48 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/23 15:36:09 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/23 21:59:47 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	swap_list(t_list **lst)
 	if (!*lst || !(*lst)->next)
 		return (0);
 	tmp = (*lst)->next;
-	(*lst)->next = tmp->next;
+	// (*lst)->next = tmp->next;
+	// tmp->next = *lst;
 	*lst = tmp;
 	return (1);
 }
