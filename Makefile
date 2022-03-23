@@ -37,7 +37,8 @@ T_LIST		=	ft_lstnew.c \
 				ft_lstiter.c \
 				ft_lstmap.c
 
-TOOLS		=	end.c \
+TOOLS		=	binary_search.c \
+				end.c \
 				free_end.c \
 				linkedlist_to_array.c \
 				merge_sort.c \
