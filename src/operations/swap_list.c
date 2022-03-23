@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pushswap.c                                      :+:      :+:    :+:   */
+/*   swap_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 17:31:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/23 13:38:58 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/23 13:17:48 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/23 13:46:01 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_pushswap.h"
+#include "operations.h"
 
-void	check_leaks(void)
+char	*swap_list(t_list *lst)
 {
-	// system("leaks -q ft_pushswap");
-}
-
-int	main(int argc, char **argv)
-{
-	t_dstack	*pswap;
-
-	atexit(check_leaks);
-	if (argc == 1)
-		return (1);
-	pswap = init_pushswap(argc, argv);
-	if (GRAPHIC)
-		print(pswap);
-	apply(pswap, SA);
-	return (0);
+	if (!lst)
+		return (NULL);
+	return (NULL);
 }

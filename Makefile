@@ -26,7 +26,8 @@ INPUT		=	check_input.c \
 				normalize.c \
 				parse_input.c
 
-OPERATIONS	=	apply.c
+OPERATIONS	=	apply.c \
+				swap_list.c
 
 PRINT		=	print.c
 
@@ -49,6 +50,7 @@ TOOLS		=	binary_search.c \
 
 SRCS		=	ft_pushswap.c \
 				${INPUT:%=input/%} \
+				${OPERATIONS:%=operations/%} \
 				${PRINT:%=print/%} \
 				${T_LIST:%=t_list/%} \
 				${TOOLS:%=tools/%}
