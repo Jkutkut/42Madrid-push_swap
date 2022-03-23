@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pushswap.h                                      :+:      :+:    :+:   */
+/*   operations.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/03/23 10:02:55 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/23 09:46:20 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/23 10:03:12 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PUSHSWAP
-# define FT_PUSHSWAP
+#ifndef OPERATIONS_H
+# define OPERATIONS_H
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "../ft_pushswap.h"
 
-#include "libft/libft.h"
-#include "t_list/t_list.h"
-#include "ft_pushswap_structs.h"
-#include "input/input.h"
-#include "operations/operations.h"
-#include "print/print.h"
-#include "tools/tools.h"
+# define SA 0
+# define SB 1
+# define SS 2
+# define PA 3
+# define PB 4
+# define RA 5
+# define RB 6
+# define RR 7
+# define RRA 8
+# define RRB 9
+# define RRR 10
 
-#ifndef DEBUG
-# define GRAPHIC 0
-#else
-# define GRAPHIC 1
-#endif
-
-# define MAXNUMLEN 3
+void	operation(t_dstack *pswap, int o);
 
 #endif

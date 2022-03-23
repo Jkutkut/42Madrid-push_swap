@@ -26,6 +26,8 @@ INPUT		=	check_input.c \
 				normalize.c \
 				parse_input.c
 
+OPERATIONS	=	do.c
+
 PRINT		=	print.c
 
 T_LIST		=	ft_lstnew.c \
