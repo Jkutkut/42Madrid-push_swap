@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pushswap.c                                      :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 17:31:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/24 10:16:03 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/24 10:18:30 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_pushswap.h"
+#include "sort.h"
 
-void	check_leaks(void)
+void	sort(t_dstack *pswap)
 {
-	// system("leaks -q ft_pushswap");
-}
-
-int	main(int argc, char **argv)
-{
-	t_dstack	*pswap;
-
-	atexit(check_leaks);
-	if (argc == 1)
-		return (1);
-	pswap = init_pushswap(argc, argv);
-	if (GRAPHIC)
-		print(pswap);
 	
-	free_end(pswap, 0, NULL);
-	return (0);
 }

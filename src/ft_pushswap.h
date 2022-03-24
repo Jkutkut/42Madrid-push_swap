@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/03/23 10:02:55 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:22:45 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #include "input/input.h"
 #include "operations/operations.h"
 #include "print/print.h"
+#include "sort/sort.h"
 #include "tools/tools.h"
 
 #ifndef DEBUG

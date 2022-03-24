@@ -16,7 +16,7 @@ COMPILE		=	$(CC) $(FLAGS)
 
 # Code variables
 
-NAME		=	ft_pushswap
+NAME		=	push_swap
 
 LIBFT		=	src/libft/libft.a
 LIBFT_DIR	=	$(dir $(LIBFT))
@@ -33,6 +33,8 @@ OPERATIONS	=	apply.c \
 				swap.c
 
 PRINT		=	print.c
+
+SORT		=	sort.c
 
 T_LIST		=	ft_lstnew.c \
 				ft_lstadd_front.c \
@@ -55,6 +57,7 @@ SRCS		=	ft_pushswap.c \
 				${INPUT:%=input/%} \
 				${OPERATIONS:%=operations/%} \
 				${PRINT:%=print/%} \
+				${SORT:%=sort/%} \
 				${T_LIST:%=t_list/%} \
 				${TOOLS:%=tools/%}
 
