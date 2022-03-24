@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:31:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/23 22:23:26 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/24 07:59:12 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	if (GRAPHIC)
 		print(pswap);
 	ft_putstr_fd("--------------\n", 1);
-	// apply(pswap, SA);
+	apply(pswap, SA);
 	print(pswap);
 	ft_putstr_fd("--------------\n", 1);
 	// apply(pswap, SB);
