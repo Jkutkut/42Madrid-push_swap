@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:46:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/24 08:12:29 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/24 08:14:30 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@
 # define RRR 10
 
 void	apply(t_dstack *pswap, int o);
-int		swap_list(t_list **lst);
 
 // Swap
+int		swap_list(t_list **lst);
 char	*sa(t_dstack *pswap);
 char	*sb(t_dstack *pswap);
 char	*ss(t_dstack *pswap);
