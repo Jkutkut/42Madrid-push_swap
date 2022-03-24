@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 17:59:46 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 22:25:53 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/24 12:17:10 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 #ifndef T_LIST_H
 #define T_LIST_H
 
+#include <stdlib.h>
+#include "../libft/libft.h"
+
 typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
 }					t_list;
-
-#include "../ft_pushswap.h"
 
 t_list	*ft_lstnew(int value);
 void	ft_lstadd_front(t_list **lst, t_list *new);
