@@ -28,6 +28,7 @@ INPUT		=	check_input.c \
 
 OPERATIONS	=	apply.c \
 				push.c \
+				rotate.c \
 				swap.c
 
 PRINT		=	print.c

@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:46:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/24 08:31:06 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/24 09:53:21 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ char	*pa(t_dstack *pswap);
 char	*pb(t_dstack *pswap);
 
 // Rotate
-// char	*ra(t_dstack *pswap);
-// char	*rb(t_dstack *pswap);
-// char	*rr(t_dstack *pswap);
+char	*ra(t_dstack *pswap);
+char	*rb(t_dstack *pswap);
+char	*rr(t_dstack *pswap);
 
 // Reverse Rotate
 // char	*rra(t_dstack *pswap);

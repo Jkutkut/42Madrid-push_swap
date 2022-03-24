@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:35:56 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/24 08:26:11 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/24 09:54:02 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,11 @@ void	apply(t_dstack *pswap, int o)
 	else if (o == PB)
 		done = pb(pswap);
 	else if (o == RA)
-		done = NULL;
-	// 	done = ra(pswap);
+		done = ra(pswap);
 	else if (o == RB)
-		done = NULL;
-	// 	done = rb(pswap);
+		done = rb(pswap);
 	else if (o == RR)
-		done = NULL;
-	// 	done = rr(pswap);
+		done = rr(pswap);
 	else if (o == RRA)
 		done = NULL;
 	// 	done = rra(pswap);

@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:31:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/24 08:26:53 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/24 09:55:57 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ int	main(int argc, char **argv)
 	test_move(pswap, PB);
 	test_move(pswap, SB);
 	test_move(pswap, SS);
-	// test_move(pswap, RA);
-	// test_move(pswap, RB);
-	// test_move(pswap, RR);
+	
+	test_move(pswap, RA);
+	test_move(pswap, RB);
+	test_move(pswap, RR);
 	// test_move(pswap, RRA);
 	// test_move(pswap, RRB);
 	// test_move(pswap, RRR);
