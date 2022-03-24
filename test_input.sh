@@ -7,15 +7,15 @@ YELLOW='\033[1;33m';
 GREEN='\033[1;32m';
 BLUE='\033[1;34m';
 
-executable=./ft_pushswap
+executable=./push_swap
 
 run_test() {
 	echo "- ${BLUE}$1${NC} \c"
-	eval "./ft_pushswap $2 > /dev/null 2> output.tmp"
+	eval "$executable $2 > /dev/null 2> output.tmp"
 	if [ ! "$(cat output.tmp)" = "" ]; then
 		echo "${RED}[FAIL]${NC}"
 		echo "  Replicate it with"
-		echo "  ./ft_pushswap $2"
+		echo "  $executable $2"
 		cat output.tmp
 		echo
 	else
@@ -26,13 +26,13 @@ run_test() {
 
 run_invalid_test() {
 	echo "- ${BLUE}$1${NC} \c"
-	eval "./ft_pushswap $2 > /dev/null 2> output.tmp"
+	eval "$executable $2 > /dev/null 2> output.tmp"
 	if [ ! "$(cat output.tmp)" = "" ]; then
 		echo "${GREEN}[OK]${NC}"
 	else
 		echo "${RED}[FAIL]${NC}"
 		echo "  Replicate it with"
-		echo "  ./ft_pushswap $2"
+		echo "  $executable $2"
 	fi
 	rm output.tmp
 }
