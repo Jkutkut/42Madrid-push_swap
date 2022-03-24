@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:48:37 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/23 22:36:05 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/24 07:58:40 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	print_row(t_list *elements[2], char *buffer, int num_size)
 	int		index;
 
 	index = 0;
-	i = ft_strlcat(buffer, "| ", 2 + 1);
+	ft_memmove(buffer, "| ", 2);
+	i = 2;
 	while (index < 2)
 	{
 		s = "";
@@ -53,7 +54,7 @@ void	print(t_dstack *pswap)
 	int		num_size;
 
 	i = 0;
-	num_size = MAXNUMLEN + 2;
+	num_size = MAXNUMLEN + 2 - 1;
 	while (num_size--)
 		ft_memmove(buffer + i++, " ", 1);
 	ft_memmove(buffer + i, "A | B\n", 6);
