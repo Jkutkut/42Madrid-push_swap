@@ -1,47 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 15:39:14 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/24 08:27:54 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/24 08:16:57 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/24 08:27:48 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-static int	swap_list(t_list **lst)
+static int	push_list(t_list **lst, t_list **lst2)
 {
 	t_list	*tmp;
 
-	if (!*lst || !(*lst)->next)
+	if (!*lst)
 		return (0);
-	tmp = (*lst)->next;
-	(*lst)->next = tmp->next;
-	tmp->next = *lst;
-	*lst = tmp;
+	tmp = *lst;
+	*lst = tmp->next;
+	tmp->next = *lst2;
+	*lst2 = tmp;
 	return (1);
 }
 
-char	*sa(t_dstack *pswap)
+char	*pa(t_dstack *pswap)
 {
-	if (!swap_list(&pswap->a))
+	if (!push_list(&pswap->b, &pswap->a))
 		return (NULL);
-	return ("SA");
+	return ("PA");
 }
 
-char	*sb(t_dstack *pswap)
+char	*pb(t_dstack *pswap)
 {
-	if (!swap_list(&pswap->b))
+	if (!push_list(&pswap->a, &pswap->b))
 		return (NULL);
-	return ("SB");
-}
-
-char	*ss(t_dstack *pswap)
-{
-	if (!sa(pswap) || !sb(pswap))
-		return (NULL);
-	return ("SS");
+	return ("PB");
 }
