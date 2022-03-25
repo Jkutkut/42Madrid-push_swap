@@ -64,6 +64,20 @@ SRCS		=	ft_pushswap.c \
 
 OBJS		=	${SRCS:%.c=bin/%.o}
 
+# Bonus
+BONUS_NAME	=	checker
+BONUS_SRCS	=	bonus/checker.c \
+				bonus/get_next_line_utils.c \
+				bonus/get_next_line.c \
+				${INPUT:%=input/%} \
+				${OPERATIONS:%=operations/%} \
+				${PRINT:%=print/%} \
+				${SORT:%=sort/%} \
+				${T_LIST:%=t_list/%} \
+				${TOOLS:%=tools/%}
+
+BONUS_OBJS		=	${BONUS_SRCS:%.c=bin/%.o}
+
 
 # Makefile logic
 all: $(NAME)
@@ -83,6 +97,12 @@ bin/%.o: src/%.c
 $(LIBFT):
 	make -C $(LIBFT_DIR) BIN="../../bin/libft"
 
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
+	@echo "${TITLE}Compiling ${YELLOW}$(BONUS_NAME)${NC} \c"
+	@$(COMPILE) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
+	@echo "${LGREEN}[OK]${NC}"
 
 clean:
 	@echo "${LRED}Cleaning ${NC}libft"
