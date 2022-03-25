@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 12:10:15 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/25 18:49:59 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/25 20:29:58 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,27 @@ int	main(int argc, char **argv)
 	pswap = init_pushswap(argc, argv);
 	while (moves_remaining(&line))
 	{
-		if (ft_strcmp(line, "sa") == 0)
+		if (ft_strncmp(line, "sa", 2) == 0)
 			sa(pswap);
-		else if (ft_strcmp(line, "sb") == 0)
+		else if (ft_strncmp(line, "sb", 2) == 0)
 			sb(pswap);
-		else if (ft_strcmp(line, "ss") == 0)
+		else if (ft_strncmp(line, "ss", 2) == 0)
 			ss(pswap);
-		else if (ft_strcmp(line, "pa") == 0)
+		else if (ft_strncmp(line, "pa", 2) == 0)
 			pa(pswap);
-		else if (ft_strcmp(line, "pb") == 0)
+		else if (ft_strncmp(line, "pb", 2) == 0)
 			pb(pswap);
-		else if (ft_strcmp(line, "ra") == 0)
+		else if (ft_strncmp(line, "ra", 2) == 0)
 			ra(pswap);
-		else if (ft_strcmp(line, "rb") == 0)
+		else if (ft_strncmp(line, "rb", 2) == 0)
 			rb(pswap);
-		else if (ft_strcmp(line, "rr") == 0)
+		else if (ft_strncmp(line, "rr", 2) == 0)
 			rr(pswap);
-		else if (ft_strcmp(line, "rra") == 0)
+		else if (ft_strncmp(line, "rra", 3) == 0)
 			rra(pswap);
-		else if (ft_strcmp(line, "rrb") == 0)
+		else if (ft_strncmp(line, "rrb", 3) == 0)
 			rrb(pswap);
-		else if (ft_strcmp(line, "rrr") == 0)
+		else if (ft_strncmp(line, "rrr", 3) == 0)
 			rrr(pswap);
 		else
 		{
