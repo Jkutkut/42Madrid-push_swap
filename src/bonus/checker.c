@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 12:10:15 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/25 18:46:41 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:49:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,13 @@ int	main(int argc, char **argv)
 		else if (ft_strcmp(line, "rrr") == 0)
 			rrr(pswap);
 		else
-			ft_putendl("Error");
+		{
+			free(line);
+			free_end(pswap, 1, "Error\n");
+		}
 		free(line);
 	}
 	if (is_sorted(pswap))
-		free_end(pswap, 1, "K.O.\n");
+		free_end(pswap, 1, "Error\n");
 	free_end(pswap, 0, "OK\n");
 }
