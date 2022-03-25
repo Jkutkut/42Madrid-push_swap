@@ -112,8 +112,8 @@ clean:
 	@echo "${LGREEN} [OK]${NC}"
 
 fclean: clean
-	@echo "${LRED}Cleaning ${NC}$(NAME)\c"
-	@rm -f $(NAME)
+	@echo "${LRED}Cleaning ${NC}$(NAME) and $(BONUS_NAME)\c"
+	@rm -f $(NAME) $(BONUS_NAME)
 	@echo "${LGREEN}[OK]${NC}"
 
 .PHONY: all re fclean clean libft
