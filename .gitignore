@@ -1,7 +1,8 @@
 .vscode
 bin
 *.out
-ft_pushswap
+*.pdf
+push_swap
 *.swp
 libft*
 run
