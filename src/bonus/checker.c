@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 12:10:15 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/25 21:23:47 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/25 21:32:58 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ int	main(int argc, char **argv)
 		else
 		{
 			free(line);
-			free_end(pswap, 1, "Error\n");
+			free_end(pswap, 1, "Command not found\n");
 		}
 		free(line);
 	}
-	if (is_sorted(pswap))
-		free_end(pswap, 1, "Error\n");
+	if (!is_sorted(pswap))
+		free_end(pswap, 1, "Stack still not sorted :S\n");
 	free_end(pswap, 0, "OK\n");
 }
