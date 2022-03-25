@@ -84,15 +84,15 @@ all: $(NAME)
 re: fclean all
 
 $(NAME):	$(LIBFT) $(OBJS)
-	@echo "${TITLE}Compiling ${YELLOW}$(NAME)${NC} \c"
+	@echo "${TITLE}Compiling ${YELLOW}$(NAME)${NC}\c"
 	@$(COMPILE) $(OBJS) $(LIBFT) -o $(NAME)
-	@echo "${LGREEN}[OK]${NC}"
+	@echo "${LGREEN} [OK]${NC}"
 
 bin/%.o: src/%.c
 	@echo "- ${TITLE}Compiling${NC} $< -> $@\c"
 	@mkdir -p $(dir $@)
 	@$(COMPILE) -c $< -o $@ -D DEBUG
-	@echo " ${GREEN}[OK]${NC}"
+	@echo "${GREEN} [OK]${NC}"
 
 $(LIBFT):
 	make -C $(LIBFT_DIR) BIN="../../bin/libft"
@@ -100,9 +100,9 @@ $(LIBFT):
 bonus: $(BONUS_NAME)
 
 $(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
-	@echo "${TITLE}Compiling ${YELLOW}$(BONUS_NAME)${NC} \c"
+	@echo "${TITLE}Compiling ${YELLOW}$(BONUS_NAME)${NC}\c"
 	@$(COMPILE) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
-	@echo "${LGREEN}[OK]${NC}"
+	@echo "${LGREEN} [OK]${NC}"
 
 clean:
 	@echo "${LRED}Cleaning ${NC}libft"
@@ -114,6 +114,6 @@ clean:
 fclean: clean
 	@echo "${LRED}Cleaning ${NC}$(NAME) and $(BONUS_NAME)\c"
 	@rm -f $(NAME) $(BONUS_NAME)
-	@echo "${LGREEN}[OK]${NC}"
+	@echo "${LGREEN} [OK]${NC}"
 
 .PHONY: all re fclean clean libft
