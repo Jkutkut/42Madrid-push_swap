@@ -3,6 +3,7 @@ bin
 *.out
 *.pdf
 push_swap
+checker
 *.swp
 libft*
 run
