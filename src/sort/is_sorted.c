@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.h                                             :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 10:16:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/25 18:40:51 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/25 18:21:26 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/25 18:39:35 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORT_H
-#define SORT_H
+#include "sort.h"
 
-#include "../ft_pushswap.h"
+int	is_sorted(t_dstack *pswap)
+{
+	int i = 0;
+	t_list	*current;
 
-int		is_sorted(t_dstack *pswap);
-void	sort(t_dstack *pswap);
-
-#endif
+	if (!pswap || !pswap->a)
+		return (0);
+	if (pswap->b)
+		return (0);
+	current = pswap->a;
+	while (i < pswap->size)
+	{
+		if (current->content != i++)
+			return (0);
+		current = current->next;
+	}
+	if (current->next != NULL)
+		return (0);
+	return (0);
+}
