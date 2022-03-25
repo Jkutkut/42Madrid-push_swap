@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 12:10:15 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/24 16:50:39 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:46:41 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,7 @@ int	main(int argc, char **argv)
 			ft_putendl("Error");
 		free(line);
 	}
+	if (is_sorted(pswap))
+		free_end(pswap, 1, "K.O.\n");
+	free_end(pswap, 0, "OK\n");
 }
