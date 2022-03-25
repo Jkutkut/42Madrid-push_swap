@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 18:21:26 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/25 18:39:35 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/25 21:30:27 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_sorted(t_dstack *pswap)
 			return (0);
 		current = current->next;
 	}
-	if (current->next != NULL)
+	if (current != NULL)
 		return (0);
-	return (0);
+	return (1);
 }
