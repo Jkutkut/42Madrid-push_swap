@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 12:10:15 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/25 20:29:58 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/25 21:23:47 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 int	moves_remaining(char **s)
 {
 	*s = get_next_line(0);
-	if (s == NULL)
+	if (*s == NULL)
 		return (0);
 	return (1);
 }
-
-
 
 int	main(int argc, char **argv)
 {
