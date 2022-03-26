@@ -12,6 +12,8 @@ test_input_prefix="${test_location}input_"
 test_output_prefix="${test_location}result_"
 test="basic"
 
+make bonus
+
 for t in $(echo $test); do
 	i=1;
 	while IFS= read -r input; do
@@ -20,8 +22,23 @@ for t in $(echo $test); do
 		if [ $i -lt 10 ]; then
 			spectedResult=${test_output_prefix}${t}_0$i
 		fi
-		cat $spectedResult | ./checker $input
-		echo " ${GREEN}[OK]${NC}"
+		cat $spectedResult | ./checker $input 2> error.tmp > success.tmp
+		# echo "Fail '"
+		# cat error.tmp
+		# echo "' Success '"
+		# cat success.tmp
+		# echo "'"
+		if [ "$(cat success.tmp)" = "OK" ]; then
+			echo " ${GREEN}[OK]${NC}"
+		else
+			echo "${RED}[FAIL]${NC}"
+			cat error.tmp
+			echo "-----------"
+			echo "Test made:"
+			echo "cat $spectedResult | ./checker $input"
+			break
+		fi
 		i=$((i + 1))
+		rm -f error.tmp success.tmp
 	done < "$test_input_prefix$t"
 done

@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 12:10:15 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/26 00:52:27 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/26 01:00:39 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	moves_remaining(char **s)
 {
 	*s = get_next_line(0);
-	printf("'%s'\n", *s);
 	if (*s == NULL)
 		return (0);
 	return (1);
@@ -28,7 +27,6 @@ int	main(int argc, char **argv)
 	char		*result;
 
 	pswap = init_pushswap(argc, argv);
-	print(pswap);
 	while (moves_remaining(&line))
 	{
 		if (ft_strncmp(line, "sa", 2) == 0)
@@ -61,7 +59,6 @@ int	main(int argc, char **argv)
 		free(line);
 		if (!result)
 			free_end(pswap, 1, "Not able to execute the asked steps.\n");
-		print(pswap);
 	}
 	if (!is_sorted(pswap))
 		free_end(pswap, 1, "Stack still not sorted :S\n");
