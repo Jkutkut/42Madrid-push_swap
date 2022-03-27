@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 09:40:11 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/24 09:56:22 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/03/27 19:03:12 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ char	*ra(t_dstack *pswap)
 {
 	if (!rotate_list(&pswap->a))
 		return (NULL);
-	return ("RA");
+	return ("ra");
 }
 
 char	*rb(t_dstack *pswap)
 {
 	if (!rotate_list(&pswap->b))
 		return (NULL);
-	return ("RB");
+	return ("rb");
 }
 
 char	*rr(t_dstack *pswap)
 {
 	if (!rotate_list(&pswap->a) || !rotate_list(&pswap->b))
 		return (NULL);
-	return ("RR");
+	return ("rr");
 }
