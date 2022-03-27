@@ -14,6 +14,8 @@ CC			=	gcc
 FLAGS		=	-Wall -Wextra #-fsanitize=address #-Werror
 COMPILE		=	$(CC) $(FLAGS)
 
+DEBUG		= -D DEBUG
+
 # Code variables
 
 NAME		=	push_swap
@@ -92,7 +94,7 @@ $(NAME):	$(LIBFT) $(OBJS)
 bin/%.o: src/%.c
 	@echo "- ${TITLE}Compiling${NC} $< -> $@\c"
 	@mkdir -p $(dir $@)
-	@$(COMPILE) -c $< -o $@ -D DEBUG
+	@$(COMPILE) -c $< -o $@ $(DEBUG)
 	@echo "${GREEN} [OK]${NC}"
 
 $(LIBFT):
