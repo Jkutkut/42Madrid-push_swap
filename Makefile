@@ -35,6 +35,7 @@ OPERATIONS	=	apply.c \
 PRINT		=	print.c
 
 SORT		=	is_sorted.c \
+				sort_small.c \
 				sort.c
 
 T_LIST		=	ft_lstnew.c \
