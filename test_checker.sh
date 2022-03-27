@@ -10,7 +10,7 @@ BLUE='\033[1;34m';
 test_location=".test/bonus/"
 test_input_prefix="${test_location}input_"
 test_output_prefix="${test_location}result_"
-test="basic"
+test="basic 3elements"
 
 make bonus
 
@@ -23,20 +23,14 @@ for t in $(echo $test); do
 			spectedResult=${test_output_prefix}${t}_0$i
 		fi
 		cat $spectedResult | ./checker $input 2> error.tmp > success.tmp
-		# echo "Fail '"
-		# cat error.tmp
-		# echo "' Success '"
-		# cat success.tmp
-		# echo "'"
 		if [ "$(cat success.tmp)" = "OK" ]; then
 			echo " ${GREEN}[OK]${NC}"
 		else
-			echo "${RED}[FAIL]${NC}"
+			echo " ${RED}[FAIL]${NC}"
 			cat error.tmp
 			echo "-----------"
 			echo "Test made:"
 			echo "cat $spectedResult | ./checker $input"
-			break
 		fi
 		i=$((i + 1))
 		rm -f error.tmp success.tmp
