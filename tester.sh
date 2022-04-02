@@ -9,6 +9,7 @@ BLUE='\033[1;34m';
 
 executable=./push_swap
 checker=./checker
+visualizer=./visualize.sh
 
 single_test() {
 	name="$1"
@@ -25,6 +26,7 @@ single_test() {
 		echo " ${RED}[FAIL]${NC}"
 		echo "$executable $input"
 		echo "$executable $input | $checker $input"
+		echo "$visualizer $input"
 		echo "Fail error: $fail"
 		return 1
 	fi
