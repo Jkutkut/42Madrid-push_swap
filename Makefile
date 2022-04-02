@@ -14,7 +14,8 @@ CC			=	gcc
 FLAGS		=	-Wall -Wextra #-fsanitize=address #-Werror
 COMPILE		=	$(CC) $(FLAGS)
 
-DEBUG		= -D DEBUG
+# DEBUG		= -D DEBUG
+DEBUG		=
 
 # Code variables
 
