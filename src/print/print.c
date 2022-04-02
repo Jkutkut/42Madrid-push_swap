@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:48:37 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/24 07:58:40 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/02 17:27:16 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	print_row(t_list *elements[2], char *buffer, int num_size)
 	return (i);
 }
 
-void	print(t_dstack *pswap)
+void	print(t_dstack *pswap, int fd)
 {
 	char	buffer[4096];
 	t_list	*elements[2];
@@ -70,5 +70,5 @@ void	print(t_dstack *pswap)
 			elements[1] = elements[1]->next;
 	}
 	buffer[i] = '\0';
-	write(1, buffer, i);
+	write(fd, buffer, i);
 }
