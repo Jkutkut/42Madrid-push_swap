@@ -25,8 +25,12 @@ small() {
 main() {
 	check_dependencies || return 1
 	# python3 $visualizer_dir/pyviz.py `ruby -e "puts (-200..200).to_a.shuffle.join(' ')"`
-	small
+	if [ $# -eq 0 ]; then
+		small
+	else
+		python3 $visualizer_dir/pyviz.py $@
+	fi
 	echo "Ended"
 }
 
-main
+main $@
