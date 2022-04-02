@@ -6,15 +6,46 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:15:54 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/02 17:16:06 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/02 18:04:24 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
+static int	ft_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+static int	ft_min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+static int	get_from_lst(int (*f)(int, int) ,t_list *lst)
+{
+	int		val;
+	t_list	*tmp;
+
+	val = lst->content;
+	tmp = lst;
+	while (tmp)
+	{
+		val = f(val, tmp->content);
+		tmp = tmp->next;
+	}
+	return (val);
+}
+
 void	sort_3(t_dstack *pswap, int l)
 {
 	t_list	*lst;
+	int		max;
+	int		min;
 
 	lst = pswap->a;
 	if (l == 1)
@@ -25,18 +56,20 @@ void	sort_3(t_dstack *pswap, int l)
 			apply(pswap, SA + l);
 		return ;
 	}
-	if (lst->content == 0 && lst->next->content == 2)
+	max = get_from_lst(ft_max, lst);
+	min = get_from_lst(ft_min, lst);
+	if (lst->content == min && lst->next->content == max)
 	{
 		apply(pswap, RRA + l);
 		apply(pswap, SA + l);
 	}
-	else if (lst->content == 1 && lst->next->content == 0)
-		apply(pswap, SA + l);
-	else if (lst->content == 1 && lst->next->content == 2)
+	else if(lst->next->content == min && lst->content != max)
+			apply(pswap, SA + l);
+	else if(lst->next->content == max && lst->content != min)
 		apply(pswap, RRA + l);
-	else if (lst->content == 2 && lst->next->content == 0)
+	else if (lst->content == max && lst->next->content == min)
 		apply(pswap, RA + l);
-	else if (lst->content == 2 && lst->next->content == 1)
+	else if (lst->content == max && lst->next->content != min)
 	{
 		apply(pswap, SA + l);
 		apply(pswap, RRA + l);
