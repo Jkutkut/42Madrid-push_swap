@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:31:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/02 16:44:08 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/02 17:27:28 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	main(int argc, char **argv)
 		return (1);
 	pswap = init_pushswap(argc, argv);
 	if (GRAPHIC)
-		print(pswap);
+		print(pswap, 2);
 	sort(pswap);
 	if (GRAPHIC)
-		print(pswap);
+		print(pswap, 2);
 	free_end(pswap, 0, NULL);
 	return (0);
 }

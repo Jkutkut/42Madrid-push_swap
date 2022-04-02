@@ -33,4 +33,5 @@ main() {
 	echo "Ended"
 }
 
+make
 main $@

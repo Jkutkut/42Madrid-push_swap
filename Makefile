@@ -38,6 +38,7 @@ OPERATIONS	=	apply.c \
 PRINT		=	print.c
 
 SORT		=	is_sorted.c \
+				sort_3.c \
 				sort_small.c \
 				sort.c
 
