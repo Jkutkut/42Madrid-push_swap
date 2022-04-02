@@ -54,9 +54,11 @@ T_LIST		=	ft_lstnew.c \
 TOOLS		=	binary_search.c \
 				end.c \
 				free_end.c \
+				get_from_lst.c \
 				linkedlist_to_array.c \
 				merge_sort.c \
-				print_array.c
+				print_array.c \
+				zz_misc_ft_lst.c
 
 SRCS		=	ft_pushswap.c \
 				${INPUT:%=input/%} \

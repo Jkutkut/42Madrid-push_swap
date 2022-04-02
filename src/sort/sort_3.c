@@ -6,40 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:15:54 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/02 18:04:24 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/02 21:08:32 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
-
-static int	ft_max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
-
-static int	ft_min(int a, int b)
-{
-	if (a < b)
-		return (a);
-	return (b);
-}
-
-static int	get_from_lst(int (*f)(int, int) ,t_list *lst)
-{
-	int		val;
-	t_list	*tmp;
-
-	val = lst->content;
-	tmp = lst;
-	while (tmp)
-	{
-		val = f(val, tmp->content);
-		tmp = tmp->next;
-	}
-	return (val);
-}
 
 void	sort_3(t_dstack *pswap, int l)
 {
