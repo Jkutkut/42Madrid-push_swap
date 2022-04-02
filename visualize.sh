@@ -22,15 +22,24 @@ small() {
 	python3 $visualizer_dir/pyviz.py 1 3 2
 }
 
+medium() {
+	python3 $visualizer_dir/pyviz.py 2 3 1 5 4
+}
+
 main() {
 	check_dependencies || return 1
 	# python3 $visualizer_dir/pyviz.py `ruby -e "puts (-200..200).to_a.shuffle.join(' ')"`
-	if [ $# -eq 0 ]; then
-		small
-	else
-		python3 $visualizer_dir/pyviz.py $@
-	fi
-	echo "Ended"
+	while [ ! "$1" = "" ]; do
+		if [ "$1" = "small" ]; then
+			small
+		elif [ "$1" = "medium" ]; then
+			medium
+		else		
+			break
+		fi
+		shift
+	done
+	python3 $visualizer_dir/pyviz.py $@
 }
 
 make
