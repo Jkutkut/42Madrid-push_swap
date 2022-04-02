@@ -18,9 +18,14 @@ check_dependencies() {
 	return 0
 }
 
+small() {
+	python3 $visualizer_dir/pyviz.py 1 3 2
+}
+
 main() {
 	check_dependencies || return 1
 	# python3 $visualizer_dir/pyviz.py `ruby -e "puts (-200..200).to_a.shuffle.join(' ')"`
+	small
 	echo "Ended"
 }
 
