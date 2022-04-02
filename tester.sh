@@ -84,4 +84,5 @@ main() {
 	file_test ".test/input_5elements" 12 8
 }
 
+trap "rm -f error.tmp success.tmp; return" 2
 main $@
