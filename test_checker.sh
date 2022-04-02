@@ -7,9 +7,9 @@ YELLOW='\033[1;33m';
 GREEN='\033[1;32m';
 BLUE='\033[1;34m';
 
-test_location=".test/bonus/"
+test_location=".test/"
 test_input_prefix="${test_location}input_"
-test_output_prefix="${test_location}result_"
+test_output_prefix="${test_location}bonus/result_"
 test="basic 3elements"
 
 make bonus
