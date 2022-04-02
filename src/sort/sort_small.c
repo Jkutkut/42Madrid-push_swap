@@ -6,11 +6,40 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 17:08:51 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/02 23:59:23 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/03 00:37:52 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
+
+static int	ready_just_rotate(t_dstack *pswap)
+{
+	t_list	*tmp;
+	int		i;
+
+	if (pswap->b)
+		return (0);
+	if (is_sorted(pswap))
+		return (1);
+	tmp = pswap->a;
+	while (tmp && tmp->content != 0)
+		tmp = tmp->next;
+	i = 0;
+	while (tmp)
+	{
+		if (tmp->content != i++)
+			return (0);
+		tmp = tmp->next;
+	}
+	tmp = pswap->a;
+	while (i < pswap->size)
+	{
+		if (tmp->content != i++)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
 
 static int	dist_to_sandwich(int v, t_list *lst)
 {
@@ -61,10 +90,32 @@ static int	dist_to(int v, t_list *lst)
 	return (dist_to_sandwich(v, lst));
 }
 
+static void	just_rotate(t_dstack *pswap, int l)
+{
+	t_list	*lst;
+	int		i;
+
+	lst = pswap->a;
+	if (l == 1)
+		lst = pswap->b;
+	i = dist_to(0, lst);
+	if (i <= ft_lstsize(lst) / 2)
+		while (i--)
+			apply(pswap, RA + l);
+	else
+	{
+		i = ft_lstsize(lst) - i;
+		while (i--)
+			apply(pswap, RRA + l);
+	}
+}
+
 void	sort_5(t_dstack *pswap)
 {
 	int	i;
 
+	if (ready_just_rotate(pswap))
+		just_rotate(pswap, 0);
 	i = pswap->size - 3;
 	while (--i >= 0)
 		apply(pswap, PB);
@@ -86,16 +137,7 @@ void	sort_5(t_dstack *pswap)
 			apply(pswap, PA);
 		}
 	}
-	i = dist_to(0, pswap->a);
-	if (i <= pswap->size / 2)
-		while (i--)
-			apply(pswap, RA);
-	else
-	{
-		i = pswap->size - i - 1;
-		while (i--)
-			apply(pswap, RRA);
-	}
+	just_rotate(pswap, 0);
 }
 
 
