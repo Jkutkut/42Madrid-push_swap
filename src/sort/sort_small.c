@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 17:08:51 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/02 23:48:56 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/02 23:59:23 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,7 @@ static int	dist_to(int v, t_list *lst)
 	if (v <= get_from_lst(ft_min, lst))
 		return (index_lst(get_from_lst(ft_min, lst), lst));
 	if (v > get_from_lst(ft_max, lst))
-	{
-		printf("max\n");
-		return (ft_lstsize(lst)); // TODO Not tested
-	}
+		return (ft_lstsize(lst) + 1);
 	return (dist_to_sandwich(v, lst));
 }
 
