@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 17:08:51 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/02 22:27:52 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/02 23:48:56 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ static int	dist_to(int v, t_list *lst)
 	if (v <= get_from_lst(ft_min, lst))
 		return (index_lst(get_from_lst(ft_min, lst), lst));
 	if (v > get_from_lst(ft_max, lst))
+	{
+		printf("max\n");
 		return (ft_lstsize(lst)); // TODO Not tested
+	}
 	return (dist_to_sandwich(v, lst));
 }
 
@@ -72,7 +75,7 @@ void	sort_5(t_dstack *pswap)
 	while (pswap->b)
 	{
 		i = dist_to(pswap->b->content, pswap->a);
-		if (i < pswap->size / 2)
+		if (i <= pswap->size / 2)
 		{
 			while (i--)
 				apply(pswap, RA);
@@ -87,7 +90,7 @@ void	sort_5(t_dstack *pswap)
 		}
 	}
 	i = dist_to(0, pswap->a);
-	if (i < pswap->size / 2)
+	if (i <= pswap->size / 2)
 		while (i--)
 			apply(pswap, RA);
 	else
