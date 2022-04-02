@@ -80,7 +80,7 @@ void	sort_5(t_dstack *pswap)
 		}
 		else
 		{
-			i = pswap->size - i;
+			i = pswap->size - i - 1;
 			while (i--)
 				apply(pswap, RRA);
 			apply(pswap, PA);
@@ -92,7 +92,7 @@ void	sort_5(t_dstack *pswap)
 			apply(pswap, RA);
 	else
 	{
-		i = pswap->size - i;
+		i = pswap->size - i - 1;
 		while (i--)
 			apply(pswap, RRA);
 	}
