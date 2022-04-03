@@ -26,6 +26,11 @@ medium() {
 	python3 $visualizer_dir/pyviz.py 2 3 1 5 4
 }
 
+big() {
+	input=$(ruby -e "puts (-20..20).to_a.shuffle.join(' ')")
+	python3 $visualizer_dir/pyviz.py $input
+}
+
 main() {
 	check_dependencies || return 1
 	# python3 $visualizer_dir/pyviz.py `ruby -e "puts (-200..200).to_a.shuffle.join(' ')"`
@@ -34,7 +39,9 @@ main() {
 			small
 		elif [ "$1" = "medium" ]; then
 			medium
-		else		
+		elif [ "$1" = "big" ]; then
+			big
+		else
 			break
 		fi
 		shift
