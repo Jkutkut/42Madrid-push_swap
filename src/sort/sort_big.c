@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 13:35:15 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/03 15:48:47 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/03 16:22:03 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ static void	to_b(t_dstack *pswap)
 	size_b = 0;
 	while (pswap->a)
 	{
-		printf("val: %d\ncgroup %d\ngroup: %d\n", pswap->a->content, group, pswap->a->content * GROUPS / pswap->size);
-		fflush(stdout);
+		// printf("val: %d\ncgroup %d\ngroup: %d\n", pswap->a->content, group, pswap->a->content * GROUPS / pswap->size);
+		// fflush(stdout);
 		if (pswap->a->content * GROUPS / pswap->size == group)
 		{
 			apply(pswap, PB);
-			// break;
+			printf("value %d\ngroupmid %f\n", pswap->b->content, (0.5 + group) * (pswap->size / GROUPS));
+			fflush(stdout);
+			if ((double) pswap->b->content < (0.5 + group) * (pswap->size / GROUPS))
+				apply(pswap, RB);
 			group = ++size_b * GROUPS / pswap->size;
 		}
 		else
