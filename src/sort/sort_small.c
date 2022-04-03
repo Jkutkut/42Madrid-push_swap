@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 17:08:51 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/03 00:37:52 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/03 11:47:50 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,16 +123,16 @@ void	sort_5(t_dstack *pswap)
 	while (pswap->b)
 	{
 		i = dist_to(pswap->b->content, pswap->a);
-		if (i <= pswap->size / 2)
+		if (i <= ft_lstsize(pswap->a) / 2)
 		{
-			while (i--)
+			while (i-- >= 0)
 				apply(pswap, RA);
 			apply(pswap, PA);
 		}
 		else
 		{
-			i = pswap->size - i - 1;
-			while (i--)
+			i = ft_lstsize(pswap->a) - i - 1;
+			while (i-- >= 0)
 				apply(pswap, RRA);
 			apply(pswap, PA);
 		}
