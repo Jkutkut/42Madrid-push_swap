@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 17:08:51 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/03 11:47:50 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/04/03 13:11:42 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,12 @@ static void	just_rotate(t_dstack *pswap, int l)
 		lst = pswap->b;
 	i = dist_to(0, lst);
 	if (i <= ft_lstsize(lst) / 2)
-		while (i--)
+		while (i-- > 0)
 			apply(pswap, RA + l);
 	else
 	{
 		i = ft_lstsize(lst) - i;
-		while (i--)
+		while (i-- > 0)
 			apply(pswap, RRA + l);
 	}
 }
@@ -125,14 +125,14 @@ void	sort_5(t_dstack *pswap)
 		i = dist_to(pswap->b->content, pswap->a);
 		if (i <= ft_lstsize(pswap->a) / 2)
 		{
-			while (i-- >= 0)
+			while (i-- > 0)
 				apply(pswap, RA);
 			apply(pswap, PA);
 		}
 		else
 		{
 			i = ft_lstsize(pswap->a) - i - 1;
-			while (i-- >= 0)
+			while (i-- > 0)
 				apply(pswap, RRA);
 			apply(pswap, PA);
 		}
