@@ -38,6 +38,7 @@ PRINT		=	print.c
 
 SORT		=	is_sorted.c \
 				sort_3.c \
+				sort_big.c \
 				sort_small.c \
 				sort.c
 
