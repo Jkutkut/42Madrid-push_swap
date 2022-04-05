@@ -27,7 +27,12 @@ medium() {
 }
 
 big() {
-	input=$(ruby -e "puts (-100..100).to_a.shuffle.join(' ')")
+	input=$(ruby -e "puts (-19..20).to_a.shuffle.join(' ')")
+	python3 $visualizer_dir/pyviz.py $input
+}
+
+huge() {
+	input=$(ruby -e "puts (-190..200).to_a.shuffle.join(' ')")
 	python3 $visualizer_dir/pyviz.py $input
 }
 
@@ -41,6 +46,8 @@ main() {
 			medium
 		elif [ "$1" = "big" ]; then
 			big
+		elif [ "$1" = "huge" ]; then
+			huge
 		else
 			break
 		fi
