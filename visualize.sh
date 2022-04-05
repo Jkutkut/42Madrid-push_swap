@@ -27,7 +27,7 @@ medium() {
 }
 
 big() {
-	input=$(ruby -e "puts (-20..20).to_a.shuffle.join(' ')")
+	input=$(ruby -e "puts (-100..100).to_a.shuffle.join(' ')")
 	python3 $visualizer_dir/pyviz.py $input
 }
 
