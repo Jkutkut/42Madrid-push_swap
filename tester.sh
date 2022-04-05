@@ -61,6 +61,18 @@ file_test() {
 	done < $file
 }
 
+random_test() {
+	tests=$1
+
+	echo "- ${BLUE}$tests Random tests${NC}"
+	while [ $tests -gt 0 ]; do
+		input=$(ruby -e "puts (0..$tests).to_a.shuffle.join(' ')")
+		./$executable $input > success.tmp 2> error.tmp
+		rm -f error.tmp success.tmp
+		tests=$((tests-1))
+	done
+}
+
 main() {
 	# Check if the executable exists:
 	if [ ! -f $executable ]; then
@@ -81,7 +93,9 @@ main() {
 
 	single_test "basic" "1 3 2" 3 2
 	file_test ".test/input_3elements" 3 2
-	file_test ".test/input_5elements" 12 8
+	# file_test ".test/input_5elements" 12 8
+	random_test 100 700 900 1100 1300 1500
+	# random_test 500 5500 7000 8500 10000 11500
 }
 
 trap "rm -f error.tmp success.tmp; return" 2
