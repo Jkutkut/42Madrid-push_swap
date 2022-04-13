@@ -7,6 +7,8 @@ https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-t
 
 
 ## Ideas:
+- Test with random tests:
+	- average?
 - Worst case 4:
 	- 4 3 2 5
 	- rra sa rra rra sa
