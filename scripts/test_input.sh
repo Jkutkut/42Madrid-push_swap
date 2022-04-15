@@ -7,7 +7,12 @@ YELLOW='\033[1;33m';
 GREEN='\033[1;32m';
 BLUE='\033[1;34m';
 
-executable=./push_swap
+repo_location=./
+if [ ! -f "$repo_location/Makefile" ]; then
+	repo_location=../
+fi
+
+executable=${repo_location}push_swap
 
 run_test() {
 	echo "- ${BLUE}$1${NC} \c"
@@ -38,7 +43,8 @@ run_invalid_test() {
 }
 
 
-make
+make -C $repo_location
+
 echo "${BLUE}
   _____                 _ _     _ 
  |_   _|               | (_)   | |
@@ -48,7 +54,7 @@ echo "${BLUE}
  |_____|_| |_|\_/ \__,_|_|_|\__,_|
 ${NC}"
 
-input_file=".test/invalid_input"
+input_file=$repo_location.test/invalid_input
 while IFS= read -r line; do
 	test_name=$(echo $line | cut -d: -f1)
 	input=$(echo $line | cut -d: -f2)
@@ -65,7 +71,7 @@ echo "${BLUE}
      \/ \__,_|_|_|\__,_|
 ${NC}"
 
-input_file=".test/valid_input"
+input_file=$repo_location.test/valid_input
 while IFS= read -r line; do
 	test_name=$(echo $line | cut -d: -f1)
 	input=$(echo $line | cut -d: -f2)
