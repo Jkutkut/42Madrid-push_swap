@@ -7,9 +7,14 @@ YELLOW='\033[1;33m';
 GREEN='\033[1;32m';
 BLUE='\033[1;34m';
 
-executable=./push_swap
-checker=./checker
-visualizer=./visualize.sh
+repo_location=./
+if [ ! -f "$repo_location/Makefile" ]; then
+	repo_location=../
+fi
+
+executable=${repo_location}push_swap
+checker=${repo_location}checker
+visualizer=${repo_location}visualize.sh
 
 single_test() {
 	name="$1"
@@ -92,8 +97,8 @@ main() {
 
 
 	single_test "basic" "1 3 2" 3 2
-	file_test ".test/input_3elements" 3 2
-	# file_test ".test/input_5elements" 12 8
+	file_test "${repo_location}.test/input_3elements" 3 2
+	# file_test "${repo_location}.test/input_5elements" 12 8
 	random_test 100 700 900 1100 1300 1500
 	# random_test 500 5500 7000 8500 10000 11500
 }
