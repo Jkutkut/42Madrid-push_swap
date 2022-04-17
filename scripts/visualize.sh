@@ -1,6 +1,11 @@
 #!/bin/sh
 
-visualizer_dir=".visualizer"
+repo_location=./
+if [ ! -f "$repo_location/Makefile" ]; then
+	repo_location=../
+fi
+
+visualizer_dir=$repo_location.visualizer
 
 check_dependencies() {
 	# Check python3 dependencies
@@ -56,5 +61,5 @@ main() {
 	python3 $visualizer_dir/pyviz.py $@
 }
 
-make
+make -C $repo_location
 main $@
