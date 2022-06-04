@@ -5,7 +5,6 @@ bin
 push_swap
 checker
 *.swp
-libft*
 run
 
 
