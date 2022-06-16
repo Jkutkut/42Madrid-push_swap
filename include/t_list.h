@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 17:59:46 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/24 12:17:10 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/16 08:12:42 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #define T_LIST_H
 
 #include <stdlib.h>
-#include "../libft/libft.h"
 
 typedef struct s_list
 {
