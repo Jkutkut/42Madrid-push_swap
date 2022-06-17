@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:43:13 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/22 22:59:02 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/17 11:12:27 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools.h"
+#include "push_swap_utils.h"
 
 #define DATA 0
 #define LEFT 1

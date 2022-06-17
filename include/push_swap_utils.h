@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_utils.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/06/17 10:56:08 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/06/17 10:54:23 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/06/17 11:09:00 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PUSHSWAP
-# define FT_PUSHSWAP
+#ifndef PUSH_SWAP_UTILS_H
+#define PUSH_SWAP_UTILS_H
 
-#include <unistd.h>
-#  include <stdio.h> // TODO REMOVE
-#include <stdlib.h>
+#include "push_swap.h"
 
-#include "t_list.h"
-
-typedef struct	s_dstack
-{
-	t_list	*a;
-	t_list	*b;
-	int		size;
-	int		*arg;
-}			t_dstack;
-
-#include "input.h"
-#include "push_swap_utils.h"
-#include "tools.h"
-
-
+int		binary_search(int arr[], int l, int r, int value);
+void	free_end(t_dstack *pswap, int endtype, char *msg);
+int		*linkedlist_to_array(t_list *lst, int size);
+void	merge_sort(int *array, int size);
 
 #endif

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linkedlist_to_array.c                              :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 22:00:58 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/22 22:01:18 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/01/25 08:54:24 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/20 15:43:47 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools.h"
+#include <unistd.h>
 
-int	*linkedlist_to_array(t_list *lst, int size)
+size_t	ft_strlen(const char *s);
+
+/**
+ * @brief Writes a string to a file descriptor.
+ * 
+ * @param s String to write.
+ * @param fd File descriptor.
+ */
+void	ft_putstr_fd(char *s, int fd)
 {
-	int		*array;
-	int		i;
-	t_list	*tmp;
+	size_t	len;
 
-	array = (int *) malloc(sizeof(int) * size);
-	if (!array)
-		return (NULL);
-	i = 0;
-	tmp = lst;
-	while (tmp)
-	{
-		array[i++] = tmp->content;
-		tmp = tmp->next;
-	}
-	return (array);
+	if (s == NULL)
+		return ;
+	len = ft_strlen(s);
+	write(fd, s, len);
 }

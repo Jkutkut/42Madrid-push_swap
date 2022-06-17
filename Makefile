@@ -37,6 +37,12 @@ INPUT		=	check_input.c \
 # 				sort_small.c \
 # 				sort.c
 
+PUSH_SWAP_UTILS	=	binary_search.c \
+					free_end.c \
+					linkedlist_to_array.c \
+					merge_sort.c
+
+
 T_LIST		=	ft_lstnew.c \
 				ft_lstadd_front.c \
 				ft_lstsize.c \
@@ -56,16 +62,20 @@ T_LIST		=	ft_lstnew.c \
 # 				print_array.c \
 # 				zz_misc_ft_lst.c
 
-TOOLS		=	ft_atoi.c \
+TOOLS		=	end.c \
+				ft_atoi.c \
 				ft_hasany.c \
 				ft_isdigit.c \
 				ft_itoa.c \
+				ft_ndigits.c \
+				ft_putstr_fd.c \
 				ft_strlen.c \
 				ft_strncmp.c
 
 
 SRCS		=	push_swap.c \
 				${INPUT:%=input/%} \
+				${PUSH_SWAP_UTILS:%=push_swap_utils/%} \
 				${T_LIST:%=t_list/%} \
 				${TOOLS:%=tools/%}
 # ft_pushswap.c \
