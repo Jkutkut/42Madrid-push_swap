@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/06/17 10:43:27 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/01/18 15:36:37 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/20 15:59:33 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PUSHSWAP
-# define FT_PUSHSWAP
-
-#include <unistd.h>
-#  include <stdio.h> // TODO REMOVE
-#include <stdlib.h>
-
-#include "t_list.h"
-
-typedef struct	s_dstack
+/**
+ * @brief Checks if a character is a digit.
+ * 
+ * @param c Character to check.
+ * @return int 0 if it is not a digit, true otherwise.
+ */
+int	ft_isdigit(int c)
 {
-	t_list	*a;
-	t_list	*b;
-	int		size;
-	int		*arg;
-}			t_dstack;
-
-#include "input.h"
-#include "tools.h"
-
-
-
-#endif
+	return (c >= '0' && c <= '9');
+}

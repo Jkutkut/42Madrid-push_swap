@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/06/17 10:43:27 by jre-gonz         ###   ########.fr       */
+/*   Created: 2021/11/30 19:01:01 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/20 13:45:52 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PUSHSWAP
-# define FT_PUSHSWAP
+#include <stddef.h>
 
-#include <unistd.h>
-#  include <stdio.h> // TODO REMOVE
-#include <stdlib.h>
-
-#include "t_list.h"
-
-typedef struct	s_dstack
+/**
+ * @brief Returns the length of the string s.
+ * 
+ * @param s String to get the length.
+ * @return size_t Length of the string s.
+ */
+size_t	ft_strlen(const char *s)
 {
-	t_list	*a;
-	t_list	*b;
-	int		size;
-	int		*arg;
-}			t_dstack;
+	size_t	l;
 
-#include "input.h"
-#include "tools.h"
-
-
-
-#endif
+	l = 0;
+	while (*(s + l))
+		l++;
+	return (l);
+}

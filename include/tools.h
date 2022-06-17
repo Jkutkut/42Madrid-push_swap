@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   tools.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/06/17 10:43:27 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/06/17 10:39:58 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/06/17 10:42:48 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PUSHSWAP
-# define FT_PUSHSWAP
+#ifndef TOOLS_H
+#define TOOLS_H
 
-#include <unistd.h>
-#  include <stdio.h> // TODO REMOVE
-#include <stdlib.h>
+# include <stddef.h>
+# include <stdlib.h>
 
-#include "t_list.h"
-
-typedef struct	s_dstack
-{
-	t_list	*a;
-	t_list	*b;
-	int		size;
-	int		*arg;
-}			t_dstack;
-
-#include "input.h"
-#include "tools.h"
-
-
+int		ft_atoi(const char *nptr);
+int		ft_hasany(const char *str, char c);
+int		ft_isdigit(int c);
+char	*ft_itoa(int n);
+size_t	ft_strlen(const char *s);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

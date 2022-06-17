@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_hasany.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/06/17 10:43:27 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/02/09 12:15:56 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/20 16:01:02 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PUSHSWAP
-# define FT_PUSHSWAP
+#include <stddef.h>
 
-#include <unistd.h>
-#  include <stdio.h> // TODO REMOVE
-#include <stdlib.h>
-
-#include "t_list.h"
-
-typedef struct	s_dstack
+/**
+ * @brief Checks if the given char c is any of the chars in the given string.
+ * 
+ * @param str String to check.
+ * @param c Character to check.
+ * @return int 0 if it is not any of the chars in the string, 1 otherwise.
+ */
+int	ft_hasany(const char *str, char c)
 {
-	t_list	*a;
-	t_list	*b;
-	int		size;
-	int		*arg;
-}			t_dstack;
+	size_t	i;
 
-#include "input.h"
-#include "tools.h"
-
-
-
-#endif
+	i = 0;
+	while (str[i])
+		if (c == str[i++])
+			return (1);
+	return (0);
+}

@@ -12,35 +12,30 @@ TITLE		=	\033[38;5;33m
 LIB_CC		=	ar rcT
 CC			=	gcc
 FLAGS		=	-Wall -Wextra #-fsanitize=address #-Werror
-COMPILE		=	$(CC) $(FLAGS)
-
-# DEBUG		= -D DEBUG
+COMPILE		=	$(CC) $(FLAGS) -I include/
 
 # Code variables
 
 NAME		=	push_swap
-
-LIBFT		=	src/libft/libft.a
-LIBFT_DIR	=	$(dir $(LIBFT))
 
 INPUT		=	check_input.c \
 				init_pushswap.c \
 				normalize.c \
 				parse_input.c
 
-OPERATIONS	=	apply.c \
-				push.c \
-				reverse_rotate.c \
-				rotate.c \
-				swap.c
+# OPERATIONS	=	apply.c \
+# 				push.c \
+# 				reverse_rotate.c \
+# 				rotate.c \
+# 				swap.c
 
-PRINT		=	print.c
+# PRINT		=	print.c
 
-SORT		=	is_sorted.c \
-				sort_3.c \
-				sort_big.c \
-				sort_small.c \
-				sort.c
+# SORT		=	is_sorted.c \
+# 				sort_3.c \
+# 				sort_big.c \
+# 				sort_small.c \
+# 				sort.c
 
 T_LIST		=	ft_lstnew.c \
 				ft_lstadd_front.c \
@@ -52,36 +47,48 @@ T_LIST		=	ft_lstnew.c \
 				ft_lstiter.c \
 				ft_lstmap.c
 
-TOOLS		=	binary_search.c \
-				end.c \
-				free_end.c \
-				get_from_lst.c \
-				linkedlist_to_array.c \
-				merge_sort.c \
-				print_array.c \
-				zz_misc_ft_lst.c
+# TOOLS		=	binary_search.c \
+# 				end.c \
+# 				free_end.c \
+# 				get_from_lst.c \
+# 				linkedlist_to_array.c \
+# 				merge_sort.c \
+# 				print_array.c \
+# 				zz_misc_ft_lst.c
 
-SRCS		=	ft_pushswap.c \
+TOOLS		=	ft_atoi.c \
+				ft_hasany.c \
+				ft_isdigit.c \
+				ft_itoa.c \
+				ft_strlen.c \
+				ft_strncmp.c
+
+
+SRCS		=	push_swap.c \
 				${INPUT:%=input/%} \
-				${OPERATIONS:%=operations/%} \
-				${PRINT:%=print/%} \
-				${SORT:%=sort/%} \
 				${T_LIST:%=t_list/%} \
 				${TOOLS:%=tools/%}
+# ft_pushswap.c \
+# ${INPUT:%=input/%} \
+# ${OPERATIONS:%=operations/%} \
+# ${PRINT:%=print/%} \
+# ${SORT:%=sort/%} \
+# ${T_LIST:%=t_list/%} \
+# ${TOOLS:%=tools/%}
 
 OBJS		=	${SRCS:%.c=bin/%.o}
 
 # Bonus
-BONUS_NAME	=	checker
-BONUS_SRCS	=	bonus/checker.c \
-				bonus/get_next_line_utils.c \
-				bonus/get_next_line.c \
-				${INPUT:%=input/%} \
-				${OPERATIONS:%=operations/%} \
-				${PRINT:%=print/%} \
-				${SORT:%=sort/%} \
-				${T_LIST:%=t_list/%} \
-				${TOOLS:%=tools/%}
+# BONUS_NAME	=	checker
+# BONUS_SRCS	=	bonus/checker.c \
+# 				bonus/get_next_line_utils.c \
+# 				bonus/get_next_line.c \
+# 				${INPUT:%=input/%} \
+# 				${OPERATIONS:%=operations/%} \
+# 				${PRINT:%=print/%} \
+# 				${SORT:%=sort/%} \
+# 				${T_LIST:%=t_list/%} \
+# 				${TOOLS:%=tools/%}
 
 BONUS_OBJS		=	${BONUS_SRCS:%.c=bin/%.o}
 
@@ -112,8 +119,6 @@ $(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
 	@echo "${LGREEN} [OK]${NC}"
 
 clean:
-	@echo "${LRED}Cleaning ${NC}libft"
-	@make -C $(LIBFT_DIR) fclean BIN="../../bin/libft"
 	@echo "${LRED}Cleaning ${NC}binaries\c"
 	@rm -rf bin
 	@echo "${LGREEN} [OK]${NC}"
