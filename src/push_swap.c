@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 07:57:00 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/17 09:58:17 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/19 18:20:45 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	check_leaks(void)
 
 int	main(int argc, char **argv)
 {
-	t_dstack	*pswap;
+	t_dstack	pswap;
 
 	atexit(check_leaks);
 	if (argc == 1)
 		return (1);
-	pswap = init_pushswap(argc, argv);
+	init_pushswap(&pswap, argc, argv);
 	// sort(pswap);
 	// free_end(pswap, 0, NULL);
 	return (0);
