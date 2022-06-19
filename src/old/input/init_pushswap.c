@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:33:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/26 01:07:55 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/19 18:06:02 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_dstack	*init_pushswap(int argc, char **argv)
 
 	pswap = malloc(sizeof(t_dstack));
 	if (pswap == NULL)
-		end(1, "Error: Malloc failed\n");
+		end(1, ERROR_MALLOC);
 	pswap->b = NULL;
 	pswap->a = NULL;
 	pswap->arg = NULL;
