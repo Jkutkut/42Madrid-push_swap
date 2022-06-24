@@ -22,7 +22,8 @@ else
 	checker=${repo_location}checker
 fi
 
-visualizer=${repo_location}/scripts/visualize.sh
+# visualizer=${repo_location}scripts/visualize.sh
+visualizer=VISUALIZER
 
 single_test() {
 	name="$1"
@@ -106,7 +107,7 @@ main() {
 
 	single_test "basic" "1 3 2" 3 2
 	file_test "${repo_location}.test/input_3elements" 3 2
-	# file_test "${repo_location}.test/input_5elements" 12 8
+	file_test "${repo_location}.test/input_5elements" 12 8
 	# random_test 100 700 900 1100 1300 1500
 	# random_test 500 5500 7000 8500 10000 11500
 }
