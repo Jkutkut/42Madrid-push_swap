@@ -1,4 +1,6 @@
 empty_string:""
+empty_string2:"        "
+empty_string3:"        " ""
 number:a
 number_string:"1a"
 number_string:"a1"

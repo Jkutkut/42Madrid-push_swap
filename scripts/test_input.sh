@@ -34,6 +34,8 @@ run_invalid_test() {
 	eval "$executable $2 > /dev/null 2> output.tmp"
 	if [ ! "$(cat output.tmp)" = "" ]; then
 		echo "${GREEN}[OK]${NC}"
+	elif [ "$(cat output.tmp | grep empty)" = "" ]; then
+		echo "${GREEN}[OK]${NC}"
 	else
 		echo "${RED}[FAIL]${NC}"
 		echo "  Replicate it with"
