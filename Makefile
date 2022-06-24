@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/06/24 09:43:18 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/06/24 11:00:07 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ OPERATIONS	=	apply.c \
 
 SORT		=	is_sorted.c \
 				sort_3.c \
+				sort_5.c \
 				sort.c
 
 # SORT		=	is_sorted.c \

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_small.c                                       :+:      :+:    :+:   */
+/*   sort_5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 17:08:51 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/24 09:35:32 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/24 11:58:45 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,32 +110,32 @@
 // 	}
 // }
 
-// void	sort_5(t_dstack *pswap)
-// {
-// 	int	i;
+void	sort_5(t_dstack *pswap)
+{
+	// int	i;
 
-// 	if (ready_just_rotate(pswap))
-// 		just_rotate(pswap, 0);
-// 	i = pswap->size - 3;
-// 	while (--i >= 0)
-// 		apply(pswap, PB);
-// 	sort_3(pswap, 0);
-// 	while (pswap->b)
-// 	{
-// 		i = dist_to(pswap->b->content, pswap->a);
-// 		if (i <= ft_lstsize(pswap->a) / 2)
-// 		{
-// 			while (i-- > 0)
-// 				apply(pswap, RA);
-// 			apply(pswap, PA);
-// 		}
-// 		else
-// 		{
-// 			i = ft_lstsize(pswap->a) - i - 1;
-// 			while (i-- > 0)
-// 				apply(pswap, RRA);
-// 			apply(pswap, PA);
-// 		}
-// 	}
-// 	just_rotate(pswap, 0);
-// }
+	// if (ready_just_rotate(pswap))
+	// 	just_rotate(pswap, 0);
+	// i = pswap->size - 3;
+	// while (--i >= 0)
+	// 	apply(pswap, PB);
+	// sort_3(pswap, 0);
+	// while (pswap->b)
+	// {
+	// 	i = dist_to(pswap->b->content, pswap->a);
+	// 	if (i <= ft_lstsize(pswap->a) / 2)
+	// 	{
+	// 		while (i-- > 0)
+	// 			apply(pswap, RA);
+	// 		apply(pswap, PA);
+	// 	}
+	// 	else
+	// 	{
+	// 		i = ft_lstsize(pswap->a) - i - 1;
+	// 		while (i-- > 0)
+	// 			apply(pswap, RRA);
+	// 		apply(pswap, PA);
+	// 	}
+	// }
+	// just_rotate(pswap, 0);
+}
