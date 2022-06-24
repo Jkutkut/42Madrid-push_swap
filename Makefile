@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/06/24 08:19:13 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/06/24 08:29:20 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,11 @@ INPUT		=	check_input.c \
 				normalize.c \
 				parse_input.c
 
-# OPERATIONS	=	apply.c \
-# 				push.c \
-# 				reverse_rotate.c \
-# 				rotate.c \
-# 				swap.c
+OPERATIONS	=	apply.c \
+				push.c \
+				reverse_rotate.c \
+				rotate.c \
+				swap.c
 
 # PRINT		=	print.c
 
@@ -83,12 +83,14 @@ TOOLS		=	end.c \
 				ft_memmove.c \
 				ft_ndigits.c \
 				ft_putstr_fd.c \
+				ft_strlcpy.c \
 				ft_strlen.c \
 				ft_strncmp.c
 
 
 SRCS		=	push_swap.c \
 				${INPUT:%=input/%} \
+				${OPERATIONS:%=operations/%} \
 				${PUSH_SWAP_UTILS:%=push_swap_utils/%} \
 				${T_LIST:%=t_list/%} \
 				${TOOLS:%=tools/%}

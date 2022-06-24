@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 07:57:00 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/24 08:29:52 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/24 08:16:57 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/03/27 19:03:40 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "operations.h"
 
-void	check_leaks(void)
+static int	push_list(t_list **lst, t_list **lst2)
 {
-	// system("leaks -q ft_pushswap");
+	t_list	*tmp;
+
+	if (!*lst)
+		return (0);
+	tmp = *lst;
+	*lst = tmp->next;
+	tmp->next = *lst2;
+	*lst2 = tmp;
+	return (1);
 }
 
-int	main(int argc, char **argv)
+char	*pa(t_dstack *pswap)
 {
-	t_dstack	pswap;
+	if (!push_list(&pswap->b, &pswap->a))
+		return (NULL);
+	return ("pa");
+}
 
-	atexit(check_leaks);
-	if (argc == 1)
-		return (1);
-	init_pushswap(&pswap, argc, argv);
-	print(&pswap, 1);
-	// sort(pswap);
-	apply(&pswap, SA);
-	print(&pswap, 1);
-	apply(&pswap, PB);
-	print(&pswap, 1);
-	// free_end(pswap, 0, NULL);
-	return (0);
+char	*pb(t_dstack *pswap)
+{
+	if (!push_list(&pswap->a, &pswap->b))
+		return (NULL);
+	return ("pb");
 }

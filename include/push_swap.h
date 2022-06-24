@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/06/19 18:01:37 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/24 08:23:56 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ typedef struct	s_dstack
 
 #include "input.h"
 #include "msg.h"
+#include "operations.h"
 #include "push_swap_utils.h"
 #include "tools.h"
-
-
 
 #endif
