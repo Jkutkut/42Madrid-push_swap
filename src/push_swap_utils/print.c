@@ -6,11 +6,13 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:48:37 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/02 17:27:16 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/24 08:16:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
+#include "push_swap_utils.h"
+
+# define MAXNUMLEN 3
 
 int	print_row(t_list *elements[2], char *buffer, int num_size)
 {

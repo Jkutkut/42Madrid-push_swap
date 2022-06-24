@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/06/18 22:57:47 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/06/24 08:19:13 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ INPUT		=	check_input.c \
 PUSH_SWAP_UTILS	=	binary_search.c \
 					free_end.c \
 					linkedlist_to_array.c \
-					merge_sort.c
+					merge_sort.c \
+					print.c
 
 
 T_LIST		=	ft_lstnew.c \
@@ -79,6 +80,7 @@ TOOLS		=	end.c \
 				ft_hasany.c \
 				ft_isdigit.c \
 				ft_itoa.c \
+				ft_memmove.c \
 				ft_ndigits.c \
 				ft_putstr_fd.c \
 				ft_strlen.c \
