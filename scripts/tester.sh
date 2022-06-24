@@ -13,8 +13,16 @@ if [ ! -f "$repo_location/Makefile" ]; then
 fi
 
 executable=${repo_location}push_swap
-checker=${repo_location}checker
-visualizer=${repo_location}visualize.sh
+
+if [ "$1" == "--linux" ]; then
+	checker=${repo_location}checker_linux
+elif [ "$1" == "--mac" ]; then
+	checker=${repo_location}checker_mac
+else
+	checker=${repo_location}checker
+fi
+
+visualizer=${repo_location}/scripts/visualize.sh
 
 single_test() {
 	name="$1"
@@ -89,7 +97,7 @@ main() {
 
 	# Check if the checker exists:
 	if [ ! -f $checker ]; then
-		echo "${RED}[FAIL]${NC} The checker does not exist."
+		echo "${RED}[FAIL]${NC} The checker '$checker' does not exist."
 		echo "Please compile the project before running the tests."
 		echo "make bonus"
 		return
@@ -99,7 +107,7 @@ main() {
 	single_test "basic" "1 3 2" 3 2
 	file_test "${repo_location}.test/input_3elements" 3 2
 	# file_test "${repo_location}.test/input_5elements" 12 8
-	random_test 100 700 900 1100 1300 1500
+	# random_test 100 700 900 1100 1300 1500
 	# random_test 500 5500 7000 8500 10000 11500
 }
 
