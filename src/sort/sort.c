@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msg.h                                              :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 11:15:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/24 09:51:28 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/06/24 09:35:22 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MSG_H
-#define MSG_H
+#include "sort.h"
 
-#define ERROR_MALLOC "Malloc failed.\n"
-#define ERROR_INV_ARG "Invalid argument.\n"
-#define ERROR_NBR2LARGE "Numbers too large.\n"
-#define ERROR_REPEAT_NBR "Numbers must not repeat.\n"
-// #define  ""
-
-
-#define ERROR_APPLY_LEN 42
-#define ERROR_APPLY "Error: Not able to execute the move    .\n"
-#define ERROR_APPLY_MOVE " sa sb ss pa pb ra rb rrrrarrbrrr"
-
-#endif
+void	sort(t_dstack *pswap)
+{
+	if (pswap->size <= 3)
+		sort_3(pswap, 0);
+	// else if (pswap->size <= 5)
+	// 	sort_small(pswap);
+	// else
+	// 	sort_big(pswap);
+}

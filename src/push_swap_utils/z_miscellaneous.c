@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_from_lst.c                                     :+:      :+:    :+:   */
+/*   z_miscellaneous.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 21:03:51 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/02 21:07:18 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/06/24 09:30:11 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/06/24 09:31:49 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools.h"
-
-int	get_from_lst(int (*f)(int, int), t_list *lst)
+int	ft_max(int a, int b)
 {
-	int		val;
-	t_list	*tmp;
+	if (a > b)
+		return (a);
+	return (b);
+}
 
-	val = lst->content;
-	tmp = lst;
-	while (tmp)
-	{
-		val = f(val, tmp->content);
-		tmp = tmp->next;
-	}
-	return (val);
+int	ft_min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
 }

@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/06/24 08:29:20 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/06/24 09:43:18 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,9 @@ OPERATIONS	=	apply.c \
 				rotate.c \
 				swap.c
 
-# PRINT		=	print.c
+SORT		=	is_sorted.c \
+				sort_3.c \
+				sort.c
 
 # SORT		=	is_sorted.c \
 # 				sort_3.c \
@@ -51,9 +53,11 @@ OPERATIONS	=	apply.c \
 
 PUSH_SWAP_UTILS	=	binary_search.c \
 					free_end.c \
+					get_from_lst.c \
 					linkedlist_to_array.c \
 					merge_sort.c \
-					print.c
+					print.c \
+					z_miscellaneous.c
 
 
 T_LIST		=	ft_lstnew.c \
@@ -65,15 +69,6 @@ T_LIST		=	ft_lstnew.c \
 				ft_lstclear.c \
 				ft_lstiter.c \
 				ft_lstmap.c
-
-# TOOLS		=	binary_search.c \
-# 				end.c \
-# 				free_end.c \
-# 				get_from_lst.c \
-# 				linkedlist_to_array.c \
-# 				merge_sort.c \
-# 				print_array.c \
-# 				zz_misc_ft_lst.c
 
 TOOLS		=	end.c \
 				ft_atoi.c \
@@ -92,6 +87,7 @@ SRCS		=	push_swap.c \
 				${INPUT:%=input/%} \
 				${OPERATIONS:%=operations/%} \
 				${PUSH_SWAP_UTILS:%=push_swap_utils/%} \
+				${SORT:%=sort/%} \
 				${T_LIST:%=t_list/%} \
 				${TOOLS:%=tools/%}
 # ft_pushswap.c \
