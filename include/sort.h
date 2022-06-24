@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 07:57:00 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/24 08:40:13 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/24 10:16:33 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/06/24 08:43:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SORT_H
+#define SORT_H
+
 #include "push_swap.h"
 
-void	check_leaks(void)
-{
-	// system("leaks -q ft_pushswap");
-}
+int		is_sorted(t_dstack *pswap);
+void	sort_3(t_dstack *pswap, int l);
+void	sort_big(t_dstack *pswap);
+void	sort_small(t_dstack *pswap);
+void	sort(t_dstack *pswap);
 
-int	main(int argc, char **argv)
-{
-	t_dstack	pswap;
-
-	atexit(check_leaks);
-	if (argc == 1)
-		return (1);
-	init_pushswap(&pswap, argc, argv);
-	print(&pswap, 1);
-	// sort(pswap);
-	print(&pswap, 1);
-	// free_end(pswap, 0, NULL);
-	return (0);
-}
+#endif
