@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 11:15:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/19 18:08:55 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/24 08:36:14 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 #define ERROR_NBR2LARGE "Numbers too large\n"
 #define ERROR_REPEAT_NBR "Numbers must not repeat.\n"
 // #define  ""
-// #define  ""
+
+
+#define ERROR_APPLY_LEN 42
+#define ERROR_APPLY "Error: Not able to execute the move    .\n"
+#define ERROR_APPLY_MOVE " sa sb ss pa pb ra rb rrrrarrbrrr"
 
 #endif

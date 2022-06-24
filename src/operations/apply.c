@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:35:56 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/24 08:27:25 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/24 08:38:37 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void	error_apply(t_dstack *pswap, int o)
 {
-	char	msg[42];
+	char	msg[ERROR_APPLY_LEN];
 
-	ft_strlcpy(msg, "Error: Not able to execute the move    .\n", 42);
-	ft_memmove(msg + 36, &" sa sb ss pa pb ra rb rrrrarrbrrr"[o * 3], 3);
+	ft_strlcpy(msg, ERROR_APPLY, ERROR_APPLY_LEN);
+	ft_memmove(msg + ERROR_APPLY_LEN - 6, &ERROR_APPLY_MOVE[o * 3], 3);
 	free_end(pswap, 1, msg);
 }
 
