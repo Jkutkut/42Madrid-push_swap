@@ -12,4 +12,7 @@ https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-t
 - Worst case 4: 4 3 2 5
 	- rra sa rra rra sa
 
-- 5 elements case:
+- Use different algos and show the best on each case.
+	- trivial for 3
+	- radix
+	- stacks
