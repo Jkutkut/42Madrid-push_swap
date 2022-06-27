@@ -11,3 +11,5 @@ https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-t
 	- average?
 - Worst case 4: 4 3 2 5
 	- rra sa rra rra sa
+
+- 5 elements case:
