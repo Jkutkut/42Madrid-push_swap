@@ -133,9 +133,9 @@ main() {
 	# random_test 10 3
 	random_test 20 5
 	random_test 20 10
-	random_test 1 25
-	random_test 1 50
-	random_test 1 100
+	random_test 20 25
+	random_test 20 50
+	random_test 20 100
 	# file_test "${repo_location}.test/input_5elements" 12 8
 	# random_test 100 700 900 1100 1300 1500
 	# random_test 500 5500 7000 8500 10000 11500
