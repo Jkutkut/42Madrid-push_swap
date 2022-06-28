@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 07:57:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/28 23:16:41 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/28 23:31:04 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,13 @@ void	radix_sort(t_dstack *p)
 			ops++;
 		}
 		while (p->b)
+		// {
+		// 	if (list_is_sorted(p->b, DESC_ORDER) && p->b->content < (1 << bit) && ft_lstlast(p->b)->content == 0)
+		// 		break;
 			apply(p, PA);
+		// }
 		bit++;
 	}
+	while (p->b)
+		apply(p, PA);
 }
