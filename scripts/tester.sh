@@ -98,7 +98,7 @@ random_test() {
 		rm -f error.tmp success.tmp
 		if [ ! "$check" = "OK" ]; then
 			echo " ${RED}[Not sorted]${NC}"
-			echo "$executable $input"
+			echo "$executable $input | pbcopy"
 			echo "$executable $input | $checker $input"
 			echo "$visualizer $input"
 			echo "Fail error: $fail"

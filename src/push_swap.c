@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 07:57:00 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/24 10:41:53 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/28 11:46:45 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,9 @@ int	main(int argc, char **argv)
 	sort(&pswap);
 	// print(&pswap, 1);
 	// free_end(pswap, 0, NULL);
+	// if (!is_sorted(&pswap))
+	// 	printf("No ordenado\n");
+	// else
+	// 	printf("Ordenado\n");
 	return (0);
 }
