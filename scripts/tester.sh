@@ -14,16 +14,22 @@ fi
 
 executable=${repo_location}push_swap
 
-if [ "$1" == "--linux" ]; then
-	checker=${repo_location}checker_linux
-elif [ "$1" == "--mac" ]; then
-	checker=${repo_location}checker_mac
-else
-	checker=${repo_location}checker
+
+checker=${repo_location}checker
+os=$(uname -s)
+if [ ! -f $checker ]; then
+	if [ "$1" == "--linux" ]; then
+		checker=${repo_location}checker_linux
+	elif [ "$1" == "--mac" ]; then
+		checker=${repo_location}checker_mac
+	elif [ "$os" = "Linux" ]; then
+		checker=${repo_location}checker_linux
+	elif [ "$os" = "Darwin" ]; then
+		checker=${repo_location}checker_mac
+	fi
 fi
 
-# visualizer=${repo_location}scripts/visualize.sh
-visualizer=VISUALIZER
+visualizer=${repo_location}scripts/visualize.sh
 
 single_test() {
 	name="$1"
