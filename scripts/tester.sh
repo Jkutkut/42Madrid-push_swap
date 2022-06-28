@@ -111,10 +111,11 @@ random_test() {
 		avg=$(($avg + $n_steps))
 	done
 	avg=$(($avg / $tests))
+	
 	echo "\t~$avg moves \c"
 	
-	if [ $limit -eq -1 ]; then
-		getRange $avg $outstanding
+	if [ $limit -lt 0 ]; then
+		getRange $avg "$outstanding"
 	else
 		if [ $avg -gt $limit ]; then
 			echo "${RED}[KO]${NC} -> $avg/$limit steps"
@@ -126,7 +127,7 @@ random_test() {
 			fi
 		fi
 	fi
-	return avg
+	return $avg
 }
 
 getRange() {
@@ -168,26 +169,18 @@ main() {
 		return
 	fi
 
-	# file_test "${repo_location}.test/input_3elements" 3 2
-	# # random_test 10 3
-	# # random_test <n_tests> <amount> <max> <outstanding>
-	# random_test 20  5  12 8
-	# # random_test 20 10  -1 ""
-	# # random_test 20 25  -1
-	# # random_test 20 50  -1
-	# random_test 20 100 -1 "700 900 1100 1300 1500"
-	# # file_test "${repo_location}.test/input_5elements" 12 8
-	# # random_test 100 700 900 1100 1300 1500
-	# # random_test 500 5500 7000 8500 10000 11500
-	getRange 100 "700 900 1100 1300 1500"
-	getRange 699 "700 900 1100 1300 1500"
-	getRange 700 "700 900 1100 1300 1500"
-	getRange 701 "700 900 1100 1300 1500"
-	getRange 750 "700 900 1100 1300 1500"
-	getRange 950 "700 900 1100 1300 1500"
-	getRange 1110 "700 900 1100 1300 1500"
-	getRange 1310 "700 900 1100 1300 1500"
-	getRange 1510 "700 900 1100 1300 1500"
+	file_test "${repo_location}.test/input_3elements" 3 2
+	random_test 20  5  12 8
+	random_test 20 100 -1 "700 900 1100 1300 1500"
+	if [ "$1" == "--full" ]; then
+		random_test 10 99 -1 "700 900 1100 1300 1500"
+		random_test 10 101 -1 "700 900 1100 1300 1500"
+	fi
+	random_test 20 500 -1 "5500 7000 8500 100000 11500"
+	if [ "$1" == "--full" ]; then
+		random_test 20 499 -1 "5500 7000 8500 100000 11500"
+		random_test 20 501 -1 "5500 7000 8500 100000 11500"
+	fi
 }
 
 trap "rm -f error.tmp success.tmp; return" 2
