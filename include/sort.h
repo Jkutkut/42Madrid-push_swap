@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/28 08:07:53 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/28 08:16:32 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	radix_sort(t_dstack *pswap);
 void	sort_3(t_dstack *pswap, int l);
 // void	sort_5(t_dstack *pswap);
 // void	sort_big(t_dstack *pswap);
-void	sort(t_dstack *pswap);
+void	sort(t_dstack *p);
 
 #endif
