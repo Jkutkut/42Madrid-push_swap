@@ -89,7 +89,8 @@ random_test() {
 	outstanding=$4
 
 	avg=0
-	echo "- ${BLUE}$tests Random tests with $max elements${NC}"
+	# echo "- ${BLUE}$tests Random tests with $max elements${NC}"
+	echo "- ${BLUE}$max elements${NC} ($tests tests)"
 	i=0;
 	for i in $(seq 1 $tests); do
 		input=$(ruby -e "puts (1..$max).to_a.shuffle.join(' ')")
@@ -112,7 +113,7 @@ random_test() {
 	done
 	avg=$(($avg / $tests))
 	
-	echo "\t~$avg moves \c"
+	echo "  - Average: ${YELLOW}$avg${NC} moves \c"
 	
 	if [ $limit -lt 0 ]; then
 		getRange $avg "$outstanding"
@@ -134,8 +135,6 @@ getRange() {
 	value=$1
 	range=$2
 
-	echo "\t~$value moves \c"
-
 	max=0
 	for v in $range; do
 		max=$(($max + 1))
@@ -144,7 +143,7 @@ getRange() {
 	i=$max
 	for v in $range; do
 		if [ $value -lt $v ]; then
-			echo "${GREEN}[OK]${NC} -> less than $v $i/$max"
+			echo "-> ${GREEN}$i${NC}/$max ${GREEN}[OK]${NC} (less than ${YELLOW}$v${NC})"
 			return
 		fi
 		i=$(($i - 1))
@@ -170,7 +169,11 @@ main() {
 	fi
 
 	file_test "${repo_location}.test/input_3elements" 3 2
-	random_test 20  5  12 8
+	random_test 20 5  12 8
+	if [ "$1" == "--full" ]; then
+		random_test 20 4  12 8
+		random_test 20 6  12 8
+	fi
 	random_test 20 100 -1 "700 900 1100 1300 1500"
 	if [ "$1" == "--full" ]; then
 		random_test 10 99 -1 "700 900 1100 1300 1500"
