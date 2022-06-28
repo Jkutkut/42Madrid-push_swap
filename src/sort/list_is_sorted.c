@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.h                                             :+:      :+:    :+:   */
+/*   list_is_sorted.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 10:16:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/28 10:38:55 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/06/28 10:34:12 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/06/28 11:20:33 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORT_H
-#define SORT_H
+#include "sort.h"
 
-#include "push_swap.h"
+int	list_is_sorted(t_list *lst)
+{
+	int	i;
 
-int		is_sorted(t_dstack *pswap);
-int		list_is_sorted(t_list *lst);
-void	radix_sort(t_dstack *pswap);
-void	sort_3(t_dstack *pswap, int l);
-// void	sort_5(t_dstack *pswap);
-// void	sort_big(t_dstack *pswap);
-void	sort(t_dstack *p);
-
-#endif
+	if (!lst)
+		return (1);
+	i = lst->content;
+	while (lst)
+	{
+		if (lst->content != i++)
+			return (0);
+		lst = lst->next;
+	}
+	return (1);
+}
