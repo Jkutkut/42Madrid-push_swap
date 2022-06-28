@@ -85,6 +85,8 @@ file_test() {
 random_test() {
 	tests=$1
 	max=$2
+	limit=$3
+	outstanding=$4
 
 	avg=0
 	echo "- ${BLUE}$tests Random tests with $max elements${NC}"
@@ -109,7 +111,44 @@ random_test() {
 		avg=$(($avg + $n_steps))
 	done
 	avg=$(($avg / $tests))
-	echo "\t~$avg moves"
+	echo "\t~$avg moves \c"
+	
+	if [ $limit -eq -1 ]; then
+		getRange $avg $outstanding
+	else
+		if [ $avg -gt $limit ]; then
+			echo "${RED}[KO]${NC} -> $avg/$limit steps"
+		else
+			if [ ! "$outstanding" = "" ] && [ $outstanding -ge $avg ]; then
+				echo "${GREEN}[Outstanding]${NC}"
+			else
+				echo "${GREEN}[OK]${NC}"
+			fi
+		fi
+	fi
+	return avg
+}
+
+getRange() {
+	value=$1
+	range=$2
+
+	echo "\t~$value moves \c"
+
+	max=0
+	for v in $range; do
+		max=$(($max + 1))
+	done
+
+	i=$max
+	for v in $range; do
+		if [ $value -lt $v ]; then
+			echo "${GREEN}[OK]${NC} -> less than $v $i/$max"
+			return
+		fi
+		i=$(($i - 1))
+	done
+	echo "${RED}[KO] -> more than $v${NC}"
 }
 
 main() {
@@ -129,16 +168,26 @@ main() {
 		return
 	fi
 
-	file_test "${repo_location}.test/input_3elements" 3 2
-	# random_test 10 3
-	random_test 20 5
-	random_test 20 10
-	random_test 20 25
-	random_test 20 50
-	random_test 20 100
-	# file_test "${repo_location}.test/input_5elements" 12 8
-	# random_test 100 700 900 1100 1300 1500
-	# random_test 500 5500 7000 8500 10000 11500
+	# file_test "${repo_location}.test/input_3elements" 3 2
+	# # random_test 10 3
+	# # random_test <n_tests> <amount> <max> <outstanding>
+	# random_test 20  5  12 8
+	# # random_test 20 10  -1 ""
+	# # random_test 20 25  -1
+	# # random_test 20 50  -1
+	# random_test 20 100 -1 "700 900 1100 1300 1500"
+	# # file_test "${repo_location}.test/input_5elements" 12 8
+	# # random_test 100 700 900 1100 1300 1500
+	# # random_test 500 5500 7000 8500 10000 11500
+	getRange 100 "700 900 1100 1300 1500"
+	getRange 699 "700 900 1100 1300 1500"
+	getRange 700 "700 900 1100 1300 1500"
+	getRange 701 "700 900 1100 1300 1500"
+	getRange 750 "700 900 1100 1300 1500"
+	getRange 950 "700 900 1100 1300 1500"
+	getRange 1110 "700 900 1100 1300 1500"
+	getRange 1310 "700 900 1100 1300 1500"
+	getRange 1510 "700 900 1100 1300 1500"
 }
 
 trap "rm -f error.tmp success.tmp; return" 2
