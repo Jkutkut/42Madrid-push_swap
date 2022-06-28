@@ -9,13 +9,19 @@ visualizer_dir=$repo_location.visualizer
 
 VISUALIZER() {
 	ARGS="$@";
-	open "https://GlaceCoding.github.io/tools/pushswap/visualizer/?size=15&speed=150&args=$ARGS&queue="$(./push_swap $ARGS | tr '\n' ',')
+	open "https://GlaceCoding.github.io/tools/pushswap/visualizer/?size=15&speed=150&args=$ARGS"
 }
 
 visualizeRandom() {
 	min=$1
 	max=$2
-	VISUALIZER $(ruby -e "puts ($min..$max).to_a.shuffle.join(' ')")
+	input=$(ruby -e "puts ($min..$max).to_a.shuffle.join(' ')")
+
+	if [ "$(uname -s)" = "Darwin" ]; then
+		./push_swap $input | pbcopy
+		echo "output copied to clipboard"
+	fi
+	VISUALIZER $input
 }
 
 small() {
@@ -26,13 +32,13 @@ medium() {
 	visualizeRandom -3 1
 }
 
-# big() {
-# 	visualizeRandom -19 20
-# }
+big() {
+	visualizeRandom -19 20
+}
 
-# huge() {
-# 	visualizeRandom -190 200
-# }
+huge() {
+	visualizeRandom -190 200
+}
 
 main() {
 	# check_dependencies || return 1
@@ -41,11 +47,10 @@ main() {
 			small
 		elif [ "$1" = "medium" ]; then
 			medium
-		# max len of url is 2048 chars
-		# elif [ "$1" = "big" ]; then
-		# 	big
-		# elif [ "$1" = "huge" ]; then
-		# 	huge
+		elif [ "$1" = "big" ]; then
+			big
+		elif [ "$1" = "huge" ]; then
+			huge
 		else
 			VISUALIZER $@
 			break
