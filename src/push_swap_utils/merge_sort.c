@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:43:13 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/17 11:12:27 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/28 12:52:47 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,9 @@ void	merge_sort(int *array, int size)
 	int	*data[3];
 
 	data[0] = array;
-	data[1] = (int *) malloc(sizeof(int) * (size / 2));
+	data[1] = (int *) malloc(sizeof(int) * (size - size / 2));
 	data[2] = (int *) malloc(sizeof(int) * (size / 2));
+	// TODO MALLOC CAN FAIL
 	merge_sort_recursive(data, 0, size - 1);
 	free(data[1]);
 	free(data[2]);
