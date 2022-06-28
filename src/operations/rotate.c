@@ -16,7 +16,7 @@ static int	rotate_list(t_list **lst)
 {
 	t_list	*tmp;
 
-	if (*lst == NULL)
+	if (*lst == NULL || (*lst)->next == NULL)
 		return (0);
 	tmp = *lst;
 	*lst = (*lst)->next;
