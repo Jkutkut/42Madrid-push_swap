@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 07:57:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/28 13:03:26 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/28 13:21:09 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,26 @@
 
 static int	biggest_signi_int(int size)
 {
-	return (sizeof(int) * 8);
+	int	bit;
+
+	bit = 0;
+	while (size > 0)
+	{
+		if ((size >> bit) & 1)
+			size -= 1 << bit;
+		bit++;
+	}
+	return (bit);
 }
 
 void	radix_sort(t_dstack *p)
 {
 	int	bit;
+	int	maxBit;
 
 	bit = 0;
-	while(!is_sorted(p) && bit < 16)
+	maxBit = biggest_signi_int(p->size);
+	while(!is_sorted(p) && bit < maxBit)
 	{
 		int ops = 0;
 		while (ops < p->size && !list_is_sorted(p->a))
