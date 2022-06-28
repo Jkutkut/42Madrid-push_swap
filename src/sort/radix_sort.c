@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/28 08:07:29 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/06/28 07:57:12 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/06/28 07:57:37 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-void	sort(t_dstack *pswap)
+void	radix_sort(t_dstack *pswap)
 {
-	if (pswap->size <= 3)
-		sort_3(pswap, 0);
-	else
-		radix_sort(pswap);
+	
 }
