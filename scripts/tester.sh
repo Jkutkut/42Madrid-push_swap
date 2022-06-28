@@ -87,9 +87,10 @@ random_test() {
 	max=$2
 
 	avg=0
-	echo "- ${BLUE}$tests Random tests${NC}"
-	for i in {0..$tests}; do
-		input=$(ruby -e "puts (0..$max).to_a.shuffle.join(' ')")
+	echo "- ${BLUE}$tests Random tests with $max elements${NC}"
+	i=0;
+	for i in $(seq 1 $tests); do
+		input=$(ruby -e "puts (1..$max).to_a.shuffle.join(' ')")
 
 		$executable $input | $checker $input 2> error.tmp > success.tmp
 		check=$(cat success.tmp)
@@ -105,9 +106,10 @@ random_test() {
 		fi
 
 		n_steps=$($executable $input | wc -l | xargs)
-		avg=$(($avg + $n_steps / $tests))
+		avg=$(($avg + $n_steps))
 	done
-	echo "Executed $tests random tests. Avg: $avg moves"
+	avg=$(($avg / $tests))
+	echo "\t~$avg moves"
 }
 
 main() {
@@ -127,13 +129,13 @@ main() {
 		return
 	fi
 
-	random_test 10 3
-	random_test 10 5
-	random_test 10 10
+	file_test "${repo_location}.test/input_3elements" 3 2
+	# random_test 10 3
+	random_test 20 5
+	random_test 20 10
 	random_test 1 25
 	random_test 1 50
 	random_test 1 100
-	# file_test "${repo_location}.test/input_3elements" 3 2
 	# file_test "${repo_location}.test/input_5elements" 12 8
 	# random_test 100 700 900 1100 1300 1500
 	# random_test 500 5500 7000 8500 10000 11500
