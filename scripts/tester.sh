@@ -44,9 +44,9 @@ single_test() {
 		echo "Fail error: $fail"
 		return 1
 	fi
-	n_steps=$($executable $input | wc -l)
+	n_steps=$($executable $input | wc -l | xargs)
 	if [ $n_steps -gt $max ]; then
-		echo "${RED}[KO]${NC}"
+		echo "${RED}[KO]${NC} -> $n_steps steps"
 	else
 		if [ ! "$outstanding" = "" ] && [ $outstanding -ge $n_steps ]; then
 			echo "${GREEN}[Outstanding]${NC}"
@@ -63,6 +63,7 @@ file_test() {
 	outstanding=$3
 
 	echo "- ${BLUE}$filename${NC}"
+	echo "Testing $name: maximum: $max outstanding: $outstanding"
 	i=0
 	while read line; do
 		# If the line is empty, skip it:
@@ -104,8 +105,6 @@ main() {
 		return
 	fi
 
-
-	single_test "basic" "1 3 2" 3 2
 	file_test "${repo_location}.test/input_3elements" 3 2
 	file_test "${repo_location}.test/input_5elements" 12 8
 	# random_test 100 700 900 1100 1300 1500
