@@ -9,7 +9,7 @@ visualizer_dir=$repo_location.visualizer
 
 VISUALIZER() {
 	ARGS="$@";
-	open "https://GlaceCoding.github.io/tools/pushswap/visualizer/?size=15&speed=150&args=$ARGS"
+	open "https://GlaceCoding.github.io/tools/pushswap/visualizer/?size=15&speed=100&args=$ARGS"
 }
 
 visualizeRandom() {
