@@ -44,7 +44,7 @@ single_test() {
 	rm -f error.tmp success.tmp
 	if [ ! "$check" = "OK" ]; then
 		echo " ${RED}[FAIL]${NC}"
-		echo "$executable $input"
+		echo "$executable $input | pbcopy"
 		echo "$executable $input | $checker $input"
 		echo "$visualizer $input"
 		echo "Fail error: $fail"
@@ -170,22 +170,23 @@ main() {
 		return
 	fi
 
-	file_test "${repo_location}.test/input_3elements" 3 2
-	random_test 20 5  12 8
-	if [ "$1" == "--full" ]; then
-		random_test 20 4  12 8
-		random_test 20 6  12 8
-	fi
-	random_test 20 100 -1 "700 900 1100 1300 1500"
-	if [ "$1" == "--full" ]; then
-		random_test 10 99 -1 "700 900 1100 1300 1500"
-		random_test 10 101 -1 "700 900 1100 1300 1500"
-	fi
-	random_test 20 500 -1 "5500 7000 8500 100000 11500"
-	if [ "$1" == "--full" ]; then
-		random_test 20 499 -1 "5500 7000 8500 100000 11500"
-		random_test 20 501 -1 "5500 7000 8500 100000 11500"
-	fi
+	# file_test "${repo_location}.test/input_3elements" 3 2
+	file_test "${repo_location}.test/input_5elements" 12 8
+	# random_test 20 5  12 8
+	# if [ "$1" == "--full" ]; then
+	# 	random_test 20 4  12 8
+	# 	random_test 20 6  12 8
+	# fi
+	# random_test 20 100 -1 "700 900 1100 1300 1500"
+	# if [ "$1" == "--full" ]; then
+	# 	random_test 10 99 -1 "700 900 1100 1300 1500"
+	# 	random_test 10 101 -1 "700 900 1100 1300 1500"
+	# fi
+	# random_test 20 500 -1 "5500 7000 8500 100000 11500"
+	# if [ "$1" == "--full" ]; then
+	# 	random_test 20 499 -1 "5500 7000 8500 100000 11500"
+	# 	random_test 20 501 -1 "5500 7000 8500 100000 11500"
+	# fi
 }
 
 trap "rm -f error.tmp success.tmp; return" 2
