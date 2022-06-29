@@ -141,12 +141,14 @@ getRange() {
 	done
 
 	i=$max
+	prev="0"
 	for v in $range; do
 		if [ $value -lt $v ]; then
-			echo "-> ${GREEN}$i${NC}/$max ${GREEN}[OK]${NC} (less than ${YELLOW}$v${NC})"
+			echo "-> ${GREEN}$i${NC}/$max ${GREEN}[OK]${NC} (${YELLOW}$prev${NC} - ${YELLOW}$v${NC})"
 			return
 		fi
 		i=$(($i - 1))
+		prev="$v"
 	done
 	echo "${RED}[KO] -> more than $v${NC}"
 }
