@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/29 11:19:18 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/29 12:56:37 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ static void	just_rotate(t_dstack *pswap, int l)
 void	sort_5(t_dstack *pswap)
 {
 	int	s;
-	int	count;
 
 	if (ready_just_rotate(pswap))
 		return just_rotate(pswap, 0);
@@ -124,40 +123,43 @@ void	sort_5(t_dstack *pswap)
 	s = pswap->size;
 	while (s-- > 3)
 	{
-		if (ft_lstlast(pswap->a)->content < 2)
+		if (pswap->a->content == get_from_lst(ft_max, pswap->a))
+			apply(pswap, RA);
+		if (pswap->a->content > ft_lstlast(pswap->a)->content && ft_lstlast(pswap->a)->content < 2)
 			apply(pswap, RRA);
 		apply(pswap, PB);
 	}
 	sort_3(pswap, 0);
+	// TODO Sort B if already in order?
 
 	int DEBUG = -1;
 	while (pswap->b && DEBUG)
 	{
 		DEBUG--;
 		int v = pswap->b->content;
-		if (v > ft_lstlast(pswap->a)->content)
+		if (list_is_sorted(pswap->a, ASC_ORDER) && v > get_from_lst(ft_max, pswap->a))
 		{
 			apply(pswap, PA);
 			apply(pswap, RA);
+			continue;
 		}
-		else if (v == 0)
+		int d = dist_to(v, pswap->a);
+		// printf("Dist: %d\n", d);
+		// if (d < ft_lstsize(pswap->a) / 2)
+		if (1)
 		{
-			apply(pswap, PA);
-		}
-		else
-		{
-			count = 0;
-			while (pswap->a->content < v + 1)
+			// while (pswap->a->content < v + 1)
+			while (d > 0)
 			{
-				count++;
+				d--;
 				apply(pswap, RA);
 			}
 			apply(pswap, PA);
-			while (count > 0)
-				apply(pswap, RRA - (count-- * 0));
 		}
+		// print(pswap, 1);
 	}
-
+	if (ready_just_rotate(pswap))
+		just_rotate(pswap, 0);
 	// while (count < 0)
 	// 	apply(pswap, RA + count++ * 0);
 	// while (count > 0)
