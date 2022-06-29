@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/28 10:38:55 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/28 23:12:36 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 #include "push_swap.h"
 
+#define ASC_ORDER 1
+#define DESC_ORDER -1
+
 int		is_sorted(t_dstack *pswap);
-int		list_is_sorted(t_list *lst);
+int		list_is_sorted(t_list *lst, int type);
 void	radix_sort(t_dstack *pswap);
 void	sort_3(t_dstack *pswap, int l);
 // void	sort_5(t_dstack *pswap);
