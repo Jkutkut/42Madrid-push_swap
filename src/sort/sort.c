@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/30 16:14:20 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:21:53 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,48 +135,25 @@ void	sort_5(t_dstack *pswap)
 	}
 	sort_3(pswap, 0);
 
-	int DEBUG = -1;
-	while (pswap->b && DEBUG)
+	while (pswap->b)
 	{
-		DEBUG--;
-		int v = pswap->b->content;
-		if (list_is_sorted(pswap->a, ASC_ORDER) && v > get_from_lst(ft_max, pswap->a))
-		{
-			apply(pswap, PA);
-			apply(pswap, RA);
-			continue;
-		}
-		int d = dist_to(v, pswap->a);
-		// printf("Dist: %d\n", d);
-		// if (1)
+		int d = dist_to(pswap->b->content, pswap->a);
 		if (d < ft_lstsize(pswap->a) - ft_lstsize(pswap->a) / 2)
 		{
-			// while (pswap->a->content < v + 1)
-			while (d > 0)
-			{
-				d--;
+			while (d-- > 0)
 				apply(pswap, RA);
-			}
-			apply(pswap, PA);
 		}
 		else
 		{
 			int idx = ft_lstsize(pswap->a);
-			while (idx > d)
-			{
-				idx--;
+			while (idx-- > d)
 				apply(pswap, RRA);
-			}
-			apply(pswap, PA);
 		}
+		apply(pswap, PA);
 		// print(pswap, 1);
 	}
 	if (ready_just_rotate(pswap))
 		just_rotate(pswap, 0);
-	// while (count < 0)
-	// 	apply(pswap, RA + count++ * 0);
-	// while (count > 0)
-	// 	apply(pswap, RRA - count-- * 0);
 }
 
 void	sort(t_dstack *pswap)
