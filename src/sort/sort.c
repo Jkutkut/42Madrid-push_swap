@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/30 16:30:03 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:57:01 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,8 +128,11 @@ void	sort_5(t_dstack *pswap)
 
 	while (ft_lstsize(pswap->a) > 3)
 	{
+		// If the current is the next value relative to the next position -> swap positions
+		if (pswap->a->content == pswap->a->next->content + 1)
+			apply(pswap, SA);
 		// If too big, keep it here
-		if (pswap->a->content >= 4)
+		else if (pswap->a->content >= 4)
 			apply(pswap, RA);
 		// If 1st value is greater than the last and the last is less than 3 -> send the lower
 		else if (pswap->a->content > ft_lstlast(pswap->a)->content && ft_lstlast(pswap->a)->content < 3)
