@@ -134,7 +134,6 @@ void	sort_5(t_dstack *pswap)
 		apply(pswap, PB);
 	}
 	sort_3(pswap, 0);
-	// TODO Sort B if already in order?
 
 	int DEBUG = -1;
 	while (pswap->b && DEBUG)
