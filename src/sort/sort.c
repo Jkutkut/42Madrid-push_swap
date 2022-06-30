@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/30 15:33:05 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:14:20 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,24 +114,24 @@ static void	just_rotate(t_dstack *pswap, int l)
 	}
 }
 
-/* just rotate */
+/* just rotate end */
 
 
 void	sort_5(t_dstack *pswap)
 {
-	int	s;
-
 	if (ready_just_rotate(pswap))
 		return just_rotate(pswap, 0);
 
-	s = pswap->size;
-	while (s-- > 3)
+	while (ft_lstsize(pswap->a) > 3)
 	{
-		if (pswap->a->content == get_from_lst(ft_max, pswap->a))
+		// If too big, keep it here
+		if (pswap->a->content >= 4)
 			apply(pswap, RA);
-		if (pswap->a->content > ft_lstlast(pswap->a)->content && ft_lstlast(pswap->a)->content < 2)
+		// If 1st value is greater than the last and the last is less than 3 -> send the lower
+		else if (pswap->a->content > ft_lstlast(pswap->a)->content && ft_lstlast(pswap->a)->content < 3)
 			apply(pswap, RRA);
-		apply(pswap, PB);
+		else
+			apply(pswap, PB);
 	}
 	sort_3(pswap, 0);
 
