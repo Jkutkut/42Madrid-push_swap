@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/30 16:21:53 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/30 16:30:03 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,9 +116,13 @@ static void	just_rotate(t_dstack *pswap, int l)
 
 /* just rotate end */
 
+# define REVERSE_ROTATE 3
 
 void	sort_5(t_dstack *pswap)
 {
+	int	d;
+	int reverse;
+
 	if (ready_just_rotate(pswap))
 		return just_rotate(pswap, 0);
 
@@ -137,20 +141,18 @@ void	sort_5(t_dstack *pswap)
 
 	while (pswap->b)
 	{
-		int d = dist_to(pswap->b->content, pswap->a);
-		if (d < ft_lstsize(pswap->a) - ft_lstsize(pswap->a) / 2)
+		// Get distance to correct spot in stack a
+		d = dist_to(pswap->b->content, pswap->a);
+		reverse = 0;
+		// Check the fastest way to get there
+		if (d >= ft_lstsize(pswap->a) - ft_lstsize(pswap->a) / 2)
 		{
-			while (d-- > 0)
-				apply(pswap, RA);
+			d = ft_lstsize(pswap->a) - d;
+			reverse = REVERSE_ROTATE;
 		}
-		else
-		{
-			int idx = ft_lstsize(pswap->a);
-			while (idx-- > d)
-				apply(pswap, RRA);
-		}
+		while (d--)
+			apply(pswap, RA + reverse);
 		apply(pswap, PA);
-		// print(pswap, 1);
 	}
 	if (ready_just_rotate(pswap))
 		just_rotate(pswap, 0);
@@ -163,7 +165,3 @@ void	sort(t_dstack *pswap)
 	else
 		radix_sort(pswap);
 }
-
-// 1 2 3 5
-// 1 2 3 4
-// 1 2 3 4
