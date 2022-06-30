@@ -83,10 +83,14 @@ static int	index_lst(int v, t_list *lst)
 
 static int	dist_to(int v, t_list *lst)
 {
-	if (v <= get_from_lst(ft_min, lst))
-		return (index_lst(get_from_lst(ft_min, lst), lst));
-	if (v > get_from_lst(ft_max, lst))
-		return (ft_lstsize(lst) + 1);
+	int	m;
+
+	m = get_from_lst(ft_min, lst);
+	if (v <= m)
+		return (index_lst(m, lst));
+	m = get_from_lst(ft_max, lst);
+	if (v > m)
+		return (index_lst(m, lst) + 1);
 	return (dist_to_sandwich(v, lst));
 }
 
