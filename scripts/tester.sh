@@ -76,7 +76,7 @@ file_test() {
 		if [ "$line" = "" ]; then
 			continue
 		fi
-		single_test "$i: {$line}" "$line" $max $outstanding ||
+		single_test "$(printf "%03d" $i): {$line}" "$line" $max $outstanding ||
 		break
 		i=$((i+1))
 	done < $file
