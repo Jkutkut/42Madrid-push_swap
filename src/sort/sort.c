@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/29 12:56:37 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/30 15:33:05 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,14 +148,24 @@ void	sort_5(t_dstack *pswap)
 		}
 		int d = dist_to(v, pswap->a);
 		// printf("Dist: %d\n", d);
-		// if (d < ft_lstsize(pswap->a) / 2)
-		if (1)
+		// if (1)
+		if (d < ft_lstsize(pswap->a) - ft_lstsize(pswap->a) / 2)
 		{
 			// while (pswap->a->content < v + 1)
 			while (d > 0)
 			{
 				d--;
 				apply(pswap, RA);
+			}
+			apply(pswap, PA);
+		}
+		else
+		{
+			int idx = ft_lstsize(pswap->a);
+			while (idx > d)
+			{
+				idx--;
+				apply(pswap, RRA);
 			}
 			apply(pswap, PA);
 		}
@@ -176,3 +186,7 @@ void	sort(t_dstack *pswap)
 	else
 		radix_sort(pswap);
 }
+
+// 1 2 3 5
+// 1 2 3 4
+// 1 2 3 4
