@@ -9,6 +9,10 @@ visualizer_dir=$repo_location.visualizer
 
 VISUALIZER() {
 	ARGS="$@";
+	if [ "$(uname -s)" = "Darwin" ]; then
+		./push_swap $ARGS | pbcopy
+		echo "output copied to clipboard"
+	fi
 	open "https://GlaceCoding.github.io/tools/pushswap/visualizer/?size=15&speed=100&args=$ARGS"
 }
 
@@ -17,10 +21,6 @@ visualizeRandom() {
 	max=$2
 	input=$(ruby -e "puts ($min..$max).to_a.shuffle.join(' ')")
 
-	if [ "$(uname -s)" = "Darwin" ]; then
-		./push_swap $input | pbcopy
-		echo "output copied to clipboard"
-	fi
 	VISUALIZER $input
 }
 
