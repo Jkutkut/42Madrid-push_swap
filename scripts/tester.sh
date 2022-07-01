@@ -55,10 +55,11 @@ single_test() {
 		echo "${RED}[KO]${NC} -> $n_steps steps"
 	else
 		if [ ! "$outstanding" = "" ] && [ $outstanding -ge $n_steps ]; then
-			echo "${GREEN}[Outstanding]${NC}"
+			echo "${GREEN}[Outstanding]${NC}\c"
 		else
-			echo "${GREEN}[OK]${NC}"
+			echo "${GREEN}[OK]${NC}\c"
 		fi
+		echo " -> $n_steps"
 	fi
 }
 
