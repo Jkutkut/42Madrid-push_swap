@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:35:57 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/01 09:51:16 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/07/02 09:40:28 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	parse_input(char *arg, t_dstack *pswap)
 			i++;
 		while (ft_isdigit(arg[i]))
 			i++;
-		if (!ft_hasany(" \t\0", arg[i]))
+		if (!ft_hasany(" \t", arg[i]) && arg[i] != '\0')
 			free_end(pswap, 1, ERROR_INV_ARG);
 		arg[i] = '\0';
 		// if (is_nbr2large(arg + start, i - start))
