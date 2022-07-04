@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/30 16:57:01 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/07/04 08:30:09 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,9 @@ void	sort_5(t_dstack *pswap)
 			apply(pswap, PB);
 	}
 	sort_3(pswap, 0);
+
+	if (ft_lstsize(pswap->b) == 2 && pswap->b->content < pswap->b->next->content)
+		apply(pswap, SB);
 
 	while (pswap->b)
 	{
