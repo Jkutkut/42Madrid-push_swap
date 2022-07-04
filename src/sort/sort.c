@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/04 08:30:09 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/07/04 08:33:39 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,9 @@ void	sort_5(t_dstack *pswap)
 		// If too big, keep it here
 		else if (pswap->a->content >= 4)
 			apply(pswap, RA);
+		// If second value is small, send that one
+		else if (pswap->a->content >= 3 && pswap->a->next->content <= 2)
+			apply(pswap, SA);
 		// If 1st value is greater than the last and the last is less than 3 -> send the lower
 		else if (pswap->a->content > ft_lstlast(pswap->a)->content && ft_lstlast(pswap->a)->content < 3)
 			apply(pswap, RRA);
