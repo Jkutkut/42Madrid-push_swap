@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/06/28 10:39:33 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/07/04 09:20:08 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,17 +41,19 @@ OPERATIONS	=	apply.c \
 				rotate.c \
 				swap.c
 
+SORT_5		=	dist_to_sandwich.c \
+				dist_to.c \
+				index_lst.c \
+				just_rotate.c \
+				ready_just_rotate.c \
+				sort_5.c
+
 SORT		=	is_sorted.c \
 				list_is_sorted.c \
 				radix_sort.c \
 				sort_3.c \
-				sort.c
-
-# SORT		=	is_sorted.c \
-# 				sort_3.c \
-# 				sort_big.c \
-# 				sort_small.c \
-# 				sort.c
+				sort.c \
+				$(SORT_5:%=sort5/%)
 
 PUSH_SWAP_UTILS	=	binary_search.c \
 					free_end.c \

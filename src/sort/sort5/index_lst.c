@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   index_lst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/04 09:16:43 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/07/04 09:14:57 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/07/04 09:15:15 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-void	sort(t_dstack *pswap)
+int	index_lst(int v, t_list *lst)
 {
-	if (pswap->size <= 5)
-		sort_5(pswap);
-	else
-		radix_sort(pswap);
+	int		i;
+	t_list	*tmp;
+
+	i = 0;
+	tmp = lst;
+	while (tmp)
+	{
+		if (tmp->content == v)
+			return (i);
+		tmp = tmp->next;
+		i++;
+	}
+	return (0);
 }

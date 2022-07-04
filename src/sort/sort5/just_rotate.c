@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   just_rotate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/04 09:16:43 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/07/04 08:58:24 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/07/04 09:13:36 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-void	sort(t_dstack *pswap)
+void	just_rotate(t_dstack *pswap, int l)
 {
-	if (pswap->size <= 5)
-		sort_5(pswap);
+	t_list	*lst;
+	int		i;
+
+	lst = pswap->a;
+	if (l == 1)
+		lst = pswap->b;
+	i = dist_to(0, lst);
+	if (i <= ft_lstsize(lst) / 2)
+		while (i-- > 0)
+			apply(pswap, RA + l);
 	else
-		radix_sort(pswap);
+	{
+		i = ft_lstsize(lst) - i;
+		while (i-- > 0)
+			apply(pswap, RRA + l);
+	}
 }
