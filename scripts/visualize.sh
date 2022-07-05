@@ -12,9 +12,11 @@ visualizer_dir=$repo_location.visualizer
 VISUALIZER() {
 	ARGS="$@";
 	if [ "$(uname -s)" = "Darwin" ]; then
+		echo "./push_swap $ARGS | pbcopy"
 		./push_swap $ARGS | pbcopy
 		echo "output copied to mac clipboard"
 	elif [ "$(uname -s)" = "Linux" ]; then
+		echo "./push_swap $ARGS | xclip -selection clipboard"
 		./push_swap $ARGS | xclip -selection clipboard &&
 		echo "Output copied to linux clipboard" ||
 		echo "xclip is not installed. If you want to use it:\n  sudo apt install xclip -y"
@@ -39,11 +41,11 @@ medium() {
 }
 
 big() {
-	visualizeRandom -19 20
+	visualizeRandom 1 100
 }
 
 huge() {
-	visualizeRandom -190 200
+	visualizeRandom 1 500
 }
 
 main() {
