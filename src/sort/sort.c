@@ -6,15 +6,17 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/05 15:53:20 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:27:49 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-#define GROUPS 4
+#define GROUPS_MEDIUM 4
+#define GROUPS_BIG 6 // 100
+#define GROUPS_HUGE 4 // 500
 
-static void	to_b(t_dstack *pswap)
+static void	to_b(t_dstack *pswap, int groups)
 {
 	int	size_b;
 	int	group;
@@ -23,26 +25,48 @@ static void	to_b(t_dstack *pswap)
 	size_b = 0;
 	while (pswap->a)
 	{
-		if (pswap->a->content * GROUPS / pswap->size == group)
+		if (pswap->a->content * groups / pswap->size == group)
 		{
 			apply(pswap, PB);
-			if ((double) pswap->b->content < (0.5 + group) * (pswap->size / GROUPS))
+			if ((double) pswap->b->content < (0.5 + group) * (pswap->size / groups))
 				if (ft_lstsize(pswap->b) > 1)
 					apply(pswap, RB);
-			group = ++size_b * GROUPS / pswap->size;
+			group = ++size_b * groups / pswap->size;
 		}
 		else
 			apply(pswap, RA);
 	}
 }
 
+static int	sortest_dist_to(int v, t_list *lst)
+{
+	int	d;
+
+	d = index_lst(v, lst);
+	if (d >= ft_lstsize(lst) / 2)
+		d = d - ft_lstsize(lst);
+	return d;
+}
+
+static int	sortest_dist_to_values(int v1, int v2, t_list *lst)
+{
+	int	d1;
+	int	d2;
+
+	d1 = sortest_dist_to(v1, lst);
+	d2 = sortest_dist_to(v2, lst);
+	if (ft_abs(d1) < ft_abs(d2))
+		return (d1);
+	return d2;
+}
+
 static void	move_subgroup(t_dstack *pswap, int min, int max)
 {
-	int	dir;
+	int	d;
 
-	dir = 0;
-	while (min < max)
+	while (min <= max)
 	{
+
 		if (pswap->b->content == max)
 			apply(pswap, PA + 0 * max--);
 		else if (pswap->b->content == min)
@@ -52,42 +76,35 @@ static void	move_subgroup(t_dstack *pswap, int min, int max)
 				apply(pswap, RA);
 			min++;
 		}
+
 		else if (ft_lstlast(pswap->b)->content == min)
-		{
 			apply(pswap, RRB);
-		}
-		else if (pswap->b->content < min)
-		{
-			dir = (dir + 1) % 2;
-			if (pswap->b->next->content < min)
-				dir = 1;
-			apply(pswap, RB + dir * 3);
-		}
 		else
 		{
-			apply(pswap, RB + dir * 3);
+			d = sortest_dist_to_values(max, min, pswap->b);
+			while (d > 0)
+				apply(pswap, RB + 0 * d--);
+			while (d < 0)
+				apply(pswap, RRB + 0 * d++);
 		}
 	}
-	if (pswap->b->content != min)
-		apply(pswap, RRB);
-	apply(pswap, PA);
 
 	min = get_from_lst(ft_min, pswap->a);
 	while (pswap->a->content > min)
 		apply(pswap, RRA);
 }
 
-static void	back_to_a(t_dstack *pswap)
+static void	back_to_a(t_dstack *pswap, int groups)
 {
 	int	group;
 	int	min;
 	int	max;
 
-	group = GROUPS;
+	group = groups;
 	while (group-- > 0)
 	{
-		max = (group + 1) * (pswap->size / GROUPS) - 1;
-		min = group * (pswap->size / GROUPS);
+		max = (group + 1) * (pswap->size / groups) - 1;
+		min = group * (pswap->size / groups);
 		max = ft_max(get_from_lst(ft_max, pswap->b), max);
 		move_subgroup(pswap, min, max);
 	}
@@ -95,8 +112,15 @@ static void	back_to_a(t_dstack *pswap)
 
 void	sort_chunks(t_dstack *pswap)
 {
-	to_b(pswap);
-	back_to_a(pswap);
+	int	groups;
+
+	groups = GROUPS_HUGE;
+	if (pswap->size < 80)
+		groups = GROUPS_MEDIUM;
+	else if (pswap->size < 300)
+		groups = GROUPS_BIG;
+	to_b(pswap, groups);
+	back_to_a(pswap, groups);
 }
 
 
