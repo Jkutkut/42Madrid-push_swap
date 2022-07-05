@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/07/04 09:20:08 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/07/05 17:07:00 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,6 +75,7 @@ T_LIST		=	ft_lstnew.c \
 				ft_lstmap.c
 
 TOOLS		=	end.c \
+				ft_abs.c \
 				ft_atoi.c \
 				ft_hasany.c \
 				ft_isdigit.c \

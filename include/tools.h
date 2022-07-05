@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 10:39:58 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/24 08:28:36 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:07:15 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 
 void	end(int endtype, char *msg);
+int	ft_abs(int nbr);
 int		ft_atoi(const char *nptr);
 int		ft_hasany(const char *str, char c);
 int		ft_isdigit(int c);
