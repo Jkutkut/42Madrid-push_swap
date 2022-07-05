@@ -11,7 +11,11 @@ VISUALIZER() {
 	ARGS="$@";
 	if [ "$(uname -s)" = "Darwin" ]; then
 		./push_swap $ARGS | pbcopy
-		echo "output copied to clipboard"
+		echo "output copied to mac clipboard"
+	elif [ "$(uname -s)" = "Linux" ]; then
+		./push_swap $ARGS | xclip -selection clipboard &&
+		echo "Output copied to linux clipboard" ||
+		echo "xclip is not installed. If you want to use it:\n  sudo apt install xclip -y"
 	fi
 	open "https://GlaceCoding.github.io/tools/pushswap/visualizer/?size=15&speed=100&args=$ARGS"
 }
