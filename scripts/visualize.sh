@@ -1,5 +1,7 @@
 #!/bin/sh
 
+SPEED=50
+
 repo_location=./
 if [ ! -f "$repo_location/Makefile" ]; then
 	repo_location=../
@@ -17,7 +19,7 @@ VISUALIZER() {
 		echo "Output copied to linux clipboard" ||
 		echo "xclip is not installed. If you want to use it:\n  sudo apt install xclip -y"
 	fi
-	open "https://GlaceCoding.github.io/tools/pushswap/visualizer/?size=15&speed=100&args=$ARGS"
+	open "https://GlaceCoding.github.io/tools/pushswap/visualizer/?size=15&speed=$SPEED&args=$ARGS"
 }
 
 visualizeRandom() {
