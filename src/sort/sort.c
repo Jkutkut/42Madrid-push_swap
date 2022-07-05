@@ -6,16 +6,80 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/04 09:16:43 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/07/05 15:21:44 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
+
+#define GROUPS 4
+
+static void	to_b(t_dstack *pswap)
+{
+	int	size_b;
+	int	group;
+
+	group = 0;
+	size_b = 0;
+	while (pswap->a)
+	{
+		if (pswap->a->content * GROUPS / pswap->size == group)
+		{
+			apply(pswap, PB);
+			if ((double) pswap->b->content < (0.5 + group) * (pswap->size / GROUPS))
+				if (ft_lstsize(pswap->b) > 1)
+					apply(pswap, RB);
+			group = ++size_b * GROUPS / pswap->size;
+		}
+		else
+			apply(pswap, RA);
+	}
+}
+
+static void	move_subgroup(t_dstack *pswap, int min, int max)
+{
+	while (min <= max)
+	{
+		if (pswap->b->content == max)
+		{
+			max--;
+			apply(pswap, PA);
+		}
+		else
+		{
+			apply(pswap, RB);
+		}
+	}
+}
+
+static void	back_to_a(t_dstack *pswap)
+{
+	int	group;
+	int	min;
+	int	max;
+
+	group = GROUPS;
+	while (group-- > 0)
+	{
+		max = (group + 1) * (pswap->size / GROUPS) - 1;
+		min = group * (pswap->size / GROUPS);
+		max = ft_max(get_from_lst(ft_max, pswap->b), max);
+		move_subgroup(pswap, min, max);
+	}
+}
+
+void	sort_chunks(t_dstack *pswap)
+{
+	to_b(pswap);
+	back_to_a(pswap);
+}
+
 
 void	sort(t_dstack *pswap)
 {
 	if (pswap->size <= 5)
 		sort_5(pswap);
 	else
-		radix_sort(pswap);
+		sort_chunks(pswap);
+		// radix_sort(pswap);
 }
