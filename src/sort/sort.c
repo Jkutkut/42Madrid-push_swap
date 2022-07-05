@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/05 15:39:51 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/07/05 15:53:20 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,40 @@ static void	to_b(t_dstack *pswap)
 
 static void	move_subgroup(t_dstack *pswap, int min, int max)
 {
-	while (min <= max)
+	int	dir;
+
+	dir = 0;
+	while (min < max)
 	{
 		if (pswap->b->content == max)
 			apply(pswap, PA + 0 * max--);
-		else if (ft_lstlast(pswap->b)->content == min)
+		else if (pswap->b->content == min)
 		{
-			apply(pswap, RRB);
 			apply(pswap, PA);
 			if (ft_lstsize(pswap->a) >= 2)
 				apply(pswap, RA);
 			min++;
 		}
+		else if (ft_lstlast(pswap->b)->content == min)
+		{
+			apply(pswap, RRB);
+		}
+		else if (pswap->b->content < min)
+		{
+			dir = (dir + 1) % 2;
+			if (pswap->b->next->content < min)
+				dir = 1;
+			apply(pswap, RB + dir * 3);
+		}
 		else
 		{
-			apply(pswap, RB);
+			apply(pswap, RB + dir * 3);
 		}
 	}
+	if (pswap->b->content != min)
+		apply(pswap, RRB);
+	apply(pswap, PA);
+
 	min = get_from_lst(ft_min, pswap->a);
 	while (pswap->a->content > min)
 		apply(pswap, RRA);
