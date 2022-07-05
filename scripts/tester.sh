@@ -18,9 +18,9 @@ executable=${repo_location}push_swap
 checker=${repo_location}checker
 os=$(uname -s)
 if [ ! -f $checker ]; then
-	if [ "$1" == "--linux" ]; then
+	if [ "$1" = "--linux" ]; then
 		checker=${repo_location}checker_linux
-	elif [ "$1" == "--mac" ]; then
+	elif [ "$1" = "--mac" ]; then
 		checker=${repo_location}checker_mac
 	elif [ "$os" = "Linux" ]; then
 		checker=${repo_location}checker_linux
@@ -173,20 +173,42 @@ main() {
 
 	file_test "${repo_location}.test/input_3elements" 3 2
 	# file_test "${repo_location}.test/input_5elements" 12 8
-	random_test 20 5  12 8
+	random_test 50 5  12 8
 	# if [ "$1" == "--full" ]; then
 	# 	random_test 20 4  12 8
 	# 	random_test 20 6  12 8
 	# fi
-	random_test 20 100 -1 "700 900 1100 1300 1500"
+	random_test 50 100 -1 "700 900 1100 1300 1500"
 	if [ "$1" = "--full" ]; then
 		random_test 10 99 -1 "700 900 1100 1300 1500"
 		random_test 10 101 -1 "700 900 1100 1300 1500"
 	fi
-	random_test 20 500 -1 "5500 7000 8500 100000 11500"
+	random_test 50 500 -1 "5500 7000 8500 100000 11500"
 	if [ "$1" = "--full" ]; then
 		random_test 20 499 -1 "5500 7000 8500 100000 11500"
 		random_test 20 501 -1 "5500 7000 8500 100000 11500"
+	fi
+
+	if [ "$1" = "--full" ]; then
+		random_test 10 20     70000 600
+		random_test 10 40     70000 600
+		random_test 10 60     70000 600
+		random_test 10 80     70000 600
+		random_test 10 100    70000 600
+		random_test 10 140    70000 600
+		random_test 10 180    70000 600
+		random_test 10 200    70000 600
+		random_test 10 250    70000 600
+		random_test 10 300    70000 600
+		random_test 10 350    70000 600
+		random_test 10 400    70000 600
+		random_test 10 450    70000 600
+		random_test 10 500    70000 600
+		random_test 10 600    70000 600
+		random_test 10 650    70000 600
+		random_test 10 700    70000 600
+		random_test 10 800    70000 600
+		random_test 10 2000    70000 600
 	fi
 }
 trap "echo ERROR;" 2

@@ -6,15 +6,15 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/05 17:27:49 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:38:48 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
 #define GROUPS_MEDIUM 4
-#define GROUPS_BIG 6 // 100
-#define GROUPS_HUGE 4 // 500
+#define GROUPS_BIG 4 // 100
+#define GROUPS_HUGE 8 // 500
 
 static void	to_b(t_dstack *pswap, int groups)
 {
