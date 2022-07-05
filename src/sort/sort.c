@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/05 15:21:44 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/07/05 15:39:51 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,23 @@ static void	move_subgroup(t_dstack *pswap, int min, int max)
 	while (min <= max)
 	{
 		if (pswap->b->content == max)
+			apply(pswap, PA + 0 * max--);
+		else if (ft_lstlast(pswap->b)->content == min)
 		{
-			max--;
+			apply(pswap, RRB);
 			apply(pswap, PA);
+			if (ft_lstsize(pswap->a) >= 2)
+				apply(pswap, RA);
+			min++;
 		}
 		else
 		{
 			apply(pswap, RB);
 		}
 	}
+	min = get_from_lst(ft_min, pswap->a);
+	while (pswap->a->content > min)
+		apply(pswap, RRA);
 }
 
 static void	back_to_a(t_dstack *pswap)
