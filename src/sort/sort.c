@@ -6,20 +6,47 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/05 17:38:48 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:17:31 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-#define GROUPS_MEDIUM 4
+#define GROUPS_MEDIUM 3
 #define GROUPS_BIG 4 // 100
-#define GROUPS_HUGE 8 // 500
+#define GROUPS_HUGE 7 // 500
+
+// to b
+
+static int	sortest_dist_to_range(t_list *lst, int group, int psize, int groups)
+{
+	int min;
+	int max;
+	int	md;
+	int	d;
+
+	max = (group + 1) * (pswap->size / groups) - 1;
+	min = group * (pswap->size / groups);
+	if (lst->content <= min && lst->content >= max)
+		return (0);
+	md = ft_lstsize(lst);
+	while (min < max && md)
+	{
+		d = sortest_dist_to(min, lst);
+		// if (d == 0 && lst->content != min)
+		// 	continue;
+		if (ft_abs(d) < ft_abs(md))
+			md = d;
+		min++;
+	}
+	return md;
+}
 
 static void	to_b(t_dstack *pswap, int groups)
 {
 	int	size_b;
 	int	group;
+	int	d;
 
 	group = 0;
 	size_b = 0;
@@ -34,9 +61,14 @@ static void	to_b(t_dstack *pswap, int groups)
 			group = ++size_b * groups / pswap->size;
 		}
 		else
-			apply(pswap, RA);
+		{
+			// apply(pswap, RA);
+			d = sortest_dist_to_range()
+		}
 	}
 }
+
+// to a
 
 static int	sortest_dist_to(int v, t_list *lst)
 {
