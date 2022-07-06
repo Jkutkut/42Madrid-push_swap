@@ -9,6 +9,6 @@ run
 
 
 norminette_tester.sh
-test*
-tester*
+*test*
+*tester*
 printfTest*
