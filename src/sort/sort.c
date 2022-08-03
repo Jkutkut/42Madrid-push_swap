@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/06 11:17:31 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/08/03 13:44:44 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,6 @@ void	sort(t_dstack *pswap)
 	if (pswap->size <= 5)
 		sort_5(pswap);
 	else
-		sort_chunks(pswap);
-		// radix_sort(pswap);
+		radix_sort(pswap);
+		// sort_chunks(pswap);
 }
