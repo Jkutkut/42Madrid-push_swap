@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:35:57 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/08/03 13:44:57 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/10/30 09:49:51 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	parse_input(char *arg, t_dstack *pswap)
 	int		i;
 	int		len;
 	int		start;
-	char	*result;
 
 	i = 0;
 	len = ft_strlen(arg);

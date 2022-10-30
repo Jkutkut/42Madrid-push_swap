@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/08/03 13:44:44 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/10/30 10:01:30 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #define GROUPS_MEDIUM 3
 #define GROUPS_BIG 4 // 100
 #define GROUPS_HUGE 7 // 500
+
+static int	sortest_dist_to(int v, t_list *lst);
 
 // to b
 
@@ -25,8 +27,8 @@ static int	sortest_dist_to_range(t_list *lst, int group, int psize, int groups)
 	int	md;
 	int	d;
 
-	max = (group + 1) * (pswap->size / groups) - 1;
-	min = group * (pswap->size / groups);
+	max = (group + 1) * (psize / groups) - 1;
+	min = group * (psize / groups);
 	if (lst->content <= min && lst->content >= max)
 		return (0);
 	md = ft_lstsize(lst);
@@ -63,7 +65,12 @@ static void	to_b(t_dstack *pswap, int groups)
 		else
 		{
 			// apply(pswap, RA);
-			d = sortest_dist_to_range()
+			d = sortest_dist_to_range(pswap->a, group, pswap->size, groups);
+			if (d < 0)
+				apply(pswap, RRA);
+			else if (d > 0)
+				apply(pswap, RA);
+
 		}
 	}
 }
