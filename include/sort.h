@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/04 09:16:52 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:46:52 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int		index_lst(int v, t_list *lst);
 void	just_rotate(t_dstack *pswap, int l);
 int		ready_just_rotate(t_dstack *pswap);
 void	sort_5(t_dstack *pswap);
+void	sort_chunks(t_dstack *pswap);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/07/05 17:07:00 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/11/09 16:37:52 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SORT		=	is_sorted.c \
 				list_is_sorted.c \
 				radix_sort.c \
 				sort_3.c \
+				sort_chunks.c \
 				sort.c \
 				$(SORT_5:%=sort5/%)
 
