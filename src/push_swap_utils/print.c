@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:48:37 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/24 08:16:59 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:07:09 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include "push_swap.h"
 
 # define MAXNUMLEN 3
 

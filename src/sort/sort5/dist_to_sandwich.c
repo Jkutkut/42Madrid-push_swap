@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:52:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/04 08:52:47 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:02:38 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sort.h"
+#include "push_swap.h"
 
 int	dist_to_sandwich(int v, t_list *lst)
 {

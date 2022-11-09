@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:37:15 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 17:45:06 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:00:39 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sort.h"
+#include "push_swap.h"
 
 #define GROUPS_MEDIUM 3
 #define GROUPS_BIG 4 // 100

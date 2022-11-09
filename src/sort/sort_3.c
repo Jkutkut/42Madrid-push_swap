@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:15:54 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/04/02 21:08:32 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:00:52 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sort.h"
+#include "push_swap.h"
 
 void	sort_3(t_dstack *pswap, int l)
 {

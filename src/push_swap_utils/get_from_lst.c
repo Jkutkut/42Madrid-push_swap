@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:03:51 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/24 09:41:11 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:07:48 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
+#include "push_swap.h"
 
 int	get_from_lst(int (*f)(int, int), t_list *lst)
 {

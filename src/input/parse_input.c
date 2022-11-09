@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:35:57 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/10/30 09:49:51 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:05:04 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "input.h"
+#include "push_swap.h"
 
 #define MAX_INT_LEN 11
 #define MAX_INT "2147483647"

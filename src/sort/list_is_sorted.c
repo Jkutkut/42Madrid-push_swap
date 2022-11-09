@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:34:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/28 23:11:44 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:02:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sort.h"
+#include "push_swap.h"
 
 
 int	list_is_sorted(t_list *lst, int type)

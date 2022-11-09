@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 11:43:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 22:29:46 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:09:16 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools.h"
+#include "push_swap.h"
 
 /**
  * @brief Ends the execution of the program
@@ -21,7 +21,7 @@
 void	end(int endtype, char *msg)
 {
 	if (endtype == 1)
-		ft_putstr_fd("Error: \n", 2);
+		ft_putstr_fd(ERROR, 2);
 	ft_putstr_fd(msg, endtype + 1);
 	exit(endtype);
 }

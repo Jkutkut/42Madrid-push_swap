@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 09:14:14 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/04 09:14:32 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:01:53 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sort.h"
+#include "push_swap.h"
 
 int	dist_to(int v, t_list *lst)
 {

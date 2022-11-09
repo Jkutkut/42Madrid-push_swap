@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 08:09:26 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/24 10:15:22 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:04:42 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "input.h"
+#include "push_swap.h"
 
 void	check_input(t_dstack *pswap)
 {

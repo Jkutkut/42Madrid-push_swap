@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:58:24 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/07/04 09:13:36 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/09 20:01:32 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sort.h"
+#include "push_swap.h"
 
 void	just_rotate(t_dstack *pswap, int l)
 {
