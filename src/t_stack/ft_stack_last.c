@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_stack_last.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:01:41 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 12:04:13 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/01/26 18:02:24 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/11/12 19:39:13 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_list.h"
+#include "t_stack.h"
 
 /**
- * @brief Returns the number of elements in a linked list.
- * 
- * @param lst Linked list.
- * @return int Number of elements.
+ * @brief Returns the last element of a stack.
+ *
+ * @param stack
+ * @return t_stack* Pointer to the last element.
  */
-int	ft_lstsize(t_list *lst)
+t_stack	*ft_stack_last(t_stack *stack)
 {
-	if (lst == NULL)
-		return (0);
-	if (lst->next == NULL)
-		return (1);
-	return (1 + ft_lstsize(lst->next));
+	if (stack == NULL)
+		return (NULL);
+	if (stack->next != NULL)
+		return (ft_stack_last(stack->next));
+	return (stack);
 }

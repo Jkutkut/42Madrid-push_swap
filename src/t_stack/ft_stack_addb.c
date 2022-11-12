@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_stack_addb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:03:47 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 20:08:25 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/01/26 18:02:58 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/11/12 19:16:51 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_list.h"
-
-void	ft_lstdelone(t_list *lst);
+#include "t_stack.h"
 
 /**
- * @brief Destroys the given linked list.
+ * @brief Adds a new element at the end of the stack.
  * 
- * @param lst Linked list.
+ * @param stack
+ * @param new New element.
  */
-void	ft_lstclear(t_list **lst)
+void	ft_lstadd_back(t_stack **stack, t_stack *new)
 {
-	if (lst == NULL || *lst == NULL)
+	if (stack == NULL || new == NULL)
 		return ;
-	ft_lstclear(&(*lst)->next);
-	ft_lstdelone(*lst);
-	*lst = NULL;
+	if (*stack == NULL)
+		*stack = new;
+	else
+		ft_stack_last(*stack)->next = new;
 }

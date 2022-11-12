@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_stack_clear.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 17:59:52 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 20:35:00 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/01/26 18:03:47 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/11/12 19:41:06 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_list.h"
+#include "t_stack.h"
+
+void	ft_stack_del(t_stack *stack);
 
 /**
- * @brief Creates a new element of a linked list and returns a pointer to it.
+ * @brief Destroys the given stack.
  * 
- * @param content Pointer to the content of the new element.
- * @return t_list* Pointer to the new element.
+ * @param stack
  */
-t_list	*ft_lstnew(int content)
+void	ft_stack_clear(t_stack **stack)
 {
-	t_list	*e;
-
-	e = malloc(sizeof(t_list));
-	if (e == NULL)
-		return (NULL);
-	e->content = content;
-	e->next = NULL;
-	return (e);
+	if (stack == NULL || *stack == NULL)
+		return ;
+	ft_stack_clear(&(*stack)->next);
+	ft_stack_del(*stack);
+	*stack = NULL;
 }

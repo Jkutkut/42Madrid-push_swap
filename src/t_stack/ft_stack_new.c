@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_stack_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:02:58 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 12:04:13 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/01/26 17:59:52 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/11/12 19:40:22 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_list.h"
+#include "t_stack.h"
 
 /**
- * @brief Adds a new element at the end of a linked list.
+ * @brief Creates a new element of a stack and returns a pointer to it.
  * 
- * @param lst Linked list.
- * @param new New element.
+ * @param content Pointer to the content of the new element.
+ * @return t_stack* Pointer to the new element.
  */
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_stack	*ft_stack_new(int content)
 {
-	if (lst == NULL || new == NULL)
-		return ;
-	if (*lst == NULL)
-		*lst = new;
-	else
-		ft_lstlast(*lst)->next = new;
+	t_stack	*e;
+
+	e = malloc(sizeof(t_stack));
+	if (e == NULL)
+		return (NULL);
+	e->content = content;
+	e->next = NULL;
+	return (e);
 }

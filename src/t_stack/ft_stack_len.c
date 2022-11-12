@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_stack_len.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:03:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 22:28:42 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/01/26 18:01:41 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/11/12 19:38:31 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_list.h"
+#include "t_stack.h"
 
 /**
- * @brief Deletes the given element with the given function.
- * 
- * @param lst Element to delete.
+ * @brief Returns the number of elements in a stack.
+ *
+ * @param stack
+ * @return int Number of elements.
  */
-void	ft_lstdelone(t_list *lst)
+int	ft_stack_len(t_stack *stack)
 {
-	if (lst == NULL)
-		return ;
-	free(lst);
+	if (stack == NULL)
+		return (0);
+	if (stack->next == NULL)
+		return (1);
+	return (1 + ft_stack_len(stack->next));
 }

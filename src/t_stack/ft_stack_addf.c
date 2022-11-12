@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_stack_addf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:02:24 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 12:04:13 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/01/26 18:00:55 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/11/12 19:41:21 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_list.h"
+#include "t_stack.h"
 
 /**
- * @brief Returns the last element of a linked list.
+ * @brief Adds a new element at the beginning of a stack.
  * 
- * @param lst Linked list.
- * @return t_list* Pointer to the last element.
+ * @param stack
+ * @param new New element to add.
  */
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstadd_front(t_stack **stack, t_stack *new)
 {
-	if (lst == NULL)
-		return (NULL);
-	if (lst->next != NULL)
-		return (ft_lstlast(lst->next));
-	return (lst);
+	new->next = *stack;
+	*stack = new;
 }

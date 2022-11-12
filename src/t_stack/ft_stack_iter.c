@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_stack_iter.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 18:00:55 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/03/21 12:04:13 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/01/26 18:03:54 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/11/12 18:57:51 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_list.h"
+#include "t_stack.h"
 
 /**
- * @brief Adds a new element at the beginning of a linked list.
+ * @brief Iterates the full stack, running f on each element.
  * 
- * @param lst Linked list.
- * @param new New element to add.
+ * @param stack
+ * @param f Function to run on each element.
  */
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_stack_iter(t_stack *stack, int (*f)(int))
 {
-	new->next = *lst;
-	*lst = new;
+	if (stack == NULL)
+		return ;
+	stack->content = f(stack->content);
+	if (stack->next != NULL)
+		ft_stack_iter(stack->next, f);
 }

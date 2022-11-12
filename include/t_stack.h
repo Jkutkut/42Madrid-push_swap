@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_list.h                                           :+:      :+:    :+:   */
+/*   t_stack.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 17:59:46 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/16 08:12:42 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/12 19:46:41 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-#ifndef T_LIST_H
-#define T_LIST_H
+#ifndef T_STACK_H
+#define T_STACK_H
 
 #include <stdlib.h>
 
-typedef struct s_list
+typedef struct s_stack
 {
 	int				content;
-	struct s_list	*next;
-}					t_list;
+	struct s_stack	*next;
+}					t_stack;
 
-t_list	*ft_lstnew(int value);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst);
-void	ft_lstclear(t_list **lst);
-void	ft_lstiter(t_list *lst, void (*f)(int));
-t_list	*ft_lstmap(t_list *lst, int (*f)(int));
-
+void	ft_stack_addb(t_stack **stack, t_stack *new);
+void	ft_stack_addf(t_stack **stack, t_stack *new);
+void	ft_stack_clear(t_stack **stack);
+void	ft_stack_del(t_stack *stack);
+void	ft_stack_iter(t_stack *stack, int (*f)(int)); // TODO use to normalize
+t_stack	*ft_stack_last(t_stack *stack);
+int		ft_stack_len(t_stack *stack);
+t_stack	*ft_stack_new(int value);
 #endif
