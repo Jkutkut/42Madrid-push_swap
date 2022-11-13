@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/11/09 16:37:52 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/11/14 11:23:16 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,12 @@ TITLE		=	\033[38;5;33m
 # Compile variables
 LIB_CC		=	ar rcT
 CC			=	gcc
-FLAGS		=	-Wall -Wextra #-fsanitize=address #-Werror
-COMPILE		=	$(CC) $(FLAGS) -I include/
+FLAGS		=	-Wall -Wextra -Werror #-fsanitize=address #-Werror
+COMPILE		=	$(CC) $(FLAGS) -I include/ -I libft/include/
 
 # Code variables
-
+LIBFT_DIR	=	libft
+LIBFT		=	${LIBFT_DIR}/libft.a
 NAME		=	push_swap
 
 INPUT		=	check_input.c \
@@ -41,68 +42,47 @@ OPERATIONS	=	apply.c \
 				rotate.c \
 				swap.c
 
-SORT_5		=	dist_to_sandwich.c \
-				dist_to.c \
-				index_lst.c \
+PUSH_SWAP_UTILS	=	binary_search.c \
+					free_end.c \
+					get_from_stack.c \
+					merge_sort.c \
+					print.c \
+					stack_to_array.c \
+					z_miscellaneous.c
+
+SORT_5		=	dist_to.c \
+				dist_to_sandwich.c \
+				index_stack.c \
 				just_rotate.c \
 				ready_just_rotate.c \
 				sort_5.c
 
 SORT		=	is_sorted.c \
-				list_is_sorted.c \
 				radix_sort.c \
 				sort_3.c \
-				sort_chunks.c \
+				$(SORT_5:%=sort5/%) \
 				sort.c \
-				$(SORT_5:%=sort5/%)
-
-PUSH_SWAP_UTILS	=	binary_search.c \
-					free_end.c \
-					get_from_lst.c \
-					linkedlist_to_array.c \
-					merge_sort.c \
-					print.c \
-					z_miscellaneous.c
-
-
-T_LIST		=	ft_lstnew.c \
-				ft_lstadd_front.c \
-				ft_lstsize.c \
-				ft_lstlast.c \
-				ft_lstadd_back.c \
-				ft_lstdelone.c \
-				ft_lstclear.c \
-				ft_lstiter.c \
-				ft_lstmap.c
+				sort_chunks.c \
+				stack_is_sorted.c
 
 TOOLS		=	end.c \
-				ft_abs.c \
-				ft_atoi.c \
-				ft_hasany.c \
-				ft_isdigit.c \
-				ft_itoa.c \
-				ft_memmove.c \
-				ft_ndigits.c \
-				ft_putstr_fd.c \
-				ft_strlcpy.c \
-				ft_strlen.c \
-				ft_strncmp.c
+				ft_abs.c
 
+T_STACK		=	ft_stack_addb.c \
+				ft_stack_addf.c \
+				ft_stack_clear.c \
+				ft_stack_del.c \
+				ft_stack_last.c \
+				ft_stack_len.c \
+				ft_stack_new.c
 
-SRCS		=	push_swap.c \
-				${INPUT:%=input/%} \
+SRCS		=	${INPUT:%=input/%} \
 				${OPERATIONS:%=operations/%} \
+				push_swap.c \
 				${PUSH_SWAP_UTILS:%=push_swap_utils/%} \
 				${SORT:%=sort/%} \
-				${T_LIST:%=t_list/%} \
-				${TOOLS:%=tools/%}
-# ft_pushswap.c \
-# ${INPUT:%=input/%} \
-# ${OPERATIONS:%=operations/%} \
-# ${PRINT:%=print/%} \
-# ${SORT:%=sort/%} \
-# ${T_LIST:%=t_list/%} \
-# ${TOOLS:%=tools/%}
+				${TOOLS:%=tools/%} \
+				${T_STACK:%=t_stack/%}
 
 OBJS		=	${SRCS:%.c=bin/%.o}
 
@@ -125,7 +105,7 @@ BONUS_OBJS		=	${BONUS_SRCS:%.c=bin/%.o}
 all: $(NAME)
 re: fclean all
 
-$(NAME):	$(LIBFT) $(OBJS)
+$(NAME):	$(OBJS) $(LIBFT)
 	@echo "${TITLE}Compiling ${YELLOW}$(NAME)${NC}\c"
 	@$(COMPILE) $(OBJS) $(LIBFT) -o $(NAME)
 	@echo "${LGREEN} [OK]${NC}"
@@ -137,7 +117,7 @@ bin/%.o: src/%.c
 	@echo "${GREEN} [OK]${NC}"
 
 $(LIBFT):
-	make -C $(LIBFT_DIR) BIN="../../bin/libft"
+	make -C $(LIBFT_DIR) BIN="../bin/libft"
 
 bonus: $(BONUS_NAME)
 

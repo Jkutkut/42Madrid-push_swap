@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:55:10 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 20:01:43 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/14 11:10:16 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ready_just_rotate(t_dstack *pswap)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 	int		i;
 
 	if (pswap->b)

@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:15:54 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 20:00:52 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:58:00 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,33 @@
 
 void	sort_3(t_dstack *pswap, int l)
 {
-	t_list	*lst;
+	t_stack	*s;
 	int		max;
 	int		min;
 
-	lst = pswap->a;
+	s = pswap->a;
 	if (l == 1)
-		lst = pswap->b;
-	if (ft_lstsize(lst) < 3)
+		s = pswap->b;
+	if (ft_stack_len(s) < 3)
 	{
-		if (ft_lstsize(lst) == 2 && lst->content > lst->next->content)
+		if (ft_stack_len(s) == 2 && s->content > s->next->content)
 			apply(pswap, SA + l);
 		return ;
 	}
-	max = get_from_lst(ft_max, lst);
-	min = get_from_lst(ft_min, lst);
-	if (lst->content == min && lst->next->content == max)
+	max = get_from_stack(ft_max, s);
+	min = get_from_stack(ft_min, s);
+	if (s->content == min && s->next->content == max)
 	{
 		apply(pswap, RRA + l);
 		apply(pswap, SA + l);
 	}
-	else if(lst->next->content == min && lst->content != max)
+	else if(s->next->content == min && s->content != max)
 			apply(pswap, SA + l);
-	else if(lst->next->content == max && lst->content != min)
+	else if(s->next->content == max && s->content != min)
 		apply(pswap, RRA + l);
-	else if (lst->content == max && lst->next->content == min)
+	else if (s->content == max && s->next->content == min)
 		apply(pswap, RA + l);
-	else if (lst->content == max && lst->next->content != min)
+	else if (s->content == max && s->next->content != min)
 	{
 		apply(pswap, SA + l);
 		apply(pswap, RRA + l);

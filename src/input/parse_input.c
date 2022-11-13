@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:35:57 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 20:05:04 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/12 20:07:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	parse_input(char *arg, t_dstack *pswap)
 		arg[i] = '\0';
 		if (is_nbr2large(arg + start, i - start + 1))
 			free_end(pswap, 1, ERROR_NBR2LARGE);
-		ft_lstadd_back(&pswap->a, ft_lstnew(ft_atoi(arg + start)));
+		ft_stack_addb(&pswap->a, ft_stack_new(ft_atoi(arg + start)));
 		if (i < len)
 			arg[i] = ' ';
 	}

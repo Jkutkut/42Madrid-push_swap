@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:02:58 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/12 19:16:51 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/14 11:24:21 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param stack
  * @param new New element.
  */
-void	ft_lstadd_back(t_stack **stack, t_stack *new)
+void	ft_stack_addb(t_stack **stack, t_stack *new)
 {
 	if (stack == NULL || new == NULL)
 		return ;

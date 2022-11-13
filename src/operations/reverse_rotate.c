@@ -6,16 +6,16 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 09:40:11 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 20:05:23 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:45:46 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	reverse_rotate_list(t_list **lst)
+static int	reverse_rotate_stack(t_stack **lst)
 {
-	t_list	*current;
-	t_list	*tmp;
+	t_stack	*current;
+	t_stack	*tmp;
 
 	if (*lst == NULL || (*lst)->next == NULL)
 		return (0);
@@ -31,21 +31,21 @@ static int	reverse_rotate_list(t_list **lst)
 
 char	*rra(t_dstack *pswap)
 {
-	if (!reverse_rotate_list(&pswap->a))
+	if (!reverse_rotate_stack(&pswap->a))
 		return (NULL);
 	return ("rra");
 }
 
 char	*rrb(t_dstack *pswap)
 {
-	if (!reverse_rotate_list(&pswap->b))
+	if (!reverse_rotate_stack(&pswap->b))
 		return (NULL);
 	return ("rrb");
 }
 
 char	*rrr(t_dstack *pswap)
 {
-	if (!reverse_rotate_list(&pswap->a) || !reverse_rotate_list(&pswap->b))
+	if (!reverse_rotate_stack(&pswap->a) || !reverse_rotate_stack(&pswap->b))
 		return (NULL);
 	return ("rrr");
 }

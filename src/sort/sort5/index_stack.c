@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linkedlist_to_array.c                              :+:      :+:    :+:   */
+/*   index_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 22:00:58 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 20:07:24 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/07/04 09:14:57 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/11/14 11:04:07 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*linkedlist_to_array(t_list *lst, int size)
+int	index_stack(int v, t_stack *stack)
 {
-	int		*array;
 	int		i;
-	t_list	*tmp;
+	t_stack	*tmp;
 
-	array = (int *) malloc(sizeof(int) * size);
-	if (!array)
-		return (NULL);
 	i = 0;
-	tmp = lst;
+	tmp = stack;
 	while (tmp)
 	{
-		array[i++] = tmp->content;
+		if (tmp->content == v)
+			return (i);
 		tmp = tmp->next;
+		i++;
 	}
-	return (array);
+	return (0);
 }

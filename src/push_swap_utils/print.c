@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:48:37 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 20:07:09 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:53:19 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define MAXNUMLEN 3
 
-int	print_row(t_list *elements[2], char *buffer, int num_size)
+int	print_row(t_stack *elements[2], char *buffer, int num_size)
 {
 	size_t	i;
 	char	*s;
@@ -51,7 +51,7 @@ int	print_row(t_list *elements[2], char *buffer, int num_size)
 void	print(t_dstack *pswap, int fd)
 {
 	char	buffer[4096];
-	t_list	*elements[2];
+	t_stack	*elements[2];
 	size_t	i;
 	int		num_size;
 

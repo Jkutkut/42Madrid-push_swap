@@ -6,22 +6,22 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:52:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 20:02:38 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/14 11:06:44 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	dist_to_sandwich(int v, t_list *lst)
+int	dist_to_sandwich(int v, t_stack *stack)
 {
 	int 	dist;
-	t_list	*tmp;
-	t_list	*prev;
+	t_stack	*tmp;
+	t_stack	*prev;
 
-	if (lst->content > v && ft_lstlast(lst)->content < v)
+	if (stack->content > v && ft_stack_last(stack)->content < v)
 		return (0);
 	dist = 0;
-	tmp = lst;
+	tmp = stack;
 	while (tmp)
 	{
 		prev = tmp;
@@ -30,6 +30,6 @@ int	dist_to_sandwich(int v, t_list *lst)
 		if (tmp && tmp->content >= v && prev->content < v)
 			return (dist);
 	}
-	printf("Error: dist_to_sandwich\n");
+	ft_printf("Error: dist_to_sandwich\n");
 	return (0);
 }

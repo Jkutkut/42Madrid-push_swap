@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:05:09 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 20:05:13 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/12 20:04:26 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	normalize(t_dstack *pswap)
 {
-	t_list	*a;
+	t_stack *a;
 	int		i;
 
 	i = 0;

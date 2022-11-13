@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 07:57:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 20:01:03 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:56:09 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ static int	biggest_signi_int(int size)
 	return (bit);
 }
 
-int	canSkipPAs(t_list *b)
+int	canSkipPAs(t_stack *b)
 {
 	int	size;
 	int	current;
 
-	size = ft_lstsize(b);
+	size = ft_stack_len(b);
 	current = b->content;
 	if (size < current)
 		return (0);
@@ -48,7 +48,7 @@ void	skipPAs(t_dstack *p)
 {
 	int	v;
 
-	if (list_is_sorted(p->b, DESC_ORDER) || !p->b->next)
+	if (stack_is_sorted(p->b, DESC_ORDER) || !p->b->next)
 		return ;
 	v = p->b->content;
 	apply(p, RB);
@@ -70,8 +70,8 @@ void	radix_sort(t_dstack *p)
 	maxBit = biggest_signi_int(p->size);
 	while(!is_sorted(p) && bit < maxBit)
 	{
-		int ops = ft_lstsize(p->a);
-		while (ops-- > 0 && !list_is_sorted(p->a, ASC_ORDER))
+		int ops = ft_stack_len(p->a);
+		while (ops-- > 0 && !stack_is_sorted(p->a, ASC_ORDER))
 		{
 			if (((p->a->content >> bit) & 1) == 0)
 				apply(p, PB);

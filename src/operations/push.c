@@ -6,35 +6,37 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 08:16:57 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 20:06:14 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:44:26 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	push_list(t_list **lst, t_list **lst2)
-{
-	t_list	*tmp;
+// TODO doc
 
-	if (!*lst)
+static int	push_stack(t_stack **src, t_stack **dst)
+{
+	t_stack	*tmp;
+
+	if (!*src)
 		return (0);
-	tmp = *lst;
-	*lst = tmp->next;
-	tmp->next = *lst2;
-	*lst2 = tmp;
+	tmp = *src;
+	*src = tmp->next;
+	tmp->next = *dst;
+	*dst = tmp;
 	return (1);
 }
 
 char	*pa(t_dstack *pswap)
 {
-	if (!push_list(&pswap->b, &pswap->a))
+	if (!push_stack(&pswap->b, &pswap->a))
 		return (NULL);
 	return ("pa");
 }
 
 char	*pb(t_dstack *pswap)
 {
-	if (!push_list(&pswap->a, &pswap->b))
+	if (!push_stack(&pswap->a, &pswap->b))
 		return (NULL);
 	return ("pb");
 }
