@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:03:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/12 18:43:39 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:57:08 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * @brief Deletes the given element.
  * 
- * @param lst Element to delete.
+ * @param Element to delete.
  */
 void	ft_stack_del(t_stack *stack)
 {

@@ -6,22 +6,22 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:39:14 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 10:47:30 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:57:46 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	swap_stack(t_stack **lst)
+static int	swap_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if (!*lst || !(*lst)->next)
+	if (!*stack || !(*stack)->next)
 		return (0);
-	tmp = (*lst)->next;
-	(*lst)->next = tmp->next;
-	tmp->next = *lst;
-	*lst = tmp;
+	tmp = (*stack)->next;
+	(*stack)->next = tmp->next;
+	tmp->next = *stack;
+	*stack = tmp;
 	return (1);
 }
 

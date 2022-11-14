@@ -6,22 +6,22 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 09:40:11 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 10:46:50 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:58:32 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	rotate_stack(t_stack **lst)
+static int	rotate_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if (*lst == NULL || (*lst)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return (0);
-	tmp = *lst;
-	*lst = (*lst)->next;
+	tmp = *stack;
+	*stack = (*stack)->next;
 	tmp->next = NULL;
-	ft_stack_last(*lst)->next = tmp;
+	ft_stack_last(*stack)->next = tmp;
 	return (1);
 }
 

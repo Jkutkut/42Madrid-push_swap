@@ -6,13 +6,13 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:00:58 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 10:51:31 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:59:13 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*stack_to_array(t_stack *lst, int size)
+int	*stack_to_array(t_stack *stack, int size)
 {
 	int		*array;
 	int		i;
@@ -22,7 +22,7 @@ int	*stack_to_array(t_stack *lst, int size)
 	if (!array)
 		return (NULL);
 	i = 0;
-	tmp = lst;
+	tmp = stack;
 	while (tmp)
 	{
 		array[i++] = tmp->content;
