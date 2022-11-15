@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:37:15 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 11:02:06 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:58:57 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #define GROUPS_MEDIUM 3
 #define GROUPS_BIG 4 // 100
-#define GROUPS_HUGE 7 // 500
+#define GROUPS_HUGE 10 // 500  10
 
 static void	to_b(t_dstack *pswap, int groups)
 {
@@ -120,5 +120,9 @@ void	sort_chunks(t_dstack *pswap)
 	else if (pswap->size < 300)
 		groups = GROUPS_BIG;
 	to_b(pswap, groups);
-	back_to_a(pswap, groups);
+
+	if (groups == GROUPS_HUGE)
+		back_to_a(pswap, 20); // TODO refactor
+	else
+		back_to_a(pswap, groups);
 }
