@@ -6,9 +6,10 @@ push_swap
 checker
 *.swp
 run
-
+check*
 
 norminette_tester.sh
 *test*
 *tester*
+*Tester*
 printfTest*
