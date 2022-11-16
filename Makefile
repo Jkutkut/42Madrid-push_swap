@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/11/14 11:23:16 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/11/16 16:26:13 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,7 +105,7 @@ BONUS_OBJS		=	${BONUS_SRCS:%.c=bin/%.o}
 all: $(NAME)
 re: fclean all
 
-$(NAME):	$(OBJS) $(LIBFT)
+$(NAME):	$(LIBFT) $(OBJS)
 	@echo "${TITLE}Compiling ${YELLOW}$(NAME)${NC}\c"
 	@$(COMPILE) $(OBJS) $(LIBFT) -o $(NAME)
 	@echo "${LGREEN} [OK]${NC}"
@@ -117,7 +117,9 @@ bin/%.o: src/%.c
 	@echo "${GREEN} [OK]${NC}"
 
 $(LIBFT):
-	make -C $(LIBFT_DIR) BIN="../bin/libft"
+	@echo "${TITLE}Compiling${NC} ${YELLOW}$(LIBFT)${NC}\c"
+	@make -C $(LIBFT_DIR) BIN="../bin/libft" > /dev/null
+	@echo "${GREEN} [OK]${NC}\n"
 
 bonus: $(BONUS_NAME)
 
@@ -127,12 +129,14 @@ $(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
 	@echo "${LGREEN} [OK]${NC}"
 
 clean:
-	@echo "${LRED}Cleaning ${NC}binaries\c"
+	@echo "${LRED}Cleaning ${NC}libft"
+	@make -C $(LIBFT_DIR) fclean BIN="../bin/libft"
+	@echo "\n${LRED}Cleaning ${NC}binaries\c"
 	@rm -rf bin
 	@echo "${LGREEN} [OK]${NC}"
 
 fclean: clean
-	@echo "${LRED}Cleaning ${NC}$(NAME) and $(BONUS_NAME)\c"
+	@echo "${LRED}Cleaning ${NC}$(NAME) and $(BONUS_NAME)\c" # TODO
 	@rm -f $(NAME) $(BONUS_NAME)
 	@echo "${LGREEN} [OK]${NC}"
 
