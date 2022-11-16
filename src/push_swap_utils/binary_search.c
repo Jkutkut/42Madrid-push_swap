@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 08:41:36 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 20:07:15 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:48:33 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 /**
  * @brief Search the value on the sorted array arr in the interval [l, r].
+ * Due to the nature of the algorithm, the complexity is O(log(n)).
  * 
  * @param arr Array to use.
  * @param l Minimum index to seach.

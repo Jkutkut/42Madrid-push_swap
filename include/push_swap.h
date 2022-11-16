@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/11/12 20:06:23 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:29:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	free_end(t_dstack *pswap, int endtype, char *msg);
 int		get_from_stack(int (*f)(int, int), t_stack *stack);
 // int		*linkedlist_to_array(t_list *lst, int size);
 int		*stack_to_array(t_stack *stack, int size);
-void	merge_sort(int *array, int size);
+void	merge_sort(t_dstack *pswap);
 void	print(t_dstack *pswap, int fd);
 
 // push_swap_utils/miscellaneous
