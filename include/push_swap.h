@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/11/16 17:29:59 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/16 18:38:17 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,17 @@ void	parse_input(char *arg, t_dstack *pswap);
 // push_swap_utils
 int		binary_search(int arr[], int l, int r, int value);
 void	free_end(t_dstack *pswap, int endtype, char *msg);
-// int		get_from_lst(int (*f)(int, int), t_list *lst);
 int		get_from_stack(int (*f)(int, int), t_stack *stack);
-// int		*linkedlist_to_array(t_list *lst, int size);
 int		*stack_to_array(t_stack *stack, int size);
 void	merge_sort(t_dstack *pswap);
 void	print(t_dstack *pswap, int fd);
 
-// push_swap_utils/miscellaneous
+// push_swap_utils/lambdas
 int	ft_max(int a, int b);
 int	ft_min(int a, int b);
+int	ft_abs(int nbr);
 
 // tools
 void	end(int endtype, char *msg);
-int	ft_abs(int nbr);
 
 #endif

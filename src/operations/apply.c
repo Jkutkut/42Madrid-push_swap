@@ -6,12 +6,18 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:35:56 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/09 20:05:51 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/16 19:58:37 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Ends the program when the requiered move can not be done.
+ * 
+ * @param pswap The push_swap struct.
+ * @param o The operation attempted.
+ */
 static void	error_apply(t_dstack *pswap, int o)
 {
 	char	msg[ERROR_APPLY_LEN];
@@ -21,12 +27,17 @@ static void	error_apply(t_dstack *pswap, int o)
 	free_end(pswap, 1, msg);
 }
 
-
+/**
+ * @brief Applies the selected operation to the push_swap.
+ * If the operation can not be done, the program ends.
+ * 
+ * @param pswap The push_swap struct.
+ * @param o The operation to be applied.
+ */
 void	apply(t_dstack *pswap, int o)
 {
 	char	*done;
 
-	done = NULL;
 	if (o == SA)
 		done = sa(pswap);
 	else if (o == SB)
@@ -51,6 +62,5 @@ void	apply(t_dstack *pswap, int o)
 		done = rrr(pswap);
 	if (done == NULL)
 		error_apply(pswap, o);
-	ft_putstr_fd(done, 1);
-	ft_putstr_fd("\n", 1);
+	ft_putendl_fd(done, 1);
 }

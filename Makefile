@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/11/16 16:26:13 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/11/16 19:14:02 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,12 +43,13 @@ OPERATIONS	=	apply.c \
 				swap.c
 
 PUSH_SWAP_UTILS	=	binary_search.c \
+					end.c \
 					free_end.c \
 					get_from_stack.c \
 					merge_sort.c \
 					print.c \
 					stack_to_array.c \
-					z_miscellaneous.c
+					lambdas.c
 
 SORT_5		=	dist_to.c \
 				dist_to_sandwich.c \
@@ -65,9 +66,6 @@ SORT		=	is_sorted.c \
 				sort_chunks.c \
 				stack_is_sorted.c
 
-TOOLS		=	end.c \
-				ft_abs.c
-
 T_STACK		=	ft_stack_addb.c \
 				ft_stack_addf.c \
 				ft_stack_clear.c \
@@ -81,7 +79,6 @@ SRCS		=	${INPUT:%=input/%} \
 				push_swap.c \
 				${PUSH_SWAP_UTILS:%=push_swap_utils/%} \
 				${SORT:%=sort/%} \
-				${TOOLS:%=tools/%} \
 				${T_STACK:%=t_stack/%}
 
 OBJS		=	${SRCS:%.c=bin/%.o}
@@ -118,7 +115,7 @@ bin/%.o: src/%.c
 
 $(LIBFT):
 	@echo "${TITLE}Compiling${NC} ${YELLOW}$(LIBFT)${NC}\c"
-	@make -C $(LIBFT_DIR) BIN="../bin/libft" > /dev/null
+	@make -C $(LIBFT_DIR) BIN="../bin/libft"
 	@echo "${GREEN} [OK]${NC}\n"
 
 bonus: $(BONUS_NAME)
