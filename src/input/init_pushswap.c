@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:33:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 08:08:55 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 08:40:06 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ static void load_operations(t_dstack *pswap)
 {
 	if (!pswap)
 		return ;
-	pswap->operations[0] = &sa;
-	pswap->operations[1] = &sb;
-	pswap->operations[2] = &ss;
-	pswap->operations[3] = &pa;
-	pswap->operations[4] = &pb;
-	pswap->operations[5] = &ra;
-	pswap->operations[6] = &rb;
-	pswap->operations[7] = &rr;
-	pswap->operations[8] = &rra;
-	pswap->operations[9] = &rrb;
-	pswap->operations[10] = &rrr; // TODO enum
+	pswap->operations[SA] = &sa;
+	pswap->operations[SB] = &sb;
+	pswap->operations[SS] = &ss;
+	pswap->operations[PA] = &pa;
+	pswap->operations[PB] = &pb;
+	pswap->operations[RA] = &ra;
+	pswap->operations[RB] = &rb;
+	pswap->operations[RR] = &rr;
+	pswap->operations[RRA] = &rra;
+	pswap->operations[RRB] = &rrb;
+	pswap->operations[RRR] = &rrr;
 }
 
 /**

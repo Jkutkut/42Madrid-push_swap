@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:35:56 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 08:24:46 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 08:56:54 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ static void	error_apply(t_dstack *pswap, int o)
  * @param pswap The push_swap struct.
  * @param o The operation to be applied.
  */
-void	apply(t_dstack *pswap, int o)
+void	apply(t_dstack *pswap, t_op o)
 {
 	char	*done;
 
-	if (o < 0 || o >= 11)
-		free_end(pswap, 1, "Operation not found"); // TODO define
+	if (o < 0 || o >= NUMBER_OPERATIONS)
+		free_end(pswap, 1, ERROR_APPLY_OP);
 	done = pswap->operations[o](pswap);
 	if (done == NULL)
 		error_apply(pswap, o);

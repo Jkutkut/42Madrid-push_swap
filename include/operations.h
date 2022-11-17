@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:46:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/24 08:26:18 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 08:56:49 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,23 @@
 
 #include "push_swap.h"
 
-# define SA 0
-# define SB 1
-# define SS 2
-# define PA 3
-# define PB 4
-# define RA 5
-# define RB 6
-# define RR 7
-# define RRA 8
-# define RRB 9
-# define RRR 10
+typedef enum e_op
+{
+    SA = 0,
+    SB = 1,
+    SS = 2,
+    PA = 3,
+    PB = 4,
+    RA = 5,
+    RB = 6,
+    RR = 7,
+    RRA = 8,
+    RRB = 9,
+    RRR = 10,
+    NUMBER_OPERATIONS = 11
+}   t_op;
 
-void	apply(t_dstack *pswap, int o);
+void	apply(t_dstack *pswap, t_op o);
 
 // Swap
 char	*sa(t_dstack *pswap);
