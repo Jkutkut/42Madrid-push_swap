@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 07:57:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 12:10:45 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 12:23:15 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,14 @@ static int	can_skip_pas(t_stack *b)
  * 
  * @param p Push_swap structure.
  */
-static void	skip_pas(t_dstack *p)
+static int	skip_pas(t_dstack *p)
 {
 	int	v;
 
+	if (!can_skip_pas(p->b))
+		return (0);
 	if (stack_is_sorted(p->b, DESC_ORDER) || !p->b->next)
-		return ;
+		return (1);
 	v = p->b->content;
 	apply(p, RB);
 	while (p->b->content != v)
@@ -77,6 +79,7 @@ static void	skip_pas(t_dstack *p)
 		else
 			apply(p, PA);
 	}
+	return (1);
 }
 
 /**
@@ -87,34 +90,25 @@ static void	skip_pas(t_dstack *p)
 void	radix_sort(t_dstack *p)
 {
 	int	bit;
-	int	maxBit;
+	int	max_bit;
+	int	ops;
 
 	bit = 0;
-	maxBit = biggest_signi_bit(p->size);
-	while(!is_sorted(p) && bit < maxBit)
+	max_bit = biggest_signi_bit(p->size);
+	while (!is_sorted(p) && bit < max_bit)
 	{
-		int ops = ft_stack_len(p->a);
-		while (ops-- > 0 && !stack_is_sorted(p->a, ASC_ORDER))
+		ops = ft_stack_len(p->a);
+		while (ops-- && !stack_is_sorted(p->a, ASC_ORDER))
 		{
 			if (((p->a->content >> bit) & 1) == 0)
 				apply(p, PB);
+			else if (p->a->next)
+				apply(p, RA);
 			else
-			{
-				if (p->a->next)
-					apply(p, RA);
-				else
-					break;
-			}
+				break ;
 		}
-		while (p->b)
-		{
-			if (can_skip_pas(p->b))
-			{
-				skip_pas(p); // TODO refactor? can skip inside skip
-				break;
-			}
+		while (p->b && !skip_pas(p))
 			apply(p, PA);
-		}
 		bit++;
 	}
 	while (p->b)
