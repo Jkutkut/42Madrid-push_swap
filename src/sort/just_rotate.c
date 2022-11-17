@@ -6,13 +6,19 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:58:24 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 11:09:16 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 11:38:11 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	just_rotate(t_dstack *pswap, int l)
+/**
+ * @brief Sorts the array just by rotating it.
+ * 
+ * @param pswap Struct with the stacks.
+ * @param l // TODO
+ */
+void	just_rotate(t_dstack *pswap, int l) // TODO refactor
 {
 	t_stack	*stack;
 	int		i;

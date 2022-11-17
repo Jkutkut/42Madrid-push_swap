@@ -6,27 +6,40 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 07:57:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 10:56:09 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 12:10:45 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	biggest_signi_int(int size)
+/**
+ * @brief Logic to obtain the position of the biggest bit in the number.
+ * 
+ * @param nbr number to check.
+ * @return int position of the biggest bit != 0.
+ */
+static int	biggest_signi_bit(int nbr)
 {
 	int	bit;
 
 	bit = 0;
-	while (size > 0)
+	while (nbr > 0)
 	{
-		if ((size >> bit) & 1)
-			size -= 1 << bit;
+		if ((nbr >> bit) & 1)
+			nbr -= 1 << bit;
 		bit++;
 	}
 	return (bit);
 }
 
-int	canSkipPAs(t_stack *b)
+/**
+ * @brief Check if some of the elements in b can not be moved to a
+ * because they already are in the right position.
+ * 
+ * @param b stack b.
+ * @return int 0 if not possible to skip, 1 otherwise.
+ */
+static int	can_skip_pas(t_stack *b)
 {
 	int	size;
 	int	current;
@@ -44,7 +57,12 @@ int	canSkipPAs(t_stack *b)
 	return (current == -1);
 }
 
-void	skipPAs(t_dstack *p)
+/**
+ * @brief Skip the PA movements when can_skip_pas is true.
+ * 
+ * @param p Push_swap structure.
+ */
+static void	skip_pas(t_dstack *p)
 {
 	int	v;
 
@@ -61,13 +79,18 @@ void	skipPAs(t_dstack *p)
 	}
 }
 
+/**
+ * @brief Sort the stack a using radix sort.
+ * 
+ * @param p Push_swap structure.
+ */
 void	radix_sort(t_dstack *p)
 {
 	int	bit;
 	int	maxBit;
 
 	bit = 0;
-	maxBit = biggest_signi_int(p->size);
+	maxBit = biggest_signi_bit(p->size);
 	while(!is_sorted(p) && bit < maxBit)
 	{
 		int ops = ft_stack_len(p->a);
@@ -85,9 +108,9 @@ void	radix_sort(t_dstack *p)
 		}
 		while (p->b)
 		{
-			if (canSkipPAs(p->b))
+			if (can_skip_pas(p->b))
 			{
-				skipPAs(p);
+				skip_pas(p); // TODO refactor? can skip inside skip
 				break;
 			}
 			apply(p, PA);
