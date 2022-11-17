@@ -6,27 +6,32 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:00:58 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 12:59:13 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 09:13:23 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Converts the stack to an array of integers.
+ * 
+ * @param stack
+ * @param size
+ * @return int*
+ */
 int	*stack_to_array(t_stack *stack, int size)
 {
 	int		*array;
 	int		i;
-	t_stack	*tmp; // TODO refactor without the tmp
 
 	array = (int *) malloc(sizeof(int) * size);
 	if (!array)
 		return (NULL);
 	i = 0;
-	tmp = stack;
-	while (tmp)
+	while (stack)
 	{
-		array[i++] = tmp->content;
-		tmp = tmp->next;
+		array[i++] = stack->content;
+		stack = stack->next;
 	}
 	return (array);
 }

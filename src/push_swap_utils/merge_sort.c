@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:43:13 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/16 17:33:06 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 09:01:27 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ void	merge_sort(t_dstack *pswap)
 	if (!data[1])
 		free_end(pswap, 1, ERROR_MALLOC);
 	data[2] = (int *) malloc(sizeof(int) * (pswap->size >> 1));
-	if (!data[2]) {
+	if (!data[2])
+	{
 		free(data[1]);
 		free_end(pswap, 1, ERROR_MALLOC);
 	}

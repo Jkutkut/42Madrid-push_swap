@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 11:15:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 08:53:52 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 09:08:03 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 #define ERROR_REPEAT_NBR "Numbers must not repeat.\n"
 
 #define ERROR_APPLY_LEN 42
-#define ERROR_APPLY "Error: Not able to execute the move    .\n"
-#define ERROR_APPLY_OP "Error: Operation not found.\n"
+#define ERROR_APPLY "Not able to execute the move    .\n"
+#define ERROR_APPLY_OP "Operation not found.\n"
 #define ERROR_APPLY_MOVE " sa sb ss pa pb ra rb rrrrarrbrrr"
 
 #endif
