@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/11/17 09:07:10 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/11/17 09:19:03 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,19 +50,17 @@ PUSH_SWAP_UTILS	=	binary_search.c \
 					stack_to_array.c \
 					lambdas.c
 
-SORT_5		=	dist_to.c \
-				dist_to_sandwich.c \
+SORT		=	dist_to_sandwich.c \
+				dist_to.c \
 				index_stack.c \
+				is_sorted.c \
 				just_rotate.c \
-				ready_just_rotate.c \
-				sort_5.c
-
-SORT		=	is_sorted.c \
 				radix_sort.c \
+				ready_just_rotate.c \
 				sort_3.c \
-				$(SORT_5:%=sort5/%) \
-				sort.c \
+				sort_5.c \
 				sort_chunks.c \
+				sort.c \
 				stack_is_sorted.c
 
 T_STACK		=	ft_stack_addb.c \

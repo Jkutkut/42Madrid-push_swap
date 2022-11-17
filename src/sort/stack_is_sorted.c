@@ -6,18 +6,24 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:34:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 12:56:08 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 09:35:01 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int	stack_is_sorted(t_stack *stack, int type)
+/**
+ * @brief Verifies if the stack is sorted.
+ * 
+ * @param stack Stack to verify.
+ * @param type Type of sorting logic.
+ * @return int 1 if sorted, 0 otherwise.
+ */
+int	stack_is_sorted(t_stack *stack, int type) // TODO refactor type with enum
 {
 	int	i;
 
-	if (!stack)
+	if (!stack || (type != ASC_ORDER && type != DESC_ORDER))
 		return (1);
 	i = stack->content;
 	while (stack)

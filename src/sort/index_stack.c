@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dist_to_sandwich.c                                 :+:      :+:    :+:   */
+/*   index_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 08:52:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 11:06:44 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/07/04 09:14:57 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/11/17 09:31:32 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	dist_to_sandwich(int v, t_stack *stack)
+/**
+ * @brief Get the index of a value in a stack.
+ * 
+ * @param v Value to search.
+ * @param stack Stack to search in.
+ * @return int Index of the value. If not found, 0 is returned.
+ */
+int	index_stack(int v, t_stack *stack)
 {
-	int 	dist;
+	int		i;
 	t_stack	*tmp;
-	t_stack	*prev;
 
-	if (stack->content > v && ft_stack_last(stack)->content < v)
-		return (0);
-	dist = 0;
+	i = 0;
 	tmp = stack;
 	while (tmp)
 	{
-		prev = tmp;
+		if (tmp->content == v)
+			return (i);
 		tmp = tmp->next;
-		dist++;
-		if (tmp && tmp->content >= v && prev->content < v)
-			return (dist);
+		i++;
 	}
-	ft_printf("Error: dist_to_sandwich\n");
 	return (0);
 }

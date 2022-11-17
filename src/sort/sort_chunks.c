@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_chunks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jre-gonz <jre-gonz@student.42madrid>       +#+  +:+       +#+        */
+/*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:37:15 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/15 17:58:57 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 09:45:46 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,17 @@ static void	to_b(t_dstack *pswap, int groups)
 	}
 }
 
-static int	sortest_dist_to(int v, t_stack *s)
-{
-	int	d;
-
-	d = index_stack(v, s);
-	if (d >= ft_stack_len(s) / 2)
-		d = d - ft_stack_len(s);
-	return d;
-}
-
 static int	sortest_dist_to_values(int v1, int v2, t_stack *s)
 {
 	int	d1;
 	int	d2;
 
-	d1 = sortest_dist_to(v1, s);
-	d2 = sortest_dist_to(v2, s);
+	d1 = index_stack(v1, s);
+	if (d1 >= ft_stack_len(s) / 2)
+		d1 = d1 - ft_stack_len(s);
+	d2 = index_stack(v2, s);
+	if (d2 >= ft_stack_len(s) / 2)
+		d2 = d2 - ft_stack_len(s);
 	if (ft_abs(d1) < ft_abs(d2))
 		return (d1);
 	return d2;

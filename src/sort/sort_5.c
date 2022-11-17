@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 09:16:21 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 11:11:45 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 10:14:29 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 # define REVERSE_ROTATE 3
 
+/**
+ * @brief Sort algorithm for stacks of 5 elements or less.
+ * 
+ * @param pswap
+ */
 void	sort_5(t_dstack *pswap)
 {
 	int	d;
