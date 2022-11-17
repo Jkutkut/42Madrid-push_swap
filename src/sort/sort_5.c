@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 09:16:21 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 10:14:29 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 13:26:15 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sort_5(t_dstack *pswap)
 	int reverse;
 
 	if (ready_just_rotate(pswap))
-		return just_rotate(pswap, 0);
+		return just_rotate(pswap, STACK_A);
 
 	while (ft_stack_len(pswap->a) > 3)
 	{
@@ -66,5 +66,5 @@ void	sort_5(t_dstack *pswap)
 		apply(pswap, PA);
 	}
 	if (ready_just_rotate(pswap))
-		just_rotate(pswap, 0);
+		just_rotate(pswap, STACK_A);
 }

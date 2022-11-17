@@ -6,34 +6,24 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/11/17 08:04:53 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 13:41:39 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PUSHSWAP
-# define FT_PUSHSWAP
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <stddef.h>
 # include <unistd.h>
-#       include <stdio.h> // TODO REMOVE
 # include <stdlib.h>
 
+# include "libft.h"
+
+# include "elements.h"
+# include "msg.h"
+# include "operations.h"
+# include "sort.h"
 # include "t_stack.h"
-
-typedef struct	s_dstack
-{
-	t_stack	*a;
-	t_stack	*b;
-	int		size;
-	int		*arg;
-	char *(*operations[11])(struct s_dstack*);
-}			t_dstack;
-
-
-#include "libft.h"
-#include "msg.h"
-#include "sort.h"
-#include "operations.h"
 
 // input
 void	check_input(t_dstack *pswap);
@@ -50,9 +40,9 @@ void	merge_sort(t_dstack *pswap);
 void	print(t_dstack *pswap, int fd);
 
 // push_swap_utils/lambdas
-int	ft_max(int a, int b);
-int	ft_min(int a, int b);
-int	ft_abs(int nbr);
+int		ft_max(int a, int b);
+int		ft_min(int a, int b);
+int		ft_abs(int nbr);
 
 // tools
 void	end(int endtype, char *msg);
