@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/11/16 18:38:17 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 08:04:53 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_dstack
 	t_stack	*b;
 	int		size;
 	int		*arg;
+	char *(*operations[11])(struct s_dstack*);
 }			t_dstack;
 
 
