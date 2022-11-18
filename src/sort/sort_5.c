@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 09:16:21 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/18 10:12:58 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:39:38 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@
  *   - Send the lower value (In the next iteration).
  * - Else:
  *   - Send the value to B.
+ * 
+ * Note: It will stop if A is ready with rotations.
+ *
  * @param pswap 
  */
 static void	ft_send_to_b(t_pswap *pswap)
 {
-	while (ft_stack_len(pswap->a) > 3)
+	while (ft_stack_len(pswap->a) > 3 && !ft_ready_just_rotate(pswap))
 	{
 		if (pswap->a->content == pswap->a->next->content + 1)
 			ft_apply(pswap, SA);
