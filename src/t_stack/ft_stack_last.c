@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:02:24 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/12 19:39:13 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:35:43 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_stack.h"
+#include "push_swap.h"
 
 /**
  * @brief Returns the last element of a stack.

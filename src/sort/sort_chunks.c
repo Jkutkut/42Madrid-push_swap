@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:37:15 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 09:45:46 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:05:14 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,6 @@ static void	to_b(t_dstack *pswap, int groups)
 	}
 }
 
-static int	sortest_dist_to_values(int v1, int v2, t_stack *s)
-{
-	int	d1;
-	int	d2;
-
-	d1 = index_stack(v1, s);
-	if (d1 >= ft_stack_len(s) / 2)
-		d1 = d1 - ft_stack_len(s);
-	d2 = index_stack(v2, s);
-	if (d2 >= ft_stack_len(s) / 2)
-		d2 = d2 - ft_stack_len(s);
-	if (ft_abs(d1) < ft_abs(d2))
-		return (d1);
-	return d2;
-}
-
 static void	move_subgroup(t_dstack *pswap, int min, int max)
 {
 	int	d;
@@ -75,7 +59,7 @@ static void	move_subgroup(t_dstack *pswap, int min, int max)
 			apply(pswap, RRB);
 		else
 		{
-			d = sortest_dist_to_values(max, min, pswap->b);
+			d = shortest_dist_to_values(max, min, pswap->b);
 			while (d > 0)
 				apply(pswap, RB + 0 * d--);
 			while (d < 0)

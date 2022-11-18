@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:59:52 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/12 19:40:22 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:37:13 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_stack.h"
+#include "push_swap.h"
 
 /**
  * @brief Creates a new element of a stack and returns a pointer to it.

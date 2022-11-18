@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:33:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 08:40:06 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 07:55:14 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * 
  * @param pswap
  */
-static void load_operations(t_dstack *pswap)
+static void	load_operations(t_dstack *pswap)
 {
 	if (!pswap)
 		return ;

@@ -6,12 +6,24 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 09:40:11 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 12:58:32 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 07:53:11 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Rotates the given stack once.
+ * 
+ * s: 1 2 3 4 5
+ * 
+ * r()
+ * 
+ * s: 2 3 4 5 1
+ * 
+ * @param pswap
+ * @return int 1 if successful, 0 otherwise
+ */
 static int	rotate_stack(t_stack **stack)
 {
 	t_stack	*tmp;
@@ -25,6 +37,20 @@ static int	rotate_stack(t_stack **stack)
 	return (1);
 }
 
+/**
+ * @brief Rotates the stack A once.
+ * 
+ * A: 1 2 3 4 5
+ * B: 6 7 8 9 10
+ * 
+ * ra()
+ * 
+ * A: 2 3 4 5 1
+ * B: 6 7 8 9 10
+ * 
+ * @param pswap
+ * @return int "ra" if successful, NULL otherwise
+ */
 char	*ra(t_dstack *pswap)
 {
 	if (!rotate_stack(&pswap->a))
@@ -32,6 +58,20 @@ char	*ra(t_dstack *pswap)
 	return ("ra");
 }
 
+/**
+ * @brief Rotates the stack B once.
+ * 
+ * A: 1 2 3 4 5
+ * B: 6 7 8 9 10
+ * 
+ * rb()
+ * 
+ * A: 1 2 3 4 5
+ * B: 7 8 9 10 6
+ * 
+ * @param pswap
+ * @return int "rb" if successful, NULL otherwise
+ */
 char	*rb(t_dstack *pswap)
 {
 	if (!rotate_stack(&pswap->b))
@@ -39,6 +79,20 @@ char	*rb(t_dstack *pswap)
 	return ("rb");
 }
 
+/**
+ * @brief Rotates the stack A and B once.
+ * 
+ * A: 1 2 3 4 5
+ * B: 1 2 3 4 5
+ * 
+ * rr()
+ * 
+ * A: 2 3 4 5 1
+ * B: 2 3 4 5 1
+ * 
+ * @param pswap
+ * @return int "rr" if successful, NULL otherwise
+ */
 char	*rr(t_dstack *pswap)
 {
 	if (!rotate_stack(&pswap->a) || !rotate_stack(&pswap->b))

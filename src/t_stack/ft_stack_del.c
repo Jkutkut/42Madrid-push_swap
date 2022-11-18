@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:03:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 12:57:08 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:35:28 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_stack.h"
+#include "push_swap.h"
 
 /**
  * @brief Deletes the given element.

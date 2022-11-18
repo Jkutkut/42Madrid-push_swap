@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:03:47 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/12 19:41:06 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:35:17 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_stack.h"
+#include "push_swap.h"
 
 void	ft_stack_del(t_stack *stack);
 

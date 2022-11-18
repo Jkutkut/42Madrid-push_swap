@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/11/17 09:19:03 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/11/17 16:04:54 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,9 +46,10 @@ PUSH_SWAP_UTILS	=	binary_search.c \
 					end.c \
 					free_end.c \
 					get_from_stack.c \
+					lambdas.c \
 					merge_sort.c \
-					stack_to_array.c \
-					lambdas.c
+					shortest_dist_to_values.c \
+					stack_to_array.c
 
 SORT		=	dist_to_sandwich.c \
 				dist_to.c \

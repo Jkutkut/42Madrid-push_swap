@@ -6,11 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:01:41 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/12 19:38:31 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:36:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_stack.h"
+#include "push_swap.h"
 
 /**
  * @brief Returns the number of elements in a stack.

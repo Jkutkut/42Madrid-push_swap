@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 09:16:21 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 13:26:15 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:20:32 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	sort_5(t_dstack *pswap)
 		d = dist_to(pswap->b->content, pswap->a);
 		reverse = 0;
 		// Check the fastest way to get there
-		// TODO refactor with sortest_dist_to
 		if (d >= ft_stack_len(pswap->a) - ft_stack_len(pswap->a) / 2)
 		{
 			d = ft_stack_len(pswap->a) - d;
