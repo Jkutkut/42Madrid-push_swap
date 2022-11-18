@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:15:54 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 15:35:09 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 08:54:13 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  */
 static void	sort_tiny(t_dstack *pswap, t_tstack l, int min, int max)
 {
-	t_stack *s;
+	t_stack	*s;
 
 	s = pswap->a;
 	if (l == STACK_B)
@@ -33,9 +33,9 @@ static void	sort_tiny(t_dstack *pswap, t_tstack l, int min, int max)
 		apply(pswap, RRA + l);
 		apply(pswap, SA + l);
 	}
-	else if(s->next->content == min && s->content != max)
-			apply(pswap, SA + l);
-	else if(s->next->content == max && s->content != min)
+	else if (s->next->content == min && s->content != max)
+		apply(pswap, SA + l);
+	else if (s->next->content == max && s->content != min)
 		apply(pswap, RRA + l);
 	else if (s->content == max && s->next->content == min)
 		apply(pswap, RA + l);
