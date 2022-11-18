@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 07:57:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 12:23:15 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:11:21 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param nbr number to check.
  * @return int position of the biggest bit != 0.
  */
-static int	biggest_signi_bit(int nbr)
+static int	ft_biggest_signi_bit(int nbr)
 {
 	int	bit;
 
@@ -39,7 +39,7 @@ static int	biggest_signi_bit(int nbr)
  * @param b stack b.
  * @return int 0 if not possible to skip, 1 otherwise.
  */
-static int	can_skip_pas(t_stack *b)
+static int	ft_can_skip_pas(t_stack *b)
 {
 	int	size;
 	int	current;
@@ -62,22 +62,22 @@ static int	can_skip_pas(t_stack *b)
  * 
  * @param p Push_swap structure.
  */
-static int	skip_pas(t_dstack *p)
+static int	ft_skip_pas(t_pswap *p)
 {
 	int	v;
 
-	if (!can_skip_pas(p->b))
+	if (!ft_can_skip_pas(p->b))
 		return (0);
-	if (stack_is_sorted(p->b, DESC_ORDER) || !p->b->next)
+	if (ft_stack_is_sorted(p->b, DESC_ORDER) || !p->b->next)
 		return (1);
 	v = p->b->content;
-	apply(p, RB);
+	ft_apply(p, RB);
 	while (p->b->content != v)
 	{
 		if (p->b->content < v)
-			apply(p, RB);
+			ft_apply(p, RB);
 		else
-			apply(p, PA);
+			ft_apply(p, PA);
 	}
 	return (1);
 }
@@ -87,30 +87,30 @@ static int	skip_pas(t_dstack *p)
  * 
  * @param p Push_swap structure.
  */
-void	radix_sort(t_dstack *p)
+void	ft_radix_sort(t_pswap *p)
 {
 	int	bit;
 	int	max_bit;
 	int	ops;
 
 	bit = 0;
-	max_bit = biggest_signi_bit(p->size);
-	while (!is_sorted(p) && bit < max_bit)
+	max_bit = ft_biggest_signi_bit(p->size);
+	while (!ft_is_sorted(p) && bit < max_bit)
 	{
 		ops = ft_stack_len(p->a);
-		while (ops-- && !stack_is_sorted(p->a, ASC_ORDER))
+		while (ops-- && !ft_stack_is_sorted(p->a, ASC_ORDER))
 		{
 			if (((p->a->content >> bit) & 1) == 0)
-				apply(p, PB);
+				ft_apply(p, PB);
 			else if (p->a->next)
-				apply(p, RA);
+				ft_apply(p, RA);
 			else
 				break ;
 		}
-		while (p->b && !skip_pas(p))
-			apply(p, PA);
+		while (p->b && !ft_skip_pas(p))
+			ft_apply(p, PA);
 		bit++;
 	}
 	while (p->b)
-		apply(p, PA);
+		ft_apply(p, PA);
 }

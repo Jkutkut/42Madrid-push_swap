@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:34:49 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 13:49:18 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 09:48:06 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ typedef struct s_stack
 /**
  * @brief Struct defining all the logic needed to encapsulate the program.
  */
-typedef struct s_dstack
+typedef struct s_pswap
 {
 	t_stack	*a;
 	t_stack	*b;
 	int		size;
 	int		*arg;
-	char	*(*operations[11])(struct s_dstack*);
-}		t_dstack;
+	char	*(*operations[11])(struct s_pswap*);
+}		t_pswap;
 
 /**
  * @brief Enum defining the stacks used in the push_swap program.

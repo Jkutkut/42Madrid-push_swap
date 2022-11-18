@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 08:16:57 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/18 07:48:17 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:01:20 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
  * @param dst
  * @return int 1 if successful, 0 otherwise.
  */
-static int	push_stack(t_stack **src, t_stack **dst)
+static int	ft_push_stack(t_stack **src, t_stack **dst)
 {
 	t_stack	*tmp;
 
@@ -54,9 +54,9 @@ static int	push_stack(t_stack **src, t_stack **dst)
  * @param pswap
  * @return char* "pa" if successful, NULL otherwise
  */
-char	*pa(t_dstack *pswap)
+char	*ft_pa(t_pswap *pswap)
 {
-	if (!push_stack(&pswap->b, &pswap->a))
+	if (!ft_push_stack(&pswap->b, &pswap->a))
 		return (NULL);
 	return ("pa");
 }
@@ -75,9 +75,9 @@ char	*pa(t_dstack *pswap)
  * @param pswap
  * @return char* "pb" if successful, NULL otherwise
  */
-char	*pb(t_dstack *pswap)
+char	*ft_pb(t_pswap *pswap)
 {
-	if (!push_stack(&pswap->a, &pswap->b))
+	if (!ft_push_stack(&pswap->a, &pswap->b))
 		return (NULL);
 	return ("pb");
 }

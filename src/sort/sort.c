@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 10:16:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 09:46:39 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:13:41 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
  * 
  * @param pswap The push_swap stack.
  */
-void	sort(t_dstack *pswap)
+void	ft_sort(t_pswap *pswap)
 {
 	if (pswap->size <= 5)
-		sort_5(pswap);
+		ft_sort_5(pswap);
 	else if (pswap->size <= 500)
-		sort_chunks(pswap);
+		ft_sort_chunks(pswap);
 	else
-		radix_sort(pswap);
+		ft_radix_sort(pswap);
 }

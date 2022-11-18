@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 09:40:11 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/18 07:50:03 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:20:24 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
  * @param pswap
  * @return int 1 if successful, 0 otherwise
  */
-static int	reverse_rotate_stack(t_stack **stack)
+static int	ft_reverse_rotate_stack(t_stack **stack)
 {
 	t_stack	*current;
 	t_stack	*tmp;
@@ -53,9 +53,9 @@ static int	reverse_rotate_stack(t_stack **stack)
  * @param pswap
  * @return int "rra" if successful, NULL otherwise
  */
-char	*rra(t_dstack *pswap)
+char	*ft_rra(t_pswap *pswap)
 {
-	if (!reverse_rotate_stack(&pswap->a))
+	if (!ft_reverse_rotate_stack(&pswap->a))
 		return (NULL);
 	return ("rra");
 }
@@ -72,9 +72,9 @@ char	*rra(t_dstack *pswap)
  * @param pswap
  * @return int "rrb" if successful, NULL otherwise
  */
-char	*rrb(t_dstack *pswap)
+char	*ft_rrb(t_pswap *pswap)
 {
-	if (!reverse_rotate_stack(&pswap->b))
+	if (!ft_reverse_rotate_stack(&pswap->b))
 		return (NULL);
 	return ("rrb");
 }
@@ -93,9 +93,11 @@ char	*rrb(t_dstack *pswap)
  * @param pswap
  * @return int "rrr" if successful, NULL otherwise
  */
-char	*rrr(t_dstack *pswap)
+char	*ft_rrr(t_pswap *pswap)
 {
-	if (!reverse_rotate_stack(&pswap->a) || !reverse_rotate_stack(&pswap->b))
+	if (!ft_reverse_rotate_stack(&pswap->a))
+		return (NULL);
+	if (!ft_reverse_rotate_stack(&pswap->b))
 		return (NULL);
 	return ("rrr");
 }

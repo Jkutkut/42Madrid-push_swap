@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 09:05:09 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/16 18:30:07 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 09:57:06 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
  * 
  * @param pswap Pushswap structure.
  */
-void	normalize(t_dstack *pswap)
+void	ft_normalize(t_pswap *pswap)
 {
 	t_stack	*a;
 
 	a = pswap->a;
 	while (a)
 	{
-		a->content = binary_search(pswap->arg, 0, pswap->size, a->content);
+		a->content = ft_binary_search(pswap->arg, 0, pswap->size, a->content);
 		a = a->next;
 	}
 }

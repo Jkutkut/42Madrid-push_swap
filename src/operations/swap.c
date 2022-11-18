@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:39:14 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/18 07:52:37 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:03:29 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
  * @param pswap
  * @return int 1 if successful, 0 otherwise
  */
-static int	swap_stack(t_stack **stack)
+static int	ft_swap_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
@@ -51,9 +51,9 @@ static int	swap_stack(t_stack **stack)
  * @param pswap 
  * @return int "sa" if successful, NULL otherwise
  */
-char	*sa(t_dstack *pswap)
+char	*ft_sa(t_pswap *pswap)
 {
-	if (!swap_stack(&pswap->a))
+	if (!ft_swap_stack(&pswap->a))
 		return (NULL);
 	return ("sa");
 }
@@ -72,9 +72,9 @@ char	*sa(t_dstack *pswap)
  * @param pswap 
  * @return int "sb" if successful, NULL otherwise
  */
-char	*sb(t_dstack *pswap)
+char	*ft_sb(t_pswap *pswap)
 {
-	if (!swap_stack(&pswap->b))
+	if (!ft_swap_stack(&pswap->b))
 		return (NULL);
 	return ("sb");
 }
@@ -93,9 +93,9 @@ char	*sb(t_dstack *pswap)
  * @param pswap 
  * @return int "ss" if successful, NULL otherwise
  */
-char	*ss(t_dstack *pswap)
+char	*ft_ss(t_pswap *pswap)
 {
-	if (!sa(pswap) || !sb(pswap))
+	if (!ft_sa(pswap) || !ft_sb(pswap))
 		return (NULL);
 	return ("ss");
 }

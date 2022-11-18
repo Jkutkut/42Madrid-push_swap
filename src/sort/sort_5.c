@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 09:16:21 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/18 09:16:45 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:12:58 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,21 @@
  *   - Send the value to B.
  * @param pswap 
  */
-static void	ft_send_to_b(t_dstack *pswap)
+static void	ft_send_to_b(t_pswap *pswap)
 {
 	while (ft_stack_len(pswap->a) > 3)
 	{
 		if (pswap->a->content == pswap->a->next->content + 1)
-			apply(pswap, SA);
+			ft_apply(pswap, SA);
 		else if (pswap->a->content >= 4)
-			apply(pswap, RA);
+			ft_apply(pswap, RA);
 		else if (pswap->a->content >= 3 && pswap->a->next->content <= 2)
-			apply(pswap, SA);
+			ft_apply(pswap, SA);
 		else if (pswap->a->content > ft_stack_last(pswap->a)->content && \
 				ft_stack_last(pswap->a)->content < 3)
-			apply(pswap, RRA);
+			ft_apply(pswap, RRA);
 		else
-			apply(pswap, PB);
+			ft_apply(pswap, PB);
 	}
 }
 
@@ -59,14 +59,14 @@ static void	ft_send_to_b(t_dstack *pswap)
  * 
  * @param pswap
  */
-static void	ft_back_to_a(t_dstack *pswap)
+static void	ft_back_to_a(t_pswap *pswap)
 {
 	int	d;
 	int	reverse;
 
 	while (pswap->b)
 	{
-		d = dist_to(pswap->b->content, pswap->a);
+		d = ft_dist_to(pswap->b->content, pswap->a);
 		reverse = 0;
 		if (d >= ft_stack_len(pswap->a) - ft_stack_len(pswap->a) / 2)
 		{
@@ -74,11 +74,11 @@ static void	ft_back_to_a(t_dstack *pswap)
 			reverse = REVERSE_ROTATE;
 		}
 		while (d--)
-			apply(pswap, RA + reverse);
-		apply(pswap, PA);
+			ft_apply(pswap, RA + reverse);
+		ft_apply(pswap, PA);
 	}
-	if (ready_just_rotate(pswap))
-		just_rotate(pswap, STACK_A);
+	if (ft_ready_just_rotate(pswap))
+		ft_just_rotate(pswap, STACK_A);
 }
 
 /**
@@ -92,14 +92,14 @@ static void	ft_back_to_a(t_dstack *pswap)
  * 
  * @param pswap
  */
-void	sort_5(t_dstack *pswap)
+void	ft_sort_5(t_pswap *pswap)
 {
-	if (ready_just_rotate(pswap))
-		return (just_rotate(pswap, STACK_A));
+	if (ft_ready_just_rotate(pswap))
+		return (ft_just_rotate(pswap, STACK_A));
 	ft_send_to_b(pswap);
-	sort_3(pswap, STACK_A);
+	ft_sort_3(pswap, STACK_A);
 	if (ft_stack_len(pswap->b) == 2 && pswap->b->content < \
 		pswap->b->next->content)
-		apply(pswap, SB);
+		ft_apply(pswap, SB);
 	ft_back_to_a(pswap);
 }

@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:37:15 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/18 08:52:29 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:13:28 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
  * @param pswap Structure with the push_swap data
  * @param groups Total amount of groups to form.
  */
-static void	to_b(t_dstack *pswap, int groups)
+static void	ft_to_b(t_pswap *pswap, int groups)
 {
 	int	size_b;
 	int	group;
@@ -35,15 +35,15 @@ static void	to_b(t_dstack *pswap, int groups)
 	{
 		if (pswap->a->content * groups / pswap->size == group)
 		{
-			apply(pswap, PB);
+			ft_apply(pswap, PB);
 			if ((double) pswap->b->content < \
 				(0.5 + group) * (pswap->size / groups))
 				if (ft_stack_len(pswap->b) > 1)
-					apply(pswap, RB);
+					ft_apply(pswap, RB);
 			group = ++size_b * groups / pswap->size;
 		}
 		else
-			apply(pswap, RA);
+			ft_apply(pswap, RA);
 	}
 }
 
@@ -55,31 +55,31 @@ static void	to_b(t_dstack *pswap, int groups)
  * @param min Minimum value of the group to move
  * @param max Maximum value of the group to move
  */
-static void	ft_smart_move(t_dstack *pswap, int *min, int *max)
+static void	ft_smart_move(t_pswap *pswap, int *min, int *max)
 {
 	int	d;
 
 	if (pswap->b->content == *max)
 	{
-		apply(pswap, PA);
+		ft_apply(pswap, PA);
 		(*max)--;
 	}
 	else if (pswap->b->content == *min)
 	{
-		apply(pswap, PA);
+		ft_apply(pswap, PA);
 		if (ft_stack_len(pswap->a) >= 2)
-			apply(pswap, RA);
+			ft_apply(pswap, RA);
 		(*min)++;
 	}
 	else if (ft_stack_last(pswap->b)->content == *min)
-		apply(pswap, RRB);
+		ft_apply(pswap, RRB);
 	else
 	{
-		d = shortest_dist_to_values(*max, *min, pswap->b);
+		d = ft_shortest_dist_to_values(*max, *min, pswap->b);
 		while (d > 0)
-			apply(pswap, RB + 0 * d--);
+			ft_apply(pswap, RB + 0 * d--);
 		while (d < 0)
-			apply(pswap, RRB + 0 * d++);
+			ft_apply(pswap, RRB + 0 * d++);
 	}
 }
 
@@ -90,13 +90,13 @@ static void	ft_smart_move(t_dstack *pswap, int *min, int *max)
  * @param min Minimum value to move
  * @param max Maximum value to move
  */
-static void	move_subgroup(t_dstack *pswap, int min, int max)
+static void	ft_move_subgroup(t_pswap *pswap, int min, int max)
 {
 	while (min <= max)
 		ft_smart_move(pswap, &min, &max);
-	min = get_from_stack(ft_min, pswap->a);
+	min = ft_get_from_stack(ft_min, pswap->a);
 	while (pswap->a->content > min)
-		apply(pswap, RRA);
+		ft_apply(pswap, RRA);
 }
 
 /**
@@ -105,7 +105,7 @@ static void	move_subgroup(t_dstack *pswap, int min, int max)
  * @param pswap Structure with the push_swap data
  * @param groups Total amount of groups to form.
  */
-static void	back_to_a(t_dstack *pswap, int groups)
+static void	ft_back_to_a(t_pswap *pswap, int groups)
 {
 	int	group;
 	int	min;
@@ -116,8 +116,8 @@ static void	back_to_a(t_dstack *pswap, int groups)
 	{
 		max = (group + 1) * (pswap->size / groups) - 1;
 		min = group * (pswap->size / groups);
-		max = ft_max(get_from_stack(ft_max, pswap->b), max);
-		move_subgroup(pswap, min, max);
+		max = ft_max(ft_get_from_stack(ft_max, pswap->b), max);
+		ft_move_subgroup(pswap, min, max);
 	}
 }
 
@@ -135,7 +135,7 @@ static void	back_to_a(t_dstack *pswap, int groups)
  * 
  * @param pswap
  */
-void	sort_chunks(t_dstack *pswap)
+void	ft_sort_chunks(t_pswap *pswap)
 {
 	int	groups;
 
@@ -144,9 +144,9 @@ void	sort_chunks(t_dstack *pswap)
 		groups = GROUPS_MEDIUM;
 	else if (pswap->size < 300)
 		groups = GROUPS_BIG;
-	to_b(pswap, groups);
+	ft_to_b(pswap, groups);
 	if (groups == GROUPS_HUGE)
-		back_to_a(pswap, GROUPS_HUGE_RETURN);
+		ft_back_to_a(pswap, GROUPS_HUGE_RETURN);
 	else
-		back_to_a(pswap, groups);
+		ft_back_to_a(pswap, groups);
 }

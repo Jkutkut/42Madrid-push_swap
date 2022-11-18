@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:55:10 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 13:02:20 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:11:40 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param pswap Structure with the push_swap data.
  * @return int -1 if the stack is not ready, else number of elements ready.
  */
-int	ft_form_0_to_end(t_dstack *pswap)
+static int	ft_form_0_to_end(t_pswap *pswap)
 {
 	int		i;
 	t_stack	*stack;
@@ -47,14 +47,14 @@ int	ft_form_0_to_end(t_dstack *pswap)
  * @param pswap push_swap structure.
  * @return int 1 if possible, 0 otherwise.
  */
-int	ready_just_rotate(t_dstack *pswap)
+int	ft_ready_just_rotate(t_pswap *pswap)
 {
 	t_stack	*stack;
 	int		i;
 
 	if (pswap->b)
 		return (0);
-	if (is_sorted(pswap))
+	if (ft_is_sorted(pswap))
 		return (1);
 	i = ft_form_0_to_end(pswap);
 	if (i == -1)

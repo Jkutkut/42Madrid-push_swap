@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/11/17 16:38:43 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 09:53:29 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,64 +24,64 @@
 
 // ********* input *********
 
-void	check_input(t_dstack *pswap);
-void	init_pushswap(t_dstack	*pswap, int argc, char **argv);
-void	normalize(t_dstack *pswap);
-void	parse_input(char *arg, t_dstack *pswap);
+void	ft_check_input(t_pswap *pswap);
+void	ft_init_pushswap(t_pswap	*pswap, int argc, char **argv);
+void	ft_normalize(t_pswap *pswap);
+void	ft_parse_input(char *arg, t_pswap *pswap);
 
 // ********* operations *********
 
-void	apply(t_dstack *pswap, t_op o);
+void	ft_apply(t_pswap *pswap, t_op o);
 
 // Push
-char	*pa(t_dstack *pswap);
-char	*pb(t_dstack *pswap);
+char	*ft_pa(t_pswap *pswap);
+char	*ft_pb(t_pswap *pswap);
 
 // Reverse Rotate
-char	*rra(t_dstack *pswap);
-char	*rrb(t_dstack *pswap);
-char	*rrr(t_dstack *pswap);
+char	*ft_rra(t_pswap *pswap);
+char	*ft_rrb(t_pswap *pswap);
+char	*ft_rrr(t_pswap *pswap);
 
 // Rotate
-char	*ra(t_dstack *pswap);
-char	*rb(t_dstack *pswap);
-char	*rr(t_dstack *pswap);
+char	*ft_ra(t_pswap *pswap);
+char	*ft_rb(t_pswap *pswap);
+char	*ft_rr(t_pswap *pswap);
 
 // Swap
-char	*sa(t_dstack *pswap);
-char	*sb(t_dstack *pswap);
-char	*ss(t_dstack *pswap);
+char	*ft_sa(t_pswap *pswap);
+char	*ft_sb(t_pswap *pswap);
+char	*ft_ss(t_pswap *pswap);
 
 // ********* push_swap_utils *********
 
-int		binary_search(int arr[], int l, int r, int value);
-void	end(int endtype, char *msg);
-void	free_end(t_dstack *pswap, int endtype, char *msg);
-int		get_from_stack(int (*f)(int, int), t_stack *stack);
+int		ft_binary_search(int arr[], int l, int r, int value);
+void	ft_end(int endtype, char *msg);
+void	ft_free_end(t_pswap *pswap, int endtype, char *msg);
+int		ft_get_from_stack(int (*f)(int, int), t_stack *stack);
 
 // lambdas
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
 int		ft_abs(int nbr);
 
-void	merge_sort(t_dstack *pswap);
-int		shortest_dist_to_values(int v1, int v2, t_stack *s);
-int		*stack_to_array(t_stack *stack, int size);
+void	ft_merge_sort(t_pswap *pswap);
+int		ft_shortest_dist_to_values(int v1, int v2, t_stack *s);
+int		*ft_stack_to_array(t_stack *stack, int size);
 
 // ********* sort *********
 
-int		dist_to_sandwich(int v, t_stack *lst);
-int		dist_to(int v, t_stack *stack);
-int		index_stack(int v, t_stack *stack);
-int		is_sorted(t_dstack *pswap);
-void	just_rotate(t_dstack *pswap, t_tstack l);
-void	radix_sort(t_dstack *pswap);
-int		ready_just_rotate(t_dstack *pswap);
-void	sort_3(t_dstack *pswap, t_tstack l);
-void	sort_5(t_dstack *pswap);
-void	sort_chunks(t_dstack *pswap);
-void	sort(t_dstack *p);
-int		stack_is_sorted(t_stack *stack, t_sort_type type);
+int		ft_dist_to_sandwich(int v, t_stack *lst);
+int		ft_dist_to(int v, t_stack *stack);
+int		ft_index_stack(int v, t_stack *stack);
+int		ft_is_sorted(t_pswap *pswap);
+void	ft_just_rotate(t_pswap *pswap, t_tstack l);
+void	ft_radix_sort(t_pswap *pswap);
+int		ft_ready_just_rotate(t_pswap *pswap);
+void	ft_sort_3(t_pswap *pswap, t_tstack l);
+void	ft_sort_5(t_pswap *pswap);
+void	ft_sort_chunks(t_pswap *pswap);
+void	ft_sort(t_pswap *p);
+int		ft_stack_is_sorted(t_stack *stack, t_sort_type type);
 
 // ********* t_stack *********
 

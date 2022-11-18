@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:03:51 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 09:12:19 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:04:28 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * @param stack Stack to apply the function.
  * @return int The value required.
  */
-int	get_from_stack(int (*f)(int, int), t_stack *stack)
+int	ft_get_from_stack(int (*f)(int, int), t_stack *stack)
 {
 	int		val;
 	t_stack	*tmp;

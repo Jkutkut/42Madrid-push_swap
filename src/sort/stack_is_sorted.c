@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 10:34:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 13:14:11 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:13:50 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * @param type Type of sorting.
  * @return int 1 if sorted, 0 otherwise.
  */
-int	stack_is_sorted(t_stack *stack, t_sort_type type)
+int	ft_stack_is_sorted(t_stack *stack, t_sort_type type)
 {
 	int	i;
 

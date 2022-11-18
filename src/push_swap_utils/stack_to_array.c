@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:00:58 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/17 09:13:23 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:08:18 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * @param size
  * @return int*
  */
-int	*stack_to_array(t_stack *stack, int size)
+int	*ft_stack_to_array(t_stack *stack, int size)
 {
 	int		*array;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:35:57 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/16 16:39:56 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:16:07 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  * @param len Length of the number (number of characters).
  * @return int 1 if the number can fit in an int, 0 otherwise.
  */
-static int	is_nbr2large(const char *nbr, int len)
+static int	ft_is_nbr2large(const char *nbr, int len)
 {
 	int		i;
 	int		negative;
@@ -57,7 +57,7 @@ static int	is_nbr2large(const char *nbr, int len)
  * @param arg String to add to the stack.
  * @param pswap Pushswap structure.
  */
-void	parse_input(char *arg, t_dstack *pswap)
+void	ft_parse_input(char *arg, t_pswap *pswap)
 {
 	int		i;
 	int		len;
@@ -75,10 +75,10 @@ void	parse_input(char *arg, t_dstack *pswap)
 		while (ft_isdigit(arg[i]))
 			i++;
 		if (!ft_hasany(" \t", arg[i]) && arg[i] != '\0')
-			free_end(pswap, 1, ERROR_INV_ARG);
+			ft_free_end(pswap, 1, ERROR_INV_ARG);
 		arg[i] = '\0';
-		if (is_nbr2large(arg + start, i - start + 1))
-			free_end(pswap, 1, ERROR_NBR2LARGE);
+		if (ft_is_nbr2large(arg + start, i - start + 1))
+			ft_free_end(pswap, 1, ERROR_NBR2LARGE);
 		ft_stack_addb(&pswap->a, ft_stack_new(ft_atoi(arg + start)));
 		if (i < len)
 			arg[i] = ' ';

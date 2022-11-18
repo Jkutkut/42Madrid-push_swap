@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 08:52:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/18 09:41:04 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:09:39 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@
  * Example:
  * - Stack: 8 10 0 2 4 6
  * - v = 3
- * dist_to_sandwich(v) = 4
+ * ft_dist_to_sandwich(v) = 4
  *
  * @param v Value to use.
  * @param stack Stack to search in.
  * @return int Distance from the sandwich.
  */
-int	dist_to_sandwich(int v, t_stack *stack)
+int	ft_dist_to_sandwich(int v, t_stack *stack)
 {
 	int		dist;
 	t_stack	*tmp;

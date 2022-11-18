@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 18:21:26 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/14 10:53:45 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:10:09 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
  * 
  * @return int 1 if sorted, 0 otherwise.
  */
-int	is_sorted(t_dstack *pswap)
+int	ft_is_sorted(t_pswap *pswap)
 {
 	if (!pswap || !pswap->a)
 		return (0);
 	if (pswap->b)
 		return (0);
-	return (stack_is_sorted(pswap->a, ASC_ORDER));
+	return (ft_stack_is_sorted(pswap->a, ASC_ORDER));
 }
