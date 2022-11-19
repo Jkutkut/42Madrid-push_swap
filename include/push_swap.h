@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 12:58:56 by jkutkut           #+#    #+#             */
-/*   Updated: 2022/11/18 09:53:29 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/19 17:04:50 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 // ********* input *********
 
+# define SPACES " \t"
 void	ft_check_input(t_pswap *pswap);
 void	ft_init_pushswap(t_pswap	*pswap, int argc, char **argv);
 void	ft_normalize(t_pswap *pswap);
