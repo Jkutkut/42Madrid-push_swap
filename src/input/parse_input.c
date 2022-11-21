@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:35:57 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/19 17:01:28 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:54:20 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_parse_input(char *arg, t_pswap *pswap)
 		while (ft_hasany(SPACES, arg[i]))
 			i++;
 		start = i;
-		if (ft_hasany("+-", arg[i]))
+		if (ft_hasany("+-", arg[i]) && ft_isdigit(arg[i + 1]))
 			i++;
 		while (ft_isdigit(arg[i]))
 			i++;
@@ -81,7 +81,6 @@ void	ft_parse_input(char *arg, t_pswap *pswap)
 		if (start == i)
 			continue ;
 		arg[i] = '\0';
-		// ft_printf("Start %d, i: %d: --%s--\n", start, i, arg + start); // TODO
 		if (ft_is_nbr2large(arg + start, i - start + 1))
 			ft_free_end(pswap, 1, ERROR_NBR2LARGE);
 		ft_stack_addb(&pswap->a, ft_stack_new(ft_atoi(arg + start)));

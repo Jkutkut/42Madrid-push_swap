@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:35:57 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/21 14:49:42 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:06:10 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_parse_input(char *arg, t_pswap *pswap)
 		while (ft_hasany(SPACES, arg[i]))
 			i++;
 		start = i;
-		if (ft_hasany("+-", arg[i]))
+		if (ft_hasany("+-", arg[i]) && ft_isdigit(arg[i + 1]))
 			i++;
 		while (ft_isdigit(arg[i]))
 			i++;
