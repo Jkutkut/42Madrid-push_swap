@@ -6,7 +6,9 @@ push_swap
 checker
 *.swp
 run
-check*
+checker
+checker_Mac
+checker_linux
 
 norminette_tester.sh
 *test*

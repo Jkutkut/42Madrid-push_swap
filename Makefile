@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/11/17 16:04:54 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/11/21 14:53:15 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,13 @@ LBLUE		=	\033[1;34m
 TITLE		=	\033[38;5;33m
 
 # Compile variables
-LIB_CC		=	ar rcT
-CC			=	gcc
-FLAGS		=	-Wall -Wextra -Werror #-fsanitize=address #-Werror
-COMPILE		=	$(CC) $(FLAGS) -I include/ -I libft/include/
+LIB_CC			=	ar rcT
+CC				=	gcc
+FLAGS			=	-Wall -Wextra -Werror #-fsanitize=address #-Werror
+COMPILE			=	$(CC) $(FLAGS) -I include/ -I libft/include/
+COMPILE_BONUS	=	$(CC) $(FLAGS) -I include/bonus -I libft/include/
 
-# Code variables
+# ************ CODE ************
 LIBFT_DIR	=	libft
 LIBFT		=	${LIBFT_DIR}/libft.a
 NAME		=	push_swap
@@ -81,19 +82,37 @@ SRCS		=	${INPUT:%=input/%} \
 
 OBJS		=	${SRCS:%.c=bin/%.o}
 
-# Bonus
-# BONUS_NAME	=	checker
-# BONUS_SRCS	=	bonus/checker.c \
-# 				bonus/get_next_line_utils.c \
-# 				bonus/get_next_line.c \
-# 				${INPUT:%=input/%} \
-# 				${OPERATIONS:%=operations/%} \
-# 				${PRINT:%=print/%} \
-# 				${SORT:%=sort/%} \
-# 				${T_LIST:%=t_list/%} \
-# 				${TOOLS:%=tools/%}
+# ************ BONUS ************
 
-BONUS_OBJS		=	${BONUS_SRCS:%.c=bin/%.o}
+INPUT_BONUS	=	check_input_bonus.c \
+				init_pushswap_bonus.c \
+				normalize_bonus.c \
+				parse_input_bonus.c
+
+PUSH_SWAP_UTILS	=	binary_search_bonus.c \
+					end_bonus.c \
+					free_end_bonus.c \
+					merge_sort_bonus.c \
+					stack_to_array_bonus.c
+# 					get_from_stack_bonus.c \
+# 					lambdas_bonus.c \
+# 					shortest_dist_to_values_bonus.c \
+
+T_STACK		=	ft_stack_addb_bonus.c \
+				ft_stack_addf_bonus.c \
+				ft_stack_clear_bonus.c \
+				ft_stack_del_bonus.c \
+				ft_stack_last_bonus.c \
+				ft_stack_len_bonus.c \
+				ft_stack_new_bonus.c
+
+BONUS_NAME	=	checker
+BONUS_SRCS	=	checker_bonus.c \
+				${INPUT_BONUS:%=input/%} \
+				${PUSH_SWAP_UTILS:%=push_swap_utils/%} \
+				${T_STACK:%=t_stack/%}
+
+BONUS_OBJS		=	${BONUS_SRCS:%.c=bin/bonus/%.o}
 
 
 # Makefile logic
@@ -112,20 +131,17 @@ bin/%.o: src/%.c
 	@echo "${GREEN} [OK]${NC}"
 
 $(LIBFT):
-	@echo "${TITLE}Compiling${NC} ${YELLOW}$(LIBFT)${NC}\c"
-	@make -C $(LIBFT_DIR) BIN="../bin/libft"
-	@echo "${GREEN} [OK]${NC}\n"
+	@echo "${TITLE}Compiling${NC} ${YELLOW}$(LIBFT)${NC} \c"
+	@make -C $(LIBFT_DIR) BIN="../bin/libft" # TODO not working on mac
+	@echo "${GREEN}[OK]${NC}\n"
 
-bonus: $(BONUS_NAME)
-
-$(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
-	@echo "${TITLE}Compiling ${YELLOW}$(BONUS_NAME)${NC}\c"
-	@$(COMPILE) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
-	@echo "${LGREEN} [OK]${NC}"
+bonus:
+	@make NAME="$(BONUS_NAME)" COMPILE="$(COMPILE_BONUS)" OBJS="$(BONUS_OBJS)"
 
 clean:
-	@echo "${LRED}Cleaning ${NC}libft"
-	@make -C $(LIBFT_DIR) fclean BIN="../bin/libft"
+	@# TODO *************************************************************************
+	@# @echo "${LRED}Cleaning ${NC}libft"
+	@# @make -C $(LIBFT_DIR) fclean BIN="../bin/libft"
 	@echo "\n${LRED}Cleaning ${NC}binaries\c"
 	@rm -rf bin
 	@echo "${LGREEN} [OK]${NC}"
