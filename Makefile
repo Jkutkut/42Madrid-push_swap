@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/11/21 16:23:47 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/11/21 16:33:46 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,13 +89,13 @@ INPUT_BONUS	=	check_input_bonus.c \
 				normalize_bonus.c \
 				parse_input_bonus.c
 
-OPERATIONS	=	apply_bonus.c \
+OPERATIONS_BONUS=	apply_bonus.c \
 				push_bonus.c \
 				reverse_rotate_bonus.c \
 				rotate_bonus.c \
 				swap_bonus.c
 
-PUSH_SWAP_UTILS	=	binary_search_bonus.c \
+PUSH_SWAP_UTILS_BONUS=	binary_search_bonus.c \
 					end_bonus.c \
 					free_end_bonus.c \
 					merge_sort_bonus.c \
@@ -104,7 +104,7 @@ PUSH_SWAP_UTILS	=	binary_search_bonus.c \
 # 					lambdas_bonus.c \
 # 					shortest_dist_to_values_bonus.c \
 
-T_STACK		=	ft_stack_addb_bonus.c \
+T_STACK_BONUS=	ft_stack_addb_bonus.c \
 				ft_stack_addf_bonus.c \
 				ft_stack_clear_bonus.c \
 				ft_stack_del_bonus.c \
@@ -115,9 +115,9 @@ T_STACK		=	ft_stack_addb_bonus.c \
 BONUS_NAME	=	checker
 BONUS_SRCS	=	checker_bonus.c \
 				${INPUT_BONUS:%=input/%} \
-				${OPERATIONS:%=operations/%} \
-				${PUSH_SWAP_UTILS:%=push_swap_utils/%} \
-				${T_STACK:%=t_stack/%}
+				${OPERATIONS_BONUS:%=operations/%} \
+				${PUSH_SWAP_UTILS_BONUS:%=push_swap_utils/%} \
+				${T_STACK_BONUS:%=t_stack/%}
 
 BONUS_OBJS		=	${BONUS_SRCS:%.c=bin/bonus/%.o}
 
