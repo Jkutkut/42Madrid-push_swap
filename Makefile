@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/11/21 14:53:15 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/11/21 16:23:47 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,6 +89,12 @@ INPUT_BONUS	=	check_input_bonus.c \
 				normalize_bonus.c \
 				parse_input_bonus.c
 
+OPERATIONS	=	apply_bonus.c \
+				push_bonus.c \
+				reverse_rotate_bonus.c \
+				rotate_bonus.c \
+				swap_bonus.c
+
 PUSH_SWAP_UTILS	=	binary_search_bonus.c \
 					end_bonus.c \
 					free_end_bonus.c \
@@ -109,6 +115,7 @@ T_STACK		=	ft_stack_addb_bonus.c \
 BONUS_NAME	=	checker
 BONUS_SRCS	=	checker_bonus.c \
 				${INPUT_BONUS:%=input/%} \
+				${OPERATIONS:%=operations/%} \
 				${PUSH_SWAP_UTILS:%=push_swap_utils/%} \
 				${T_STACK:%=t_stack/%}
 

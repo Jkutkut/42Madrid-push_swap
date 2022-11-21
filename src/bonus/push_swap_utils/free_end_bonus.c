@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_end.c                                         :+:      :+:    :+:   */
+/*   free_end_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 11:49:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/18 10:04:13 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:16:25 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 /**
  * @brief Frees all the allocated memory and exits the program.

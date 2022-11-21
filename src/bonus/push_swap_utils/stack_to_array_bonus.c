@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   end.c                                              :+:      :+:    :+:   */
+/*   stack_to_array_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/21 11:43:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/18 10:03:56 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/03/22 22:00:58 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/11/21 16:19:52 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 /**
- * @brief Ends the execution of the program
+ * @brief Converts the stack to an array of integers.
  * 
- * @param endtype Type of end (0: normal, 1: error)
- * @param msg Message to display 
+ * @param stack
+ * @param size
+ * @return int*
  */
-void	ft_end(int endtype, char *msg)
+int	*ft_stack_to_array(t_stack *stack, int size)
 {
-	if (endtype == 1)
-		ft_putstr_fd(ERROR, 2);
-	ft_putstr_fd(msg, endtype + 1);
-	exit(endtype);
+	int		*array;
+	int		i;
+
+	array = (int *) malloc(sizeof(int) * size);
+	if (!array)
+		return (NULL);
+	i = 0;
+	while (stack)
+	{
+		array[i++] = stack->content;
+		stack = stack->next;
+	}
+	return (array);
 }

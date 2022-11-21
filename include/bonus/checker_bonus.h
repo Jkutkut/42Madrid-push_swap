@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 23:26:14 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/21 14:51:21 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:27:02 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@
 
 # include "elements_bonus.h"
 
-// # define error "error: \n  "
-// # define error_malloc "malloc failed.\n"
+# define ERROR "error: \n  "
+# define ERROR_MALLOC "malloc failed.\n"
 # define ERROR_INV_ARG "invalid argument.\n"
 # define ERROR_NBR2LARGE "number too large.\n"
 # define ERROR_REPEAT_NBR "numbers must not repeat.\n"
-// 
-// # define error_apply_len 42
-// # define error_apply "not able to execute the move    .\n"
-// # define error_apply_op "operation not found.\n"
-// # define error_apply_move " sa sb ss pa pb ra rb rrrrarrbrrr"
+
+# define ERROR_APPLY_LEN 42
+# define ERROR_APPLY "not able to execute the move    .\n"
+# define ERROR_APPLY_OP "operation not found.\n"
+# define ERROR_APPLY_MOVE " sa sb ss pa pb ra rb rrrrarrbrrr"
 
 // ********* input *********
 
