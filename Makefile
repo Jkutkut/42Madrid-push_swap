@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/11/21 16:33:46 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/11/22 17:07:53 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,10 @@ LIB_CC			=	ar rcT
 CC				=	gcc
 FLAGS			=	-Wall -Wextra -Werror #-fsanitize=address #-Werror
 COMPILE			=	$(CC) $(FLAGS) -I include/ -I libft/include/
-COMPILE_BONUS	=	$(CC) $(FLAGS) -I include/bonus -I libft/include/
+bonus: COMPILE	=	$(CC) $(FLAGS) -I include/bonus -I libft/include/
 
 # ************ CODE ************
-LIBFT_DIR	=	libft
+LIBFT_DIR	=	./libft
 LIBFT		=	${LIBFT_DIR}/libft.a
 NAME		=	push_swap
 
@@ -124,11 +124,18 @@ BONUS_OBJS		=	${BONUS_SRCS:%.c=bin/bonus/%.o}
 
 # Makefile logic
 all: $(NAME)
+bonus: $(BONUS_NAME)
 re: fclean all
 
 $(NAME):	$(LIBFT) $(OBJS)
 	@echo "${TITLE}Compiling ${YELLOW}$(NAME)${NC}\c"
 	@$(COMPILE) $(OBJS) $(LIBFT) -o $(NAME)
+	@echo "${LGREEN} [OK]${NC}"
+
+$(BONUS_NAME):	$(LIBFT) $(BONUS_OBJS)
+	@echo "${TITLE}Compiling ${YELLOW}$(BONUS_NAME)${NC}\c"
+	@ls -al bin/bonus
+	@$(COMPILE_BONUS) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
 	@echo "${LGREEN} [OK]${NC}"
 
 bin/%.o: src/%.c
@@ -138,18 +145,13 @@ bin/%.o: src/%.c
 	@echo "${GREEN} [OK]${NC}"
 
 $(LIBFT):
-	@echo "${TITLE}Compiling${NC} ${YELLOW}$(LIBFT)${NC} \c"
-	@make -C $(LIBFT_DIR) BIN="../bin/libft" # TODO not working on mac
-	@echo "${GREEN}[OK]${NC}\n"
-
-bonus:
-	@make NAME="$(BONUS_NAME)" COMPILE="$(COMPILE_BONUS)" OBJS="$(BONUS_OBJS)"
+	@echo "${TITLE}Compiling${NC} ${YELLOW}$(LIBFT)${NC}"
+	@make -C $(LIBFT_DIR) all BIN="../bin/libft"
 
 clean:
-	@# TODO *************************************************************************
-	@# @echo "${LRED}Cleaning ${NC}libft"
-	@# @make -C $(LIBFT_DIR) fclean BIN="../bin/libft"
-	@echo "\n${LRED}Cleaning ${NC}binaries\c"
+	@@echo "${LRED}Cleaning ${NC}libft"
+	@make -C $(LIBFT_DIR) fclean BIN="../bin/libft"
+	@echo "${LRED}Cleaning ${NC}binaries\c"
 	@rm -rf bin
 	@echo "${LGREEN} [OK]${NC}"
 
@@ -158,4 +160,4 @@ fclean: clean
 	@rm -f $(NAME) $(BONUS_NAME)
 	@echo "${LGREEN} [OK]${NC}"
 
-.PHONY: all re fclean clean libft
+.PHONY: all re fclean clean
