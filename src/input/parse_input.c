@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:35:57 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/21 16:54:20 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:27:29 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_is_nbr2large(const char *nbr, int len)
 
 	if (!nbr || len < MAX_INT_LEN)
 		return (0);
-	signed_nbr = *nbr == '-' || *nbr == '+';
+	signed_nbr = ft_hasany("+-", *nbr);
 	if (len > MAX_INT_LEN + signed_nbr)
 		return (1);
 	i = 0;
@@ -40,7 +40,7 @@ static int	ft_is_nbr2large(const char *nbr, int len)
 		max = MAX_N_INT;
 	else if (*nbr != '+')
 		max++;
-	while (nbr[i])
+	while (i < len)
 	{
 		if (nbr[i] < max[i])
 			return (0);
@@ -49,6 +49,22 @@ static int	ft_is_nbr2large(const char *nbr, int len)
 		i++;
 	}
 	return (0);
+}
+
+static void	ft_add_number(t_pswap *pswap, char *nbr, int nbr_len)
+{
+	int		len;
+	char	end_of_arg;
+
+	end_of_arg = nbr[nbr_len - 1] == '\0';
+	if (!end_of_arg)
+		nbr[nbr_len - 1] = '\0';
+	len = ft_stack_len(pswap->a);
+	ft_stack_addb(&pswap->a, ft_stack_new(ft_atoi(nbr)));
+	if (ft_stack_len(pswap->a) != len + 1)
+		ft_free_end(pswap, 1, ERROR_MALLOC);
+	if (!end_of_arg)
+		nbr[nbr_len - 1] = ' ';
 }
 
 /**
@@ -80,11 +96,8 @@ void	ft_parse_input(char *arg, t_pswap *pswap)
 			ft_free_end(pswap, 1, ERROR_INV_ARG);
 		if (start == i)
 			continue ;
-		arg[i] = '\0';
 		if (ft_is_nbr2large(arg + start, i - start + 1))
 			ft_free_end(pswap, 1, ERROR_NBR2LARGE);
-		ft_stack_addb(&pswap->a, ft_stack_new(ft_atoi(arg + start)));
-		if (i < len)
-			arg[i] = ' ';
+		ft_add_number(pswap, arg + start, i - start + 1);
 	}
 }

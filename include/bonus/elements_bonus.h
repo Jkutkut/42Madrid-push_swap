@@ -6,12 +6,12 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:34:49 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/21 11:57:43 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/22 08:49:36 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ELEMENTS_H
-# define ELEMENTS_H
+#ifndef ELEMENTS_BONUS_H
+# define ELEMENTS_BONUS_H
 
 /**
  * @brief Struct defining the linked lists used in the push_swap program.

@@ -6,12 +6,12 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 23:26:14 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/21 16:27:02 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/22 08:47:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_BONUS_H
-# define PUSH_SWAP_BONUS_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include "libft.h"
 
@@ -31,6 +31,7 @@
 // ********* input *********
 
 # define SPACES " \t"
+
 void	ft_check_input(t_pswap *pswap);
 void	ft_init_pushswap(t_pswap *pswap, int argc, char **argv);
 void	ft_normalize(t_pswap *pswap);
