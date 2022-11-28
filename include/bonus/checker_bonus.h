@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 23:26:14 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/28 22:16:23 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/28 22:52:24 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,7 @@ char	*ft_ss(t_pswap *pswap);
 int		ft_binary_search(int arr[], int l, int r, int value);
 void	ft_end(int endtype, char *msg);
 void	ft_free_end(t_pswap *pswap, int endtype, char *msg);
-// int		ft_get_from_stack(int (*f)(int, int), t_stack *stack);
-// 
-// // lambdas
-// int		ft_max(int a, int b);
-// int		ft_min(int a, int b);
-// int		ft_abs(int nbr);
-// 
 void	ft_merge_sort(t_pswap *pswap);
-// int		ft_shortest_dist_to_values(int v1, int v2, t_stack *s);
 int		*ft_stack_to_array(t_stack *stack, int size);
 
 // ********* Sort *********

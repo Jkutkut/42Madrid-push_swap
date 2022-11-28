@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 08:03:27 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/28 21:53:55 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/28 23:27:19 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,41 @@
 
 #define STDIN 0
 
-int	moves_remaining(char **s)
+static int	moves_remaining(char **s)
 {
 	*s = get_next_line(STDIN);
-	return *s != NULL;
+	return (*s != NULL);
 }
 
-void	operate(t_pswap *pswap)
+static int	is_operation(char *line, char *operation)
+{
+	return (ft_strncmp(line, operation, ft_strlen(operation)) == 0);
+}
+
+static int	apply(t_pswap *pswap, char *line, char **result)
+{
+	int	i;
+
+	i = NUMBER_OPERATIONS;
+	while (--i >= 0)
+	{
+		if (is_operation(line, pswap->operation_names[i]))
+		{
+			*result = pswap->operations[i](pswap);
+			return (1);
+		}
+	}
+	return (0);
+}
+
+static void	operate(t_pswap *pswap)
 {
 	char		*line;
 	char		*result;
 
 	while (moves_remaining(&line))
 	{
-		if (ft_strncmp(line, "sa", 2) == 0)
-			result = ft_sa(pswap);
-		else if (ft_strncmp(line, "sb", 2) == 0)
-			result = ft_sb(pswap);
-		else if (ft_strncmp(line, "ss", 2) == 0)
-			result = ft_ss(pswap);
-		else if (ft_strncmp(line, "pa", 2) == 0)
-			result = ft_pa(pswap);
-		else if (ft_strncmp(line, "pb", 2) == 0)
-			result = ft_pb(pswap);
-		else if (ft_strncmp(line, "ra", 2) == 0)
-			result = ft_ra(pswap);
-		else if (ft_strncmp(line, "rb", 2) == 0)
-			result = ft_rb(pswap);
-		else if (ft_strncmp(line, "rr\n", 3) == 0)
-			result = ft_rr(pswap);
-		else if (ft_strncmp(line, "rra", 3) == 0)
-			result = ft_rra(pswap);
-		else if (ft_strncmp(line, "rrb", 3) == 0)
-			result = ft_rrb(pswap);
-		else if (ft_strncmp(line, "rrr", 3) == 0)
-			result = ft_rrr(pswap);
-		else
+		if (!apply(pswap, line, &result))
 		{
 			free(line);
 			ft_free_end(pswap, 1, "Command not found\n");

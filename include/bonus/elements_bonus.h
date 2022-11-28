@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:34:49 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/22 08:49:36 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/28 23:03:15 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,8 @@ typedef struct s_pswap
 	int		size;
 	int		*arg;
 	char	*(*operations[11])(struct s_pswap*);
+	char	*operation_names[11];
 }		t_pswap;
-
-/**
- * @brief Enum defining the stacks used in the push_swap program.
- * With the logic, enables to reuse code by the use of this values 
- * in the parameters.
- */
-typedef enum e_tstack
-{
-	STACK_A = 0,
-	STACK_B = 1
-}	t_tstack;
-
-/**
- * @brief Enum defining the different ways to sort a stack.
- */
-typedef enum e_sort_type
-{
-	ASC_ORDER = 1,
-	DESC_ORDER = -1
-}	t_sort_type;
 
 /**
  * @brief Enum defining all the operations allowed in the push_swap program.
