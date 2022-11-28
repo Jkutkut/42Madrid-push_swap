@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 23:26:14 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/28 19:12:39 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/28 22:16:23 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # include "elements_bonus.h"
 
-# define ERROR "error: \n  "
+# define ERROR "KO:\n  "
 # define ERROR_MALLOC "malloc failed.\n"
 # define ERROR_INV_ARG "invalid argument.\n"
 # define ERROR_NBR2LARGE "number too large.\n"
