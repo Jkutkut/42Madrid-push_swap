@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 09:35:57 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/22 13:50:43 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/28 17:25:02 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	ft_parse_input(char *arg, t_pswap *pswap)
 
 	i = 0;
 	len = ft_strlen(arg);
+	// ft_printf("arg: '%s'\n", arg);
 	while (i < len)
 	{
 		while (ft_hasany(SPACES, arg[i]))
@@ -94,6 +95,7 @@ void	ft_parse_input(char *arg, t_pswap *pswap)
 			i++;
 		if (!ft_hasany(SPACES, arg[i]) && arg[i] != '\0')
 			ft_free_end(pswap, 1, ERROR_INV_ARG);
+		// ft_printf("----'%s'---\n", arg + start);
 		if (start == i)
 			continue ;
 		if (ft_is_nbr2large(arg + start, i - start + 1))

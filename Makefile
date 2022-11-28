@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/11/22 22:27:31 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/11/28 19:11:51 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,6 +104,8 @@ PUSH_SWAP_UTILS_BONUS=	binary_search_bonus.c \
 # 					lambdas_bonus.c \
 # 					shortest_dist_to_values_bonus.c \
 
+SORT_BONUS	=	is_sorted.c \
+
 T_STACK_BONUS=	ft_stack_addb_bonus.c \
 				ft_stack_addf_bonus.c \
 				ft_stack_clear_bonus.c \
@@ -117,6 +119,7 @@ BONUS_SRCS	=	checker_bonus.c \
 				${INPUT_BONUS:%=input/%} \
 				${OPERATIONS_BONUS:%=operations/%} \
 				${PUSH_SWAP_UTILS_BONUS:%=push_swap_utils/%} \
+				${SORT_BONUS:%=sort/%} \
 				${T_STACK_BONUS:%=t_stack/%}
 
 BONUS_OBJS		=	${BONUS_SRCS:%.c=bin/bonus/%.o}

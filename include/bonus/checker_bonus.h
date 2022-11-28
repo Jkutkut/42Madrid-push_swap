@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 23:26:14 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/22 08:47:59 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:12:39 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,9 @@ void	ft_free_end(t_pswap *pswap, int endtype, char *msg);
 void	ft_merge_sort(t_pswap *pswap);
 // int		ft_shortest_dist_to_values(int v1, int v2, t_stack *s);
 int		*ft_stack_to_array(t_stack *stack, int size);
+
+// ********* Sort *********
+int		ft_is_sorted(t_pswap *pswap);
 
 // ********* t_stack *********
 
