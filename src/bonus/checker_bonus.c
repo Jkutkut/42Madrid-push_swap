@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 08:03:27 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/11/28 19:03:01 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/11/28 21:53:55 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 int	moves_remaining(char **s)
 {
 	*s = get_next_line(STDIN);
-	if (*s == NULL)
-		return (0);
-	return (1);
+	return *s != NULL;
 }
 
 void	operate(t_pswap *pswap)
@@ -27,13 +25,6 @@ void	operate(t_pswap *pswap)
 	char		*line;
 	char		*result;
 
-	t_stack *a = pswap->a;
-	ft_printf("Size: %i\n", ft_stack_len(a));
-	while (a)
-	{
-		ft_printf("-> %i\n", a->content);
-		a = a->next;
-	}
 	while (moves_remaining(&line))
 	{
 		if (ft_strncmp(line, "sa", 2) == 0)
@@ -61,10 +52,6 @@ void	operate(t_pswap *pswap)
 		else
 		{
 			free(line);
-			ft_printf("cmdnotfound: '%s'\n", line);
-			int i = 0;
-			while (line[i])
-				ft_printf("- %c\n", line[i++]);
 			ft_free_end(pswap, 1, "Command not found\n");
 		}
 		free(line);
