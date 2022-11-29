@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/11/28 19:11:51 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/11/29 14:51:08 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -159,7 +159,7 @@ clean:
 	@echo "${LGREEN} [OK]${NC}"
 
 fclean: clean
-	@echo "${LRED}Cleaning ${NC}$(NAME) and $(BONUS_NAME)\c" # TODO
+	@echo "${LRED}Cleaning ${NC}$(NAME) and $(BONUS_NAME)\c"
 	@rm -f $(NAME) $(BONUS_NAME)
 	@echo "${LGREEN} [OK]${NC}"
 
