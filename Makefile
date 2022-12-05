@@ -6,7 +6,7 @@
 #    By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/18 22:57:44 by jre-gonz          #+#    #+#              #
-#    Updated: 2022/11/29 14:51:08 by jre-gonz         ###   ########.fr        #
+#    Updated: 2022/12/05 12:55:26 by jre-gonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ TITLE		=	\033[38;5;33m
 # Compile variables
 LIB_CC			=	ar rcT
 CC				=	gcc
-FLAGS			=	-Wall -Wextra -Werror #-fsanitize=address #-Werror
+FLAGS			=	-Wall -Wextra -Werror #-fsanitize=address
 COMPILE			=	$(CC) $(FLAGS) -I include/ -I libft/include/
 COMPILE_BONUS	=	$(CC) $(FLAGS) -I include/bonus -I libft/include/
 
@@ -32,16 +32,16 @@ LIBFT_DIR	=	./libft
 LIBFT		=	${LIBFT_DIR}/libft.a
 NAME		=	push_swap
 
-INPUT		=	check_input.c \
-				init_pushswap.c \
-				normalize.c \
-				parse_input.c
+INPUT		=		check_input.c \
+					init_pushswap.c \
+					normalize.c \
+					parse_input.c
 
-OPERATIONS	=	apply.c \
-				push.c \
-				reverse_rotate.c \
-				rotate.c \
-				swap.c
+OPERATIONS	=		apply.c \
+					push.c \
+					reverse_rotate.c \
+					rotate.c \
+					swap.c
 
 PUSH_SWAP_UTILS	=	binary_search.c \
 					end.c \
@@ -52,26 +52,26 @@ PUSH_SWAP_UTILS	=	binary_search.c \
 					shortest_dist_to_values.c \
 					stack_to_array.c
 
-SORT		=	dist_to_sandwich.c \
-				dist_to.c \
-				index_stack.c \
-				is_sorted.c \
-				just_rotate.c \
-				radix_sort.c \
-				ready_just_rotate.c \
-				sort_3.c \
-				sort_5.c \
-				sort_chunks.c \
-				sort.c \
-				stack_is_sorted.c
+SORT		=		dist_to_sandwich.c \
+					dist_to.c \
+					index_stack.c \
+					is_sorted.c \
+					just_rotate.c \
+					radix_sort.c \
+					ready_just_rotate.c \
+					sort_3.c \
+					sort_5.c \
+					sort_chunks.c \
+					sort.c \
+					stack_is_sorted.c
 
-T_STACK		=	ft_stack_addb.c \
-				ft_stack_addf.c \
-				ft_stack_clear.c \
-				ft_stack_del.c \
-				ft_stack_last.c \
-				ft_stack_len.c \
-				ft_stack_new.c
+T_STACK		=		ft_stack_addb.c \
+					ft_stack_addf.c \
+					ft_stack_clear.c \
+					ft_stack_del.c \
+					ft_stack_last.c \
+					ft_stack_len.c \
+					ft_stack_new.c
 
 SRCS		=	${INPUT:%=input/%} \
 				${OPERATIONS:%=operations/%} \
@@ -84,41 +84,38 @@ OBJS		=	${SRCS:%.c=bin/%.o}
 
 # ************ BONUS ************
 
-INPUT_BONUS	=	check_input_bonus.c \
-				init_pushswap_bonus.c \
-				normalize_bonus.c \
-				parse_input_bonus.c
+INPUT_BONUS	=		check_input_bonus.c \
+					init_pushswap_bonus.c \
+					normalize_bonus.c \
+					parse_input_bonus.c
 
 OPERATIONS_BONUS=	apply_bonus.c \
-				push_bonus.c \
-				reverse_rotate_bonus.c \
-				rotate_bonus.c \
-				swap_bonus.c
+					push_bonus.c \
+					reverse_rotate_bonus.c \
+					rotate_bonus.c \
+					swap_bonus.c
 
-PUSH_SWAP_UTILS_BONUS=	binary_search_bonus.c \
+PS_UTILS_BONUS=		binary_search_bonus.c \
 					end_bonus.c \
 					free_end_bonus.c \
 					merge_sort_bonus.c \
 					stack_to_array_bonus.c
-# 					get_from_stack_bonus.c \
-# 					lambdas_bonus.c \
-# 					shortest_dist_to_values_bonus.c \
 
-SORT_BONUS	=	is_sorted.c \
+SORT_BONUS	=		is_sorted.c
 
-T_STACK_BONUS=	ft_stack_addb_bonus.c \
-				ft_stack_addf_bonus.c \
-				ft_stack_clear_bonus.c \
-				ft_stack_del_bonus.c \
-				ft_stack_last_bonus.c \
-				ft_stack_len_bonus.c \
-				ft_stack_new_bonus.c
+T_STACK_BONUS =		ft_stack_addb_bonus.c \
+					ft_stack_addf_bonus.c \
+					ft_stack_clear_bonus.c \
+					ft_stack_del_bonus.c \
+					ft_stack_last_bonus.c \
+					ft_stack_len_bonus.c \
+					ft_stack_new_bonus.c
 
 BONUS_NAME	=	checker
 BONUS_SRCS	=	checker_bonus.c \
 				${INPUT_BONUS:%=input/%} \
 				${OPERATIONS_BONUS:%=operations/%} \
-				${PUSH_SWAP_UTILS_BONUS:%=push_swap_utils/%} \
+				${PS_UTILS_BONUS:%=push_swap_utils/%} \
 				${SORT_BONUS:%=sort/%} \
 				${T_STACK_BONUS:%=t_stack/%}
 
