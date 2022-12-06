@@ -14,17 +14,33 @@
 
 #define STDIN 0
 
+/**
+ * @brief the GNL to obtain the next line of the STDIN.
+ * @returns If the line is NULL or not (if end of file).
+ */
 static int	moves_remaining(char **s)
 {
 	*s = get_next_line(STDIN);
 	return (*s != NULL);
 }
 
+/**
+ * @brief Checks if the given instruction is the given valid operation.
+ * @returns The result of the check.
 static int	is_operation(char *line, char *operation)
 {
 	return (ft_strncmp(line, operation, ft_strlen(operation)) == 0);
 }
 
+/**
+ * @brief Applies the operation described in the line and stores the result
+ * of it on the line.
+ * 
+ * @param pswap Structure.
+ * @param line The line describing the command to exectute.
+ * @param result The result variable to store the result of the operation.
+ * @returns 1 if the operation was found and executed, 0 if the cnf.
+ */
 static int	apply(t_pswap *pswap, char *line, char **result)
 {
 	int	i;
@@ -41,6 +57,13 @@ static int	apply(t_pswap *pswap, char *line, char **result)
 	return (0);
 }
 
+/**
+ * @brief Applies all operations described by the stdin.
+ * If any operation is not valid, an error will end the program.
+ * If the stack ends not sorted, it will also fail.
+ * 
+ * @param pswap Push swap structure.
+ */
 static void	operate(t_pswap *pswap)
 {
 	char		*line;
