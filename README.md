@@ -1,7 +1,7 @@
 # push_swap:
-
+The push_swap project is a sorting algorithm implementation project at 42School.
 In this project, we will be sorting numbers on a stack, with a limited set of instructions, using the lowest possible number of actions.
-In this project, we will learn how to optimize an algorithm and how to choose the right data structure(s) for a problem.
+We will learn how to optimize an algorithm and how to choose the right data structure(s) for a problem.
 
 ## Compiling:
 ```
@@ -38,3 +38,6 @@ git clone git@github.com:Jkutkut/42Tester-push_swap.git
 
 ## Tools:
 - [Tester](https://github.com/Jkutkut/42Tester-push_swap)
+
+## Conclusion
+The push_swap program is a challenging project that requires a deep understanding of algorithm implementation and optimization. By implementing this sorting algorithm from scratch, you improve your problem-solving skills and gain valuable experience in algorithm design.
